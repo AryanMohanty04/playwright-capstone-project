@@ -1,0 +1,22 @@
+{
+  "name": "playwright-capstone-project",
+  "version": "1.0.0",
+  "description": "This repository contains the QA Automation Capstone Project created during Wipro training using Playwright.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AryanMohanty04/playwright-capstone-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AryanMohanty04/playwright-capstone-project/issues"
+  },
+  "homepage": "https://github.com/AryanMohanty04/playwright-capstone-project#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.8.0"
+  }
+}
