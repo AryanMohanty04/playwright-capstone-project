@@ -18,7 +18,9 @@ The main objective of this capstone project is to:
 - Understand real-world QA workflows
 
 ---
-
+# Website Under Test
+https://www.razer.com/
+---
 # Project Scope
 
 The project will include automation testing for multiple services/modules of a web application.
