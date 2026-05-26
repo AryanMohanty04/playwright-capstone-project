@@ -1,0 +1,591 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: search/search.spec.js >> Search Module >> S7 - Search closes successfully
+- Location: tests/search/search.spec.js:158:3
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+```
+Error: locator.click: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for getByRole('button', { name: 'Accept All' })
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - region "We value your privacy" [ref=e2]:
+    - generic [ref=e3]:
+      - button "Close" [ref=e4] [cursor=pointer]
+      - generic [ref=e5]:
+        - heading "We value your privacy" [level=2] [ref=e6]
+        - generic [ref=e7]:
+          - paragraph [ref=e9]:
+            - text: We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. You can opt out from tracking by clicking on "
+            - strong [ref=e10]: Do Not Track
+            - text: "\"."
+            - link "Cookie Policy" [ref=e11] [cursor=pointer]:
+              - /url: https://www.razer.com/legal/cookies
+          - button "Do Not Track" [ref=e13] [cursor=pointer]
+  - generic [ref=e14]:
+    - generic [ref=e15]:
+      - generic [ref=e16]:
+        - button "Skip to Header" [ref=e17] [cursor=pointer]
+        - button "Skip to Main Content" [ref=e18] [cursor=pointer]
+        - button "Skip to Footer" [ref=e19] [cursor=pointer]
+      - banner [ref=e20]:
+        - navigation "global" [ref=e27]:
+          - list [ref=e28]:
+            - listitem [ref=e29]:
+              - link "Razer Homepage" [ref=e31] [cursor=pointer]:
+                - /url: /
+                - img "Razer Homepage" [ref=e32]
+            - listitem [ref=e33] [cursor=pointer]:
+              - link "Store" [ref=e34]:
+                - /url: https://www.razer.com/store
+              - button "Store" [ref=e35]
+            - listitem [ref=e36] [cursor=pointer]:
+              - link "PC" [ref=e37]:
+                - /url: https://www.razer.com/pc
+              - button "PC" [ref=e38]
+            - listitem [ref=e39] [cursor=pointer]:
+              - link "Console" [ref=e40]:
+                - /url: https://www.razer.com/console-gaming
+              - button "Console" [ref=e41]
+            - listitem [ref=e42] [cursor=pointer]:
+              - link "Mobile" [ref=e43]:
+                - /url: https://www.razer.com/mobile
+              - button "Mobile" [ref=e44]
+            - listitem [ref=e45] [cursor=pointer]:
+              - link "Furniture & Lifestyle" [ref=e46]:
+                - /url: https://www.razer.com/lifestyle
+              - button "Furniture & Lifestyle" [ref=e47]
+            - listitem [ref=e48] [cursor=pointer]:
+              - link "Gold & Silver" [ref=e49]:
+                - /url: https://gold.razer.com/us/en
+              - button "Gold & Silver" [ref=e50]
+            - listitem [ref=e51] [cursor=pointer]:
+              - link "Community" [ref=e52]:
+                - /url: https://www.razer.com/community
+              - button "Community" [ref=e53]
+            - listitem [ref=e54]:
+              - link "Razer.AI" [ref=e55] [cursor=pointer]:
+                - /url: https://razer.ai
+            - listitem [ref=e56] [cursor=pointer]:
+              - link "Support" [ref=e57]:
+                - /url: https://mysupport.razer.com/
+              - button "Support" [ref=e58]
+            - listitem [ref=e59]:
+              - generic [ref=e62]:
+                - button "Search" [ref=e63] [cursor=pointer]: 
+                - text: ❮  
+            - listitem [ref=e64]:
+              - button "0 items in cart" [ref=e70] [cursor=pointer]: 
+      - main [ref=e71]:
+        - generic [ref=e72]:
+          - generic:
+            - generic: 
+          - generic [ref=e75]:
+            - generic [ref=e80]:
+              - heading "Razer" [level=1] [ref=e81]
+              - group "banner" [ref=e82]:
+                - link [ref=e83] [cursor=pointer]:
+                  - /url: /gaming-laptops/razer-blade-18
+                - generic [ref=e85]:
+                  - generic "Only at Razer ribbon" [ref=e86]: Only at Razer
+                  - heading "RAZER BLADE 18" [level=2] [ref=e87]
+                  - paragraph [ref=e88]: THE EDGE OF PERFORMANCE FOR GAMERS & AI DEVS
+                  - generic [ref=e89]:
+                    - link "Learn More" [ref=e90] [cursor=pointer]:
+                      - /url: /gaming-laptops/razer-blade-18
+                    - link "Buy" [ref=e91] [cursor=pointer]:
+                      - /url: /gaming-laptops/razer-blade-18/buy
+              - group "banner" [ref=e92]:
+                - link [ref=e93] [cursor=pointer]:
+                  - /url: /campaigns/nvidia-game-bundle
+                - generic [ref=e95]:
+                  - heading "RAZER X 007 FIRST LIGHT" [level=2] [ref=e96]
+                  - paragraph [ref=e97]: ACTIVATE YOUR FIELD INSTINCTS
+                  - generic [ref=e98]:
+                    - link "Razer Blade" [ref=e99] [cursor=pointer]:
+                      - /url: /campaigns/nvidia-game-bundle
+                    - link "Sensa HD" [ref=e100] [cursor=pointer]:
+                      - /url: /campaigns/007-first-light
+              - group "banner" [ref=e101]:
+                - link [ref=e102] [cursor=pointer]:
+                  - /url: /gaming-mice/razer-viper-v4-pro
+                - generic [ref=e104]:
+                  - heading "RAZER VIPER V4 PRO" [level=2] [ref=e105]
+                  - paragraph [ref=e106]: FOR THE PRO
+                  - generic [ref=e107]:
+                    - link "Learn More" [ref=e108] [cursor=pointer]:
+                      - /url: /gaming-mice/razer-viper-v4-pro
+                    - link "Buy" [ref=e109] [cursor=pointer]:
+                      - /url: /gaming-mice/razer-viper-v4-pro/buy
+            - generic [ref=e114]:
+              - generic [ref=e115]:
+                - link [ref=e116] [cursor=pointer]:
+                  - /url: /store/gaming-chairs
+                - generic [ref=e119]:
+                  - heading "RAZER GAMING CHAIR SPECIAL" [level=2] [ref=e120]
+                  - heading "UNLOCK UP TO $200 OFF NOW" [level=3] [ref=e121]
+                - link "Shop Now" [ref=e123] [cursor=pointer]:
+                  - /url: /store/gaming-chairs
+                  - generic [ref=e124]:
+                    - text: Shop Now
+                    - generic [ref=e125]: ">"
+              - generic [ref=e126]:
+                - link [ref=e127] [cursor=pointer]:
+                  - /url: /mobile/earbuds/hammerhead-line
+                - generic [ref=e130]:
+                  - heading "RAZER HAMMERHEAD V3 HYPERSPEED" [level=2] [ref=e131]
+                  - heading "ULTRA-LOW LATENCY. ULTIMATE IMMERSION." [level=3] [ref=e132]
+                - generic [ref=e133]:
+                  - link "Learn More" [ref=e134] [cursor=pointer]:
+                    - /url: /mobile/earbuds/hammerhead-line
+                    - generic [ref=e135]:
+                      - text: Learn More
+                      - generic [ref=e136]: ">"
+                  - link "Buy" [ref=e137] [cursor=pointer]:
+                    - /url: /mobile-earphones/razer-hammerhead-v3-hyperspeed/buy
+                    - generic [ref=e138]:
+                      - text: Buy
+                      - generic [ref=e139]: ">"
+              - generic [ref=e140]:
+                - link [ref=e141] [cursor=pointer]:
+                  - /url: /collabs/blackpink
+                - img "©YG. All Rights Reserved." [ref=e143]
+                - generic [ref=e145]:
+                  - heading "BLACKPINK X RAZER" [level=2] [ref=e146]
+                  - heading "DROPPING MAY 28, 2026, 7PM PDT" [level=3] [ref=e147]
+                - link "Learn More" [ref=e149] [cursor=pointer]:
+                  - /url: /collabs/blackpink
+                  - generic [ref=e150]:
+                    - text: Learn More
+                    - generic [ref=e151]: ">"
+              - generic [ref=e152]:
+                - link [ref=e153] [cursor=pointer]:
+                  - /url: /collabs/wuthering-waves
+                - img "© Kuro Games All Rights Reserved" [ref=e155]
+                - generic [ref=e157]:
+                  - heading "RAZER | WUTHERING WAVES" [level=2] [ref=e158]
+                  - heading "RESONANCE IN HAND" [level=3] [ref=e159]
+                - link "Learn More" [ref=e161] [cursor=pointer]:
+                  - /url: /collabs/wuthering-waves
+                  - generic [ref=e162]:
+                    - text: Learn More
+                    - generic [ref=e163]: ">"
+              - generic [ref=e164]:
+                - link [ref=e165] [cursor=pointer]:
+                  - /url: /gaming-keyboards/razer-huntsman-v3-tenkeyless-8khz
+                - generic [ref=e168]:
+                  - heading "RAZER HUNTSMAN V3 TENKEYLESS 8KHZ" [level=2] [ref=e169]
+                  - heading "FOR THE PRO" [level=3] [ref=e170]
+                - generic [ref=e171]:
+                  - link "Learn More" [ref=e172] [cursor=pointer]:
+                    - /url: /gaming-keyboards/razer-huntsman-v3-tenkeyless-8khz
+                    - generic [ref=e173]:
+                      - text: Learn More
+                      - generic [ref=e174]: ">"
+                  - link "Buy" [ref=e175] [cursor=pointer]:
+                    - /url: /gaming-keyboards/razer-huntsman-v3-tenkeyless-8khz/buy
+                    - generic [ref=e176]:
+                      - text: Buy
+                      - generic [ref=e177]: ">"
+              - generic [ref=e178]:
+                - link [ref=e179] [cursor=pointer]:
+                  - /url: /gaming-headsets/razer-blackshark-v3-pro
+                - generic [ref=e182]:
+                  - heading "RAZER BLACKSHARK V3 PRO" [level=2] [ref=e183]
+                  - heading "FOR THE PRO" [level=3] [ref=e184]
+                - generic [ref=e185]:
+                  - link "Learn More" [ref=e186] [cursor=pointer]:
+                    - /url: /gaming-headsets/razer-blackshark-v3-pro
+                    - generic [ref=e187]:
+                      - text: Learn More
+                      - generic [ref=e188]: ">"
+                  - link "Buy" [ref=e189] [cursor=pointer]:
+                    - /url: /gaming-headsets/razer-blackshark-v3-pro/buy
+                    - generic [ref=e190]:
+                      - text: Buy
+                      - generic [ref=e191]: ">"
+      - contentinfo [ref=e192]:
+        - generic [ref=e197]:
+          - generic [ref=e198]:
+            - generic [ref=e200]:
+              - heading "Shop" [level=2] [ref=e202]
+              - list [ref=e204]:
+                - listitem [ref=e205]:
+                  - link "RazerStores" [ref=e206] [cursor=pointer]:
+                    - /url: https://www.razer.com/razerstores
+                - listitem [ref=e207]:
+                  - link "RazerCafe" [ref=e208] [cursor=pointer]:
+                    - /url: https://www.razer.com/razercafe
+                - listitem [ref=e209]:
+                  - link "Store Locator" [ref=e210] [cursor=pointer]:
+                    - /url: https://www.razer.com/store-finder
+                - listitem [ref=e211]:
+                  - link "Purchase Programs" [ref=e212] [cursor=pointer]:
+                    - /url: https://www.razer.com/store/programs
+                - listitem [ref=e213]:
+                  - link "Bulk Order Program" [ref=e214] [cursor=pointer]:
+                    - /url: https://www.razer.com/store/bulk-purchase
+                - listitem [ref=e215]:
+                  - link "Education" [ref=e216] [cursor=pointer]:
+                    - /url: https://www.razer.com/education
+                - listitem [ref=e217]:
+                  - link "Only at Razer" [ref=e218] [cursor=pointer]:
+                    - /url: https://www.razer.com/only-at-razer
+                - listitem [ref=e219]:
+                  - link "Razer Silver" [ref=e220] [cursor=pointer]:
+                    - /url: https://www.razer.com/store/rewards
+                - listitem [ref=e221]:
+                  - link "Affiliate" [ref=e222] [cursor=pointer]:
+                    - /url: https://www.razer.com/affiliate
+                - listitem [ref=e223]:
+                  - link "Newsletter" [ref=e224] [cursor=pointer]:
+                    - /url: https://www.razer.com/newsletter
+            - generic [ref=e226]:
+              - heading "Explore" [level=2] [ref=e228]
+              - list [ref=e230]:
+                - listitem [ref=e231]:
+                  - link "Technology" [ref=e232] [cursor=pointer]:
+                    - /url: https://www.razer.com/technology
+                - listitem [ref=e233]:
+                  - link "Chroma RGB" [ref=e234] [cursor=pointer]:
+                    - /url: https://www.razer.com/chroma
+                - listitem [ref=e235]:
+                  - link "Concepts" [ref=e236] [cursor=pointer]:
+                    - /url: https://www.razer.com/concepts
+                - listitem [ref=e237]:
+                  - link "Esports" [ref=e238] [cursor=pointer]:
+                    - /url: https://www.razer.com/esports
+                - listitem [ref=e239]:
+                  - link "Collabs" [ref=e240] [cursor=pointer]:
+                    - /url: https://www.razer.com/lifestyle/collabs
+            - generic [ref=e242]:
+              - heading "Support" [level=2] [ref=e244]
+              - list [ref=e246]:
+                - listitem [ref=e247]:
+                  - link "Get Help" [ref=e248] [cursor=pointer]:
+                    - /url: https://mysupport.razer.com/?c=us
+                - listitem [ref=e249]:
+                  - link "Registration & Warranty" [ref=e250] [cursor=pointer]:
+                    - /url: https://www.razer.com/product-registration
+                - listitem [ref=e251]:
+                  - link "RazerStore Support" [ref=e252] [cursor=pointer]:
+                    - /url: https://www.razer.com/razerstore-support
+                - listitem [ref=e253]:
+                  - link "RazerCare" [ref=e254] [cursor=pointer]:
+                    - /url: https://www.razer.com/razercare
+                - listitem [ref=e255]:
+                  - link "Manage Razer ID" [ref=e256] [cursor=pointer]:
+                    - /url: https://razerid.razer.com
+                - listitem [ref=e257]:
+                  - link "Support Videos" [ref=e258] [cursor=pointer]:
+                    - /url: https://www.youtube.com/channel/UCrG4K8-XFEK5FyCz_jVzV-A/videos
+                - listitem [ref=e259]:
+                  - link "Recycling Program" [ref=e260] [cursor=pointer]:
+                    - /url: https://mysupport.razer.com/app/answers/detail/a_id/5904
+                - listitem [ref=e261]:
+                  - link "Accessibility Statement" [ref=e262] [cursor=pointer]:
+                    - /url: https://www.razer.com/legal/commitment-to-accessibility
+            - generic [ref=e264]:
+              - heading "Company" [level=2] [ref=e266]
+              - list [ref=e268]:
+                - listitem [ref=e269]:
+                  - link "About Us" [ref=e270] [cursor=pointer]:
+                    - /url: https://www.razer.com/about-razer
+                - listitem [ref=e271]:
+                  - link "Careers" [ref=e272] [cursor=pointer]:
+                    - /url: https://careers.razer.com
+                - listitem [ref=e273]:
+                  - link "Newsroom" [ref=e274] [cursor=pointer]:
+                    - /url: https://www.razer.com/newsroom
+                - listitem [ref=e275]:
+                  - link "zVentures" [ref=e276] [cursor=pointer]:
+                    - /url: https://www.zvntrs.com
+                - listitem [ref=e277]:
+                  - link "Contact Us" [ref=e278] [cursor=pointer]:
+                    - /url: https://www.razer.com/contact-us
+                - listitem [ref=e279]:
+                  - link "AI Gaming Newsletter" [ref=e280] [cursor=pointer]:
+                    - /url: https://www.razer.com/newsletter/ai
+            - generic [ref=e282]:
+              - heading "Follow Us" [level=2] [ref=e284]
+              - list [ref=e286]:
+                - listitem [ref=e287]:
+                  - link "Visit Razer’s Facebook Page" [ref=e288] [cursor=pointer]:
+                    - /url: https://www.facebook.com/razer
+                    - figure [ref=e289]
+                - listitem [ref=e290]:
+                  - link "Visit Razer’s Instagram Page" [ref=e291] [cursor=pointer]:
+                    - /url: https://www.instagram.com/razer
+                    - figure [ref=e292]
+                - listitem [ref=e293]:
+                  - link "Visit Razer’s Threads Page" [ref=e294] [cursor=pointer]:
+                    - /url: https://www.threads.net/@razer
+                    - figure [ref=e295]
+                - listitem [ref=e296]:
+                  - link "Visit Razer’s X Page" [ref=e297] [cursor=pointer]:
+                    - /url: https://www.twitter.com/Razer
+                    - figure [ref=e298]
+                - listitem [ref=e299]:
+                  - link "Visit Razer’s YouTube Page" [ref=e300] [cursor=pointer]:
+                    - /url: https://www.youtube.com/razer
+                    - figure [ref=e301]
+                - listitem [ref=e302]:
+                  - link "Visit Razer’s TikTok Page" [ref=e303] [cursor=pointer]:
+                    - /url: https://www.tiktok.com/@razer
+                    - figure [ref=e304]
+                - listitem [ref=e305]:
+                  - link "Visit Razer’s Twitch Page" [ref=e306] [cursor=pointer]:
+                    - /url: https://www.twitch.tv/razer
+                    - figure [ref=e307]
+                - listitem [ref=e308]:
+                  - link "Visit Razer’s Discord Page" [ref=e309] [cursor=pointer]:
+                    - /url: https://discord.com/invite/razer
+                    - figure [ref=e310]
+            - generic [ref=e314]: FOR GAMERS. BY GAMERS.™
+          - generic [ref=e318]:
+            - generic [ref=e319]:
+              - generic [ref=e321]: Copyright © 2026 Razer Inc. All rights reserved.
+              - list [ref=e323]:
+                - listitem [ref=e324]:
+                  - link "Site Map" [ref=e325] [cursor=pointer]:
+                    - /url: https://www.razer.com/sitemap
+                - listitem [ref=e326]:
+                  - text: "|"
+                  - link "Legal Terms" [ref=e327] [cursor=pointer]:
+                    - /url: https://www.razer.com/legal
+                - listitem [ref=e328]:
+                  - text: "|"
+                  - link "Privacy Policy" [ref=e329] [cursor=pointer]:
+                    - /url: https://www.razer.com/legal/customer-privacy-policy
+                - listitem [ref=e330]:
+                  - text: "|"
+                  - button "Cookie Settings" [ref=e331] [cursor=pointer]
+            - generic [ref=e333]:
+              - text: United States |
+              - link "Change Location >" [ref=e334] [cursor=pointer]:
+                - /url: /choose-location
+    - text: 
+```
+
+# Test source
+
+```ts
+  60  |     });
+  61  |     await searchBox.fill("BlackShark");
+  62  |     await Promise.all([
+  63  |       page.waitForURL("**/search/blackshark?sel=products"),
+  64  |       searchBox.press("Enter"),
+  65  |     ]);
+  66  |     await page
+  67  |       .getByRole("link", {
+  68  |         name: /Razer BlackShark/i,
+  69  |       })
+  70  |       .first()
+  71  |       .click();
+  72  |     await expect(page).toHaveURL(/blackshark/i);
+  73  |   });
+  74  | 
+  75  |   test("S4 - Invalid Search Handled Correctly", async ({ page }) => {
+  76  |     await page.goto("https://www.razer.com/");
+  77  |     await page
+  78  |       .getByRole("button", {
+  79  |         name: "Accept All",
+  80  |       })
+  81  |       .click();
+  82  |     await page
+  83  |       .getByRole("button", {
+  84  |         name: "Search",
+  85  |       })
+  86  |       .click();
+  87  |     const searchBox = page.getByRole("textbox", {
+  88  |       name: "Search razer.com",
+  89  |     });
+  90  |     await searchBox.fill("YellowShark");
+  91  |     await Promise.all([
+  92  |       page.waitForURL(/search\/yellowshark/i),
+  93  |       searchBox.press("Enter"),
+  94  |     ]);
+  95  |     await expect(
+  96  |       page.getByRole("heading", {
+  97  |         name: "Sorry! No matches were found.",
+  98  |       }),
+  99  |     ).toBeVisible();
+  100 |   });
+  101 | 
+  102 |   //Empty Search Validation works
+  103 |   test("S5 - Empty Search Validation works", async ({ page }) => {
+  104 |     await page.goto("https://www.razer.com/");
+  105 |     await page
+  106 |       .getByRole("button", {
+  107 |         name: "Accept All",
+  108 |       })
+  109 |       .click();
+  110 |     await page
+  111 |       .getByRole("button", {
+  112 |         name: "Search",
+  113 |       })
+  114 |       .click();
+  115 |     const searchBox = page.getByRole("textbox", {
+  116 |       name: "Search razer.com",
+  117 |     });
+  118 |     await searchBox.press("Enter");
+  119 |     await expect(page).toHaveURL("https://www.razer.com/");
+  120 |     await expect(searchBox).toBeVisible();
+  121 |   });
+  122 | 
+  123 |   test("S6 - Multiple searches work correctly", async ({ page }) => {
+  124 |     await page.goto("https://www.razer.com/");
+  125 |     await page
+  126 |       .getByRole("button", {
+  127 |         name: "Accept All",
+  128 |       })
+  129 |       .click();
+  130 |     await page
+  131 |       .getByRole("button", {
+  132 |         name: "Search",
+  133 |       })
+  134 |       .click();
+  135 |     const searchBox = page.getByRole("textbox", {
+  136 |       name: "Search razer.com",
+  137 |     });
+  138 |     await searchBox.fill("Viper");
+  139 |     await Promise.all([
+  140 |       page.waitForURL(/search\/viper/i),
+  141 |       searchBox.press("Enter"),
+  142 |     ]);
+  143 |     await expect(page).toHaveURL(/search\/viper/i);
+  144 |     await page
+  145 |       .getByRole("button", {
+  146 |         name: "Clear Search",
+  147 |       })
+  148 |       .click();
+  149 |     await searchBox.fill("BlackShark");
+  150 |     await Promise.all([
+  151 |       page.waitForURL(/search\/blackshark/i),
+  152 |       searchBox.press("Enter"),
+  153 |     ]);
+  154 |     await expect(page).toHaveURL(/search\/blackshark/i);
+  155 |   });
+  156 | 
+  157 |   //Search closes successfully
+  158 |   test("S7 - Search closes successfully", async ({ page }) => {
+  159 |     await page.goto("https://www.razer.com/");
+> 160 |     await page.getByRole("button", { name: "Accept All" }).click();
+      |                                                            ^ Error: locator.click: Test timeout of 30000ms exceeded.
+  161 |     await page.getByRole("button", { name: "Search" }).click();
+  162 |     await page.getByRole("button", { name: "Close Search" }).click();
+  163 |   });
+  164 | 
+  165 |   //Search works for mobile viewport
+  166 |   test("S8 - Search works in mobile viewport", async ({ page }) => {
+  167 |     await page.setViewportSize({
+  168 |       width: 375,
+  169 |       height: 812,
+  170 |     });
+  171 |     await page.goto("https://www.razer.com/");
+  172 |     await page
+  173 |       .getByRole("button", {
+  174 |         name: "Accept All",
+  175 |       })
+  176 |       .click();
+  177 |     await page
+  178 |       .getByRole("button", {
+  179 |         name: "Search",
+  180 |       })
+  181 |       .click();
+  182 |     const searchBox = page.getByRole("textbox", {
+  183 |       name: "Search razer.com",
+  184 |     });
+  185 |     await searchBox.fill("Viper");
+  186 |     await Promise.all([
+  187 |       page.waitForURL(/search\/viper/i),
+  188 |       searchBox.press("Enter"),
+  189 |     ]);
+  190 |     await expect(page).toHaveURL(/search\/viper/i);
+  191 |   });
+  192 | 
+  193 |   test("S9 - Search works with uppercase input", async ({ page }) => {
+  194 |     await page.goto("https://www.razer.com/");
+  195 | 
+  196 |     await page
+  197 |       .getByRole("button", {
+  198 |         name: "Accept All",
+  199 |       })
+  200 |       .click();
+  201 | 
+  202 |     await page
+  203 |       .getByRole("button", {
+  204 |         name: "Search",
+  205 |       })
+  206 |       .click();
+  207 | 
+  208 |     const searchBox = page.getByRole("textbox", {
+  209 |       name: "Search razer.com",
+  210 |     });
+  211 | 
+  212 |     await searchBox.fill("BLACKSHARK");
+  213 | 
+  214 |     await Promise.all([
+  215 |       page.waitForURL(/search\/blackshark/i),
+  216 |       searchBox.press("Enter"),
+  217 |     ]);
+  218 | 
+  219 |     await expect(page).toHaveURL(/search\/blackshark/i);
+  220 |   });
+  221 | 
+  222 |   test("S10 - User can open product from search results", async ({ page }) => {
+  223 |     await page.goto("https://www.razer.com/");
+  224 | 
+  225 |     await page
+  226 |       .getByRole("button", {
+  227 |         name: "Accept All",
+  228 |       })
+  229 |       .click();
+  230 | 
+  231 |     await page
+  232 |       .getByRole("button", {
+  233 |         name: "Search",
+  234 |       })
+  235 |       .click();
+  236 | 
+  237 |     const searchBox = page.getByRole("textbox", {
+  238 |       name: "Search razer.com",
+  239 |     });
+  240 | 
+  241 |     await searchBox.fill("BlackShark");
+  242 | 
+  243 |     await Promise.all([
+  244 |       page.waitForURL(/search\/blackshark/i),
+  245 |       searchBox.press("Enter"),
+  246 |     ]);
+  247 | 
+  248 |     await page
+  249 |       .getByRole("link", {
+  250 |         name: /Razer BlackShark/i,
+  251 |       })
+  252 |       .first()
+  253 |       .click();
+  254 | 
+  255 |     // Validate product page opened
+  256 |     await expect(page).toHaveURL(/blackshark/i);
+  257 |   });
+  258 | });
+  259 | 
+```
