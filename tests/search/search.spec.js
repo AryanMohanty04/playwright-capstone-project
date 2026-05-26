@@ -191,63 +191,68 @@ test.describe("Search Module", () => {
   });
 
   test("S9 - Search works with uppercase input", async ({ page }) => {
+    await page.goto("https://www.razer.com/");
 
-  await page.goto("https://www.razer.com/");
+    await page
+      .getByRole("button", {
+        name: "Accept All",
+      })
+      .click();
 
-  await page.getByRole("button", {
-    name: "Accept All",
-  }).click();
+    await page
+      .getByRole("button", {
+        name: "Search",
+      })
+      .click();
 
-  await page.getByRole("button", {
-    name: "Search",
-  }).click();
+    const searchBox = page.getByRole("textbox", {
+      name: "Search razer.com",
+    });
 
-  const searchBox = page.getByRole("textbox", {
-    name: "Search razer.com",
+    await searchBox.fill("BLACKSHARK");
+
+    await Promise.all([
+      page.waitForURL(/search\/blackshark/i),
+      searchBox.press("Enter"),
+    ]);
+
+    await expect(page).toHaveURL(/search\/blackshark/i);
   });
 
-  await searchBox.fill("BLACKSHARK");
+  test("S10 - User can open product from search results", async ({ page }) => {
+    await page.goto("https://www.razer.com/");
 
-  await Promise.all([
-    page.waitForURL(/search\/blackshark/i),
-    searchBox.press("Enter"),
-  ]);
+    await page
+      .getByRole("button", {
+        name: "Accept All",
+      })
+      .click();
 
-  await expect(page).toHaveURL(/search\/blackshark/i);
+    await page
+      .getByRole("button", {
+        name: "Search",
+      })
+      .click();
 
-});
+    const searchBox = page.getByRole("textbox", {
+      name: "Search razer.com",
+    });
 
-test("S10 - User can open product from search results", async ({ page }) => {
+    await searchBox.fill("BlackShark");
 
-  await page.goto("https://www.razer.com/");
+    await Promise.all([
+      page.waitForURL(/search\/blackshark/i),
+      searchBox.press("Enter"),
+    ]);
 
-  await page.getByRole("button", {
-    name: "Accept All",
-  }).click();
+    await page
+      .getByRole("link", {
+        name: /Razer BlackShark/i,
+      })
+      .first()
+      .click();
 
-  await page.getByRole("button", {
-    name: "Search",
-  }).click();
-
-  const searchBox = page.getByRole("textbox", {
-    name: "Search razer.com",
+    // Validate product page opened
+    await expect(page).toHaveURL(/blackshark/i);
   });
-
-  await searchBox.fill("BlackShark");
-
-  await Promise.all([
-    page.waitForURL(/search\/blackshark/i),
-    searchBox.press("Enter"),
-  ]);
-
-  await page.getByRole("link", {
-    name: /Razer BlackShark/i,
-  }).first().click();
-
-  // Validate product page opened
-  await expect(page).toHaveURL(/blackshark/i);
-
-});
-
- 
 });
