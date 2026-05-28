@@ -46,6 +46,9 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
+      - name: Clean Old Allure Results
+        run: rm -rf allure-results allure-report
+
       - name: Run Playwright Tests
         run: npm run test:ci -- --shard=${{ matrix.shard_index }}/3
         continue-on-error: true
