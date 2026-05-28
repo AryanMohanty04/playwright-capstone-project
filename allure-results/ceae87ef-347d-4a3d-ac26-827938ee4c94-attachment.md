@@ -1,0 +1,1092 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: product_details\productDetails.spec.js >> Product Details >> PD_02 - Product information visibility
+- Location: tests\product_details\productDetails.spec.js:13:3
+
+# Error details
+
+```
+Error: locator.click: Error: strict mode violation: getByRole('group', { name: /slide/i }).getByLabel(/BUY/i) resolved to 6 elements:
+    1) <a pnxssr_24="" tabindex="0" aria-hidden="false" class="tr-init-click" aria-label="BUY - Razer Blade 16, For US$4,899.99" href="https://www.razer.com/gaming-laptops/razer-blade-16/RZ09-05819EN4-R3U1">Buy</a> aka getByRole('link', { name: 'BUY - Razer Blade 16, For US$' })
+    2) <a pnxssr_33="" tabindex="0" aria-hidden="false" class="tr-init-click" aria-label="BUY - Razer Basilisk V3 Pro 35K, For US$159.99" href="https://www.razer.com/gaming-mice/razer-basilisk-v3-pro-35k/RZ01-05240100-R3U1">Buy</a> aka getByRole('link', { name: 'BUY - Razer Basilisk V3 Pro' })
+    3) <a pnxssr_42="" tabindex="0" aria-hidden="false" class="tr-init-click" aria-label="BUY - Razer Cobra HyperSpeed, For US$99.99" href="https://www.razer.com/gaming-mice/razer-cobra-hyperspeed/RZ01-05570100-R3U1">Buy</a> aka getByRole('link', { name: 'BUY - Razer Cobra HyperSpeed' })
+    4) <a pnxssr_24="" tabindex="0" aria-hidden="false" class="tr-init-click" aria-label="BUY - New Razer Blade 18, For US$3,999.99" href="https://www.razer.com/gaming-laptops/razer-blade-18/RZ09-05827ER3-R3U1">Buy</a> aka getByRole('link', { name: 'BUY - New Razer Blade 18, For US$' })
+    5) <a pnxssr_33="" tabindex="0" aria-hidden="false" class="tr-init-click" href="https://www.razer.com/gaming-laptops/razer-blade-16/RZ09-05819EN4-R3U1" aria-label="BUY - New Razer Blade 16 with GeForce RTX 5090, 32 GB RAM and 2 TB SSD, For US$4,899.99">Buy</a> aka getByRole('link', { name: 'BUY - New Razer Blade 16 with' })
+    6) <a pnxssr_42="" tabindex="0" aria-hidden="false" class="tr-init-click" aria-label="BUY - Razer Gigantus V2 - Large - Faker Edition, For US$49.99" href="https://www.razer.com/gaming-mouse-mats/razer-gigantus-v2/RZ02-03334600-R3UA">Buy</a> aka getByRole('link', { name: 'BUY - Razer Gigantus V2 -' })
+
+Call log:
+  - waiting for getByRole('group', { name: /slide/i }).getByLabel(/BUY/i)
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - button "Skip to Header" [ref=e5] [cursor=pointer]
+      - button "Skip to Main Content" [ref=e6] [cursor=pointer]
+      - button "Skip to Footer" [ref=e7] [cursor=pointer]
+    - banner [ref=e8]:
+      - navigation "global" [ref=e15]:
+        - list [ref=e16]:
+          - listitem [ref=e17]:
+            - link "Razer Homepage" [ref=e19] [cursor=pointer]:
+              - /url: /
+              - img "Razer Homepage" [ref=e20]
+          - listitem [ref=e21] [cursor=pointer]:
+            - link "Store" [ref=e22]:
+              - /url: https://www.razer.com/store
+            - button "Store" [ref=e23]
+          - listitem [ref=e24] [cursor=pointer]:
+            - link "PC" [ref=e25]:
+              - /url: https://www.razer.com/pc
+            - button "PC" [ref=e26]
+          - listitem [ref=e27] [cursor=pointer]:
+            - link "Console" [ref=e28]:
+              - /url: https://www.razer.com/console-gaming
+            - button "Console" [ref=e29]
+          - listitem [ref=e30] [cursor=pointer]:
+            - link "Mobile" [ref=e31]:
+              - /url: https://www.razer.com/mobile
+            - button "Mobile" [ref=e32]
+          - listitem [ref=e33] [cursor=pointer]:
+            - link "Furniture & Lifestyle" [ref=e34]:
+              - /url: https://www.razer.com/lifestyle
+            - button "Furniture & Lifestyle" [ref=e35]
+          - listitem [ref=e36] [cursor=pointer]:
+            - link "Gold & Silver" [ref=e37]:
+              - /url: https://gold.razer.com/us/en
+            - button "Gold & Silver" [ref=e38]
+          - listitem [ref=e39] [cursor=pointer]:
+            - link "Community" [ref=e40]:
+              - /url: https://www.razer.com/community
+            - button "Community" [ref=e41]
+          - listitem [ref=e42]:
+            - link "Razer.AI" [ref=e43] [cursor=pointer]:
+              - /url: https://razer.ai
+          - listitem [ref=e44] [cursor=pointer]:
+            - link "Support" [ref=e45]:
+              - /url: https://mysupport.razer.com/
+            - button "Support" [ref=e46]
+          - listitem [ref=e47]:
+            - generic [ref=e49]: 
+            - text:  ❮  
+          - listitem [ref=e50]:
+            - generic [ref=e52]: 
+            - text: 
+    - main [ref=e53]:
+      - generic [ref=e54]:
+        - generic:
+          - generic: 
+        - generic [ref=e55]:
+          - generic [ref=e57]:
+            - navigation "Page" [ref=e63]:
+              - list [ref=e64]:
+                - listitem [ref=e65]:
+                  - link "Laptops" [ref=e66] [cursor=pointer]:
+                    - /url: /store/gaming-laptops
+                    - generic [ref=e68]: Laptops
+                - listitem [ref=e69]:
+                  - link "Mice" [ref=e70] [cursor=pointer]:
+                    - /url: /store/gaming-mice
+                    - generic [ref=e72]: Mice
+                - listitem [ref=e73]:
+                  - link "Mouse Mats" [ref=e74] [cursor=pointer]:
+                    - /url: /store/gaming-mouse-mats
+                    - generic [ref=e76]: Mouse Mats
+                - listitem [ref=e77]:
+                  - link "Keyboards" [ref=e78] [cursor=pointer]:
+                    - /url: /store/gaming-keyboards
+                    - generic [ref=e80]: Keyboards
+                - listitem [ref=e81]:
+                  - link "Controllers" [ref=e82] [cursor=pointer]:
+                    - /url: /store/controllers
+                    - generic [ref=e84]: Controllers
+                - listitem [ref=e85]:
+                  - link "Audio" [ref=e86] [cursor=pointer]:
+                    - /url: /store/gaming-audio
+                    - generic [ref=e88]: Audio
+                - listitem [ref=e89]:
+                  - link "Chairs" [ref=e90] [cursor=pointer]:
+                    - /url: /store/gaming-chairs
+                    - generic [ref=e92]: Chairs
+                - listitem [ref=e93]:
+                  - link "Content Creation" [ref=e94] [cursor=pointer]:
+                    - /url: /store/content-creation
+                    - generic [ref=e96]: Content Creation
+                - listitem [ref=e97]:
+                  - link "Licensed" [ref=e98] [cursor=pointer]:
+                    - /url: /store/licensed
+                    - generic [ref=e100]: Licensed
+                - listitem [ref=e101]:
+                  - link "Apparel & Gear" [ref=e102] [cursor=pointer]:
+                    - /url: /store/gaming-gear
+                    - generic [ref=e104]: Apparel & Gear
+                - listitem [ref=e105]:
+                  - link "Gamer Room" [ref=e106] [cursor=pointer]:
+                    - /url: /store/gaming-desktops-and-components
+                    - generic [ref=e108]: Gamer Room
+                - listitem [ref=e109]:
+                  - link "Gift Card" [ref=e110] [cursor=pointer]:
+                    - /url: /gift-cards
+                    - generic [ref=e112]: Gift Card
+            - generic [ref=e117]:
+              - heading "DISCOVER GEAR FOR GAMERS. BY GAMERS. Razer mice, keyboards, headsets, laptops & more" [level=1] [ref=e119]:
+                - generic [ref=e120]: DISCOVER GEAR FOR GAMERS. BY GAMERS.
+                - text: Razer mice, keyboards, headsets, laptops & more
+              - list [ref=e121]:
+                - listitem [ref=e122]:
+                  - link "Subscribe & Get US$10 Off" [ref=e123] [cursor=pointer]:
+                    - /url: /newsletter
+                    - generic [ref=e125]:
+                      - text: Subscribe & Get
+                      - text: US$10 Off >
+                - listitem [ref=e126]:
+                  - link "Find a RazerStore Near You" [ref=e127] [cursor=pointer]:
+                    - /url: /razerstores
+                    - generic [ref=e129]: Find a RazerStore Near You >
+          - generic [ref=e139]:
+            - generic [ref=e146]:
+              - paragraph
+              - text: ONLY AT RAZER
+              - paragraph [ref=e147]: Unlock up to $200 off selected gaming chairs with every order above $150
+              - paragraph
+            - generic [ref=e152]:
+              - generic [ref=e153]:
+                - heading "FRESH OFF THE LINE" [level=2] [ref=e154]
+                - paragraph [ref=e156]: Check out our latest releases to secure the most up-to-date upgrades for your setup
+              - region "carousel" [ref=e157]:
+                - generic [ref=e158]: This is a carousel of products. Use Next and Previous buttons to navigate
+                - list [ref=e159]:
+                  - listitem [ref=e160]:
+                    - link [ref=e161] [cursor=pointer]:
+                      - /url: /store#
+                    - generic [ref=e163]:
+                      - generic:
+                        - paragraph
+                      - link [ref=e164] [cursor=pointer]:
+                        - /url: /store#
+                  - listitem [ref=e165]:
+                    - link [ref=e166] [cursor=pointer]:
+                      - /url: /store#
+                    - generic [ref=e168]:
+                      - generic:
+                        - paragraph
+                      - link [ref=e169] [cursor=pointer]:
+                        - /url: /store#
+                  - listitem [ref=e170]:
+                    - link [ref=e171] [cursor=pointer]:
+                      - /url: /store#
+                    - generic [ref=e173]:
+                      - generic:
+                        - paragraph
+                      - link [ref=e174] [cursor=pointer]:
+                        - /url: /store#
+                  - listitem [ref=e175]:
+                    - link [ref=e176] [cursor=pointer]:
+                      - /url: /store#
+                    - link [ref=e179] [cursor=pointer]:
+                      - /url: /store#
+                  - listitem [ref=e180]:
+                    - link [ref=e181] [cursor=pointer]:
+                      - /url: /store#
+                    - link [ref=e184] [cursor=pointer]:
+                      - /url: /store#
+                  - listitem [ref=e185]:
+                    - link [ref=e186] [cursor=pointer]:
+                      - /url: /store#
+                    - link [ref=e189] [cursor=pointer]:
+                      - /url: /store#
+                  - listitem [ref=e190]:
+                    - link [ref=e191] [cursor=pointer]:
+                      - /url: /store#
+                    - link [ref=e194] [cursor=pointer]:
+                      - /url: /store#
+                  - listitem [ref=e195]:
+                    - link [ref=e196] [cursor=pointer]:
+                      - /url: /store#
+                    - link [ref=e199] [cursor=pointer]:
+                      - /url: /store#
+                  - listitem [ref=e200]:
+                    - link [ref=e201] [cursor=pointer]:
+                      - /url: /store#
+                    - link [ref=e204] [cursor=pointer]:
+                      - /url: /store#
+                  - listitem [ref=e205]:
+                    - link [ref=e206] [cursor=pointer]:
+                      - /url: /store#
+                    - link [ref=e209] [cursor=pointer]:
+                      - /url: /store#
+                  - listitem [ref=e210]:
+                    - link [ref=e211] [cursor=pointer]:
+                      - /url: /store#
+                    - link [ref=e214] [cursor=pointer]:
+                      - /url: /store#
+                  - listitem [ref=e215]:
+                    - link [ref=e216] [cursor=pointer]:
+                      - /url: /store#
+                    - link [ref=e219] [cursor=pointer]:
+                      - /url: /store#
+                  - listitem [ref=e220]:
+                    - link [ref=e221] [cursor=pointer]:
+                      - /url: /store#
+                    - link [ref=e224] [cursor=pointer]:
+                      - /url: /store#
+                  - listitem [ref=e225]:
+                    - link [ref=e226] [cursor=pointer]:
+                      - /url: /store#
+                    - link [ref=e229] [cursor=pointer]:
+                      - /url: /store#
+                  - listitem [ref=e230]:
+                    - link [ref=e231] [cursor=pointer]:
+                      - /url: /store#
+                    - link [ref=e234] [cursor=pointer]:
+                      - /url: /store#
+                  - listitem [ref=e235]:
+                    - link [ref=e236] [cursor=pointer]:
+                      - /url: /store#
+                    - link [ref=e239] [cursor=pointer]:
+                      - /url: /store#
+                  - listitem
+              - generic [ref=e241]:
+                - button "Previous" [disabled] [ref=e242]:
+                  - img [ref=e243]
+                - button "Next" [ref=e246] [cursor=pointer]:
+                  - img [ref=e247]
+            - generic [ref=e254]:
+              - generic [ref=e255]:
+                - heading "BEST SELLERS" [level=2] [ref=e256]
+                - paragraph [ref=e258]: Join the hype train with the hottest products in our arsenal
+              - region "carousel" [ref=e259]:
+                - generic [ref=e260]: This is a carousel of products. Use Next and Previous buttons to navigate
+                - list [ref=e261]:
+                  - listitem [ref=e262]:
+                    - link [ref=e263] [cursor=pointer]:
+                      - /url: /store#
+                    - generic [ref=e265]:
+                      - generic:
+                        - paragraph
+                      - link [ref=e266] [cursor=pointer]:
+                        - /url: /store#
+                  - listitem [ref=e267]:
+                    - link [ref=e268] [cursor=pointer]:
+                      - /url: /store#
+                    - generic [ref=e270]:
+                      - generic:
+                        - paragraph
+                      - link [ref=e271] [cursor=pointer]:
+                        - /url: /store#
+                  - listitem [ref=e272]:
+                    - link [ref=e273] [cursor=pointer]:
+                      - /url: /store#
+                    - generic [ref=e275]:
+                      - generic:
+                        - paragraph
+                      - link [ref=e276] [cursor=pointer]:
+                        - /url: /store#
+                  - listitem [ref=e277]:
+                    - link [ref=e278] [cursor=pointer]:
+                      - /url: /store#
+                    - link [ref=e281] [cursor=pointer]:
+                      - /url: /store#
+                  - listitem [ref=e282]:
+                    - link [ref=e283] [cursor=pointer]:
+                      - /url: /store#
+                    - link [ref=e286] [cursor=pointer]:
+                      - /url: /store#
+                  - listitem [ref=e287]:
+                    - link [ref=e288] [cursor=pointer]:
+                      - /url: /store#
+                    - link [ref=e291] [cursor=pointer]:
+                      - /url: /store#
+                  - listitem [ref=e292]:
+                    - link [ref=e293] [cursor=pointer]:
+                      - /url: /store#
+                    - link [ref=e296] [cursor=pointer]:
+                      - /url: /store#
+                  - listitem [ref=e297]:
+                    - link [ref=e298] [cursor=pointer]:
+                      - /url: /store#
+                    - link [ref=e301] [cursor=pointer]:
+                      - /url: /store#
+                  - listitem
+              - generic [ref=e303]:
+                - button "Previous" [disabled] [ref=e304]:
+                  - img [ref=e305]
+                - button "Next" [ref=e308] [cursor=pointer]:
+                  - img [ref=e309]
+            - generic [ref=e316]:
+              - generic [ref=e317]:
+                - heading "007 FIRST LIGHT TACTICAL GEAR" [level=2] [ref=e318]
+                - generic [ref=e319]:
+                  - paragraph [ref=e320]: Check out immersive peripherals engineered to keep up during high-stakes missions.
+                  - link "Shop Gear" [ref=e321] [cursor=pointer]:
+                    - /url: /campaigns/007-first-light
+                    - generic [ref=e322]: Shop Gear
+                    - text: ">"
+              - region "carousel" [ref=e323]:
+                - generic [ref=e324]: This is a carousel of products. Use Next and Previous buttons to navigate
+                - group "slide 1 of 10" [ref=e325]:
+                  - generic [ref=e326]: ONLY AT RAZER
+                  - img "Razer Chroma RGB" [ref=e328]
+                  - generic [ref=e330]:
+                    - generic [ref=e331]:
+                      - heading "Razer Blade 16" [level=3] [ref=e332]
+                      - list
+                      - generic [ref=e334]:
+                        - generic [ref=e335]: "Get Lego Batman: Legacy of the Dark Knight and 007 First Light (worth $139.98) with your purchase."
+                        - button "View More" [ref=e336] [cursor=pointer]
+                    - generic [ref=e337]:
+                      - paragraph [ref=e339]:
+                        - text: From
+                        - text: US$4,899.99
+                      - link "BUY - Razer Blade 16, For US$4,899.99" [ref=e340] [cursor=pointer]:
+                        - /url: https://www.razer.com/gaming-laptops/razer-blade-16/RZ09-05819EN4-R3U1
+                        - text: Buy
+                - group "slide 2 of 10" [ref=e341]:
+                  - generic [ref=e342]: GIFT WITH PURCHASE
+                  - img "Razer Chroma RGB" [ref=e344]
+                  - generic [ref=e346]:
+                    - generic [ref=e347]:
+                      - list "Available in these colors" [ref=e348]:
+                        - listitem [ref=e349]:
+                          - button "color-black-240829" [ref=e350] [cursor=pointer]
+                        - listitem [ref=e351]:
+                          - button "color-white-240829" [ref=e352] [cursor=pointer]
+                        - listitem [ref=e353]:
+                          - button "color-phantom-green-edition" [ref=e354] [cursor=pointer]
+                        - listitem [ref=e355]:
+                          - button "color-phantom-white" [ref=e356] [cursor=pointer]
+                      - heading "Razer Basilisk V3 Pro 35K" [level=3] [ref=e357]
+                      - list
+                      - generic [ref=e360]: Unlock an exclusive 007 First Light in-game skin with your purchase.
+                    - generic [ref=e361]:
+                      - paragraph [ref=e363]:
+                        - text: From
+                        - text: US$159.99
+                      - link "BUY - Razer Basilisk V3 Pro 35K, For US$159.99" [ref=e364] [cursor=pointer]:
+                        - /url: https://www.razer.com/gaming-mice/razer-basilisk-v3-pro-35k/RZ01-05240100-R3U1
+                        - text: Buy
+                - group "slide 3 of 10" [ref=e365]:
+                  - generic [ref=e366]: GIFT WITH PURCHASE
+                  - img "Razer Chroma RGB" [ref=e368]
+                  - generic [ref=e370]:
+                    - generic [ref=e371]:
+                      - heading "Razer Cobra HyperSpeed" [level=3] [ref=e372]
+                      - list
+                      - generic [ref=e375]: Unlock an exclusive 007 First Light in-game skin with your purchase.
+                    - generic [ref=e376]:
+                      - paragraph [ref=e378]: US$99.99
+                      - link "BUY - Razer Cobra HyperSpeed, For US$99.99" [ref=e379] [cursor=pointer]:
+                        - /url: https://www.razer.com/gaming-mice/razer-cobra-hyperspeed/RZ01-05570100-R3U1
+                        - text: Buy
+                - group [ref=e380]:
+                  - generic [ref=e381]: GIFT WITH PURCHASE
+                  - img [ref=e383]
+                  - generic [ref=e385]:
+                    - generic [ref=e386]:
+                      - list [ref=e387]:
+                        - listitem [ref=e388]:
+                          - button [ref=e389] [cursor=pointer]
+                        - listitem [ref=e390]:
+                          - button [ref=e391] [cursor=pointer]
+                        - listitem [ref=e392]:
+                          - button [ref=e393] [cursor=pointer]
+                        - listitem [ref=e394]:
+                          - button [ref=e395] [cursor=pointer]
+                      - heading [level=3] [ref=e396]: Razer Firefly V2 Pro
+                      - generic [ref=e399]: Unlock an exclusive 007 First Light in-game skin with your purchase.
+                    - generic [ref=e400]:
+                      - paragraph [ref=e402]: From US$99.99
+                      - link [ref=e403] [cursor=pointer]:
+                        - /url: https://www.razer.com/gaming-mouse-mats/razer-firefly-v2-pro/RZ02-04920100-R3U1
+                        - text: Buy
+                - group [ref=e404]:
+                  - generic [ref=e405]: GIFT WITH PURCHASE
+                  - img [ref=e407]
+                  - generic [ref=e409]:
+                    - generic [ref=e410]:
+                      - heading [level=3] [ref=e411]: Razer BlackWidow V4 Pro 75%
+                      - generic [ref=e414]: Unlock an exclusive 007 First Light in-game skin with your purchase.
+                    - generic [ref=e415]:
+                      - paragraph [ref=e417]: US$299.99
+                      - link [ref=e418] [cursor=pointer]:
+                        - /url: https://www.razer.com/gaming-keyboards/razer-blackwidow-v4-pro-75/RZ03-05130200-R3U1
+                        - text: Buy
+                - group [ref=e419]:
+                  - generic [ref=e420]: GIFT WITH PURCHASE
+                  - img [ref=e422]
+                  - generic [ref=e424]:
+                    - generic [ref=e425]:
+                      - list [ref=e426]:
+                        - listitem [ref=e427]:
+                          - button [ref=e428] [cursor=pointer]
+                        - listitem [ref=e429]:
+                          - button [ref=e430] [cursor=pointer]
+                        - listitem [ref=e431]:
+                          - button [ref=e432] [cursor=pointer]
+                      - heading [level=3] [ref=e433]: Razer Wolverine V3 Pro
+                      - generic [ref=e436]: Unlock an exclusive 007 First Light in-game skin with your purchase.
+                    - generic [ref=e437]:
+                      - paragraph [ref=e439]: From US$199.99
+                      - link [ref=e440] [cursor=pointer]:
+                        - /url: https://www.razer.com/console-controllers/razer-wolverine-v3-pro/RZ06-05200100-R3U1
+                        - text: Buy
+                - group [ref=e441]:
+                  - generic [ref=e442]: GIFT WITH PURCHASE
+                  - generic [ref=e444]:
+                    - generic [ref=e445]:
+                      - heading [level=3] [ref=e446]: Razer Kishi V3 Pro XL
+                      - generic [ref=e449]: Unlock an exclusive 007 First Light in-game skin with your purchase.
+                    - generic [ref=e450]:
+                      - paragraph [ref=e452]: US$199.99
+                      - link [ref=e453] [cursor=pointer]:
+                        - /url: https://www.razer.com/mobile-controllers/razer-kishi-v3-pro-xl/RZ06-05470100-R3U1
+                        - text: Buy
+                - group [ref=e454]:
+                  - generic [ref=e455]: GIFT WITH PURCHASE
+                  - img [ref=e457]
+                  - generic [ref=e459]:
+                    - generic [ref=e460]:
+                      - heading [level=3] [ref=e461]: Razer Kraken V4 Pro
+                      - generic [ref=e464]: Unlock an exclusive 007 First Light in-game skin with your purchase.
+                    - generic [ref=e465]:
+                      - paragraph [ref=e467]: US$399.99
+                      - link [ref=e468] [cursor=pointer]:
+                        - /url: https://www.razer.com/gaming-headsets/razer-kraken-v4-pro/RZ04-05160100-R3U1
+                        - text: Buy
+                - group [ref=e469]:
+                  - generic [ref=e470]: GIFT WITH PURCHASE
+                  - img [ref=e472]
+                  - generic [ref=e474]:
+                    - generic [ref=e475]:
+                      - heading [level=3] [ref=e476]: Razer Kraken V4
+                      - generic [ref=e479]: Unlock an exclusive 007 First Light in-game skin with your purchase.
+                    - generic [ref=e480]:
+                      - paragraph [ref=e482]: US$179.99
+                      - link [ref=e483] [cursor=pointer]:
+                        - /url: https://www.razer.com/gaming-headsets/razer-kraken-v4/RZ04-05170100-R3U1
+                        - text: Buy
+                - group [ref=e484]:
+                  - generic [ref=e485]: GIFT WITH PURCHASE
+                  - generic [ref=e487]:
+                    - generic [ref=e488]:
+                      - heading [level=3] [ref=e489]: Razer Freyja
+                      - generic [ref=e492]: Unlock an exclusive 007 First Light in-game skin with your purchase.
+                    - generic [ref=e493]:
+                      - paragraph [ref=e495]: US$299.99
+                      - link [ref=e496] [cursor=pointer]:
+                        - /url: https://www.razer.com/gaming-chairs-accessories/razer-freyja/RC81-04340101-R3U1
+                        - text: Buy
+              - generic [ref=e498]:
+                - button "Previous" [disabled] [ref=e499]:
+                  - img [ref=e500]
+                - button "Next" [ref=e503] [cursor=pointer]:
+                  - img [ref=e504]
+            - region "featured content carousel 1" [ref=e511]:
+              - paragraph [ref=e512]: This is a carousel with highlighted items. Use the Previous and Next buttons to browse through 4 slides.
+              - generic "Carousel slides" [ref=e513]:
+                - generic [ref=e514]:
+                  - group "Slide 1 of 4" [ref=e515] [cursor=pointer]:
+                    - img "A young man in a dark jacket aims a gun with a focused expression, with the text \"FIRST LIGHT\" and glowing logos behind him." [ref=e518]
+                    - generic [ref=e519]:
+                      - heading "RAZER X 007 FIRST LIGHT" [level=4] [ref=e521]
+                      - paragraph [ref=e522]: ACTIVATE YOUR FIELD INSTINCTS
+                      - generic [ref=e523]:
+                        - link "Razer Blade >" [ref=e524]:
+                          - /url: /campaigns/nvidia-game-bundle
+                        - link "Sensa HD >" [ref=e525]:
+                          - /url: /campaigns/007-first-light
+                  - group "Slide 2 of 4" [ref=e526] [cursor=pointer]:
+                    - img "Three gaming office chairs with black mesh and faux leather, featuring adjustable armrests and headrests, against a plain background." [ref=e529]
+                    - generic [ref=e530]:
+                      - heading "RAZER GAMING CHAIR SPECIAL" [level=4] [ref=e532]
+                      - paragraph [ref=e533]: UNLOCK UP TO $200 OFF NOW
+                      - link "Shop Now >" [ref=e535]:
+                        - /url: /store/gaming-chairs
+                  - group "Slide 3 of 4" [ref=e536] [cursor=pointer]:
+                    - 'img "A split image of a study desk: left with a whiteboard, calendar, and pens, and right with a gaming laptop, mouse, and RGB lighting." [ref=e539]'
+                    - generic [ref=e540]:
+                      - heading "RAZER BLADE 18" [level=4] [ref=e542]
+                      - paragraph [ref=e543]: THE EDGE OF PERFORMANCE FOR GAMERS & AI DEVS
+                      - generic [ref=e544]:
+                        - link [ref=e545]:
+                          - /url: /gaming-laptops/razer-blade-18
+                          - text: Learn More >
+                        - link [ref=e546]:
+                          - /url: /gaming-laptops/razer-blade-18/buy
+                          - text: Buy >
+                  - group "Slide 4 of 4" [ref=e547] [cursor=pointer]:
+                    - img "Steam Deck gaming consoles with screens, controllers, and a box displaying the Steam logo and game artwork, set against a smoky background." [ref=e550]
+                    - generic [ref=e551]:
+                      - heading "RAZER KISHI V3 LINE" [level=4] [ref=e553]
+                      - paragraph [ref=e554]: SCORE A STEAM GIFT CARD WITH SELECT MODELS
+                      - generic [ref=e555]:
+                        - link [ref=e556]:
+                          - /url: /mobile-controllers/razer-kishi-v3-pro/buy
+                          - text: Kishi V3 Pro >
+                        - link [ref=e557]:
+                          - /url: /mobile-controllers/razer-kishi-v3/buy
+                          - text: Kishi V3 >
+              - generic [ref=e558]:
+                - generic [ref=e559]:
+                  - generic [ref=e560]:
+                    - button "Previous slide" [disabled]:
+                      - generic: chevron_left
+                      - generic: Previous slide
+                  - button "Next slide" [ref=e562] [cursor=pointer]:
+                    - generic [ref=e563]: chevron_right
+                    - generic: Next slide
+                - paragraph [ref=e564]: End of carousel
+            - generic [ref=e569]:
+              - generic [ref=e570]:
+                - heading "CHAIR BUNDLES" [level=2] [ref=e571]
+                - paragraph [ref=e573]: Discover the perfect support combos that elevate your style or immersion
+              - region "carousel" [ref=e574]:
+                - generic [ref=e575]: This is a carousel of products. Use Next and Previous buttons to navigate
+                - group "slide 1 of 5" [ref=e576]:
+                  - generic [ref=e577]: 13% off
+                  - generic [ref=e579]:
+                    - generic [ref=e580]:
+                      - list "Available in these colors" [ref=e581]:
+                        - listitem [ref=e582]:
+                          - button "vvc-l2-color-black-green" [ref=e583] [cursor=pointer]
+                        - listitem [ref=e584]:
+                          - button "vvc-l2-color-pattern-light-gray" [ref=e585] [cursor=pointer]
+                      - heading "Razer Immersive Iskur V2 X Bundle" [level=3] [ref=e586]
+                      - generic [ref=e589]: Save $69 on your bundle
+                    - generic [ref=e590]:
+                      - paragraph [ref=e592]:
+                        - text: From
+                        - generic [ref=e593]: "Current price:"
+                        - text: US$460.98
+                        - generic [ref=e594]: "Original price:"
+                        - deletion [ref=e596]: US$529.98
+                      - link "BUY - Razer Immersive Iskur V2 X Bundle, For US$460.98" [ref=e597] [cursor=pointer]:
+                        - /url: https://www.razer.com/gaming-chairs/razer-iskur-v2-x/RZHB-260321-01
+                        - text: Buy
+                - group "slide 2 of 5" [ref=e598]:
+                  - generic [ref=e599]: 9% off
+                  - generic [ref=e601]:
+                    - generic [ref=e602]:
+                      - list "Available in these colors" [ref=e603]:
+                        - listitem [ref=e604]:
+                          - button "color-black-240829" [ref=e605] [cursor=pointer]
+                        - listitem [ref=e606]:
+                          - button "color-quartz" [ref=e607] [cursor=pointer]
+                        - listitem [ref=e608]:
+                          - button "color-black-green" [ref=e609] [cursor=pointer]
+                      - heading "Razer Immersive Enki Bundle" [level=3] [ref=e610]
+                      - generic [ref=e613]: Save $69 on your bundle
+                    - generic [ref=e614]:
+                      - paragraph [ref=e616]:
+                        - text: From
+                        - generic [ref=e617]: "Current price:"
+                        - text: US$660.98
+                        - generic [ref=e618]: "Original price:"
+                        - deletion [ref=e620]: US$729.98
+                      - link "BUY - Razer Immersive Enki Bundle, For US$660.98" [ref=e621] [cursor=pointer]:
+                        - /url: https://www.razer.com/gaming-chairs/razer-enki/RZHB-260323-01
+                        - text: Buy
+                - group "slide 3 of 5" [ref=e622]:
+                  - generic [ref=e623]: 15% off
+                  - generic [ref=e625]:
+                    - generic [ref=e626]:
+                      - list "Available in these colors" [ref=e627]:
+                        - listitem [ref=e628]:
+                          - button "vvc-l2-color-black-green" [ref=e629] [cursor=pointer]
+                        - listitem [ref=e630]:
+                          - button "vvc-l2-color-pattern-light-gray" [ref=e631] [cursor=pointer]
+                      - heading "Razer Haptic Iskur V2 X Bundle" [level=3] [ref=e632]
+                      - generic [ref=e635]: Save $90 on your bundle
+                    - generic [ref=e636]:
+                      - paragraph [ref=e638]:
+                        - text: From
+                        - generic [ref=e639]: "Current price:"
+                        - text: US$509.98
+                        - generic [ref=e640]: "Original price:"
+                        - deletion [ref=e642]: US$599.98
+                      - link "BUY - Razer Haptic Iskur V2 X Bundle, For US$509.98" [ref=e643] [cursor=pointer]:
+                        - /url: https://www.razer.com/gaming-chairs/razer-iskur-v2-x/RZHB-260327-01
+                        - text: Buy
+                - group [ref=e644]:
+                  - generic [ref=e645]: 9% off
+                  - generic [ref=e647]:
+                    - generic [ref=e648]:
+                      - heading [level=3] [ref=e649]: Razer Advanced Support Bundle
+                      - generic [ref=e652]: Save $39.99 on your bundle
+                    - generic [ref=e653]:
+                      - paragraph [ref=e655]:
+                        - generic [ref=e656]: "Current price:"
+                        - text: US$389.99
+                        - generic [ref=e657]: "Original price:"
+                        - deletion [ref=e659]: US$429.98
+                      - link [ref=e660] [cursor=pointer]:
+                        - /url: https://www.razer.com/gaming-chairs/razer-iskur-v2-x-newgen/RZHB-260422-01
+                        - text: Buy
+                - group [ref=e661]:
+                  - generic [ref=e662]: 5% off
+                  - generic [ref=e664]:
+                    - generic [ref=e665]:
+                      - heading [level=3] [ref=e666]: Razer Elite Support Bundle
+                      - generic [ref=e669]: Save $39.99 on your bundle
+                    - generic [ref=e670]:
+                      - paragraph [ref=e672]:
+                        - generic [ref=e673]: "Current price:"
+                        - text: US$689.99
+                        - generic [ref=e674]: "Original price:"
+                        - deletion [ref=e676]: US$729.98
+                      - link [ref=e677] [cursor=pointer]:
+                        - /url: https://www.razer.com/gaming-chairs/razer-iskur-v2-newgen/RZHB-260423-01
+                        - text: Buy
+              - generic [ref=e679]:
+                - button "Previous" [disabled] [ref=e680]:
+                  - img [ref=e681]
+                - button "Next" [ref=e684] [cursor=pointer]:
+                  - img [ref=e685]
+            - generic [ref=e692]:
+              - generic [ref=e693]:
+                - heading "ONLY AT RAZER" [level=2] [ref=e694]
+                - generic [ref=e695]:
+                  - paragraph [ref=e696]: Explore unique products and services only available at our official online store
+                  - link "View All" [ref=e697] [cursor=pointer]:
+                    - /url: /exclusives
+                    - generic [ref=e698]: View All
+                    - text: ">"
+              - region "carousel" [ref=e699]:
+                - generic [ref=e700]: This is a carousel of products. Use Next and Previous buttons to navigate
+                - group "slide 1 of 9" [ref=e701]:
+                  - generic [ref=e702]: ONLY AT RAZER
+                  - img "Razer Chroma RGB" [ref=e704]
+                  - generic [ref=e706]:
+                    - generic [ref=e707]:
+                      - heading "New Razer Blade 18" [level=3] [ref=e708]
+                      - generic [ref=e710]:
+                        - generic [ref=e711]: "Get Lego Batman: Legacy of the Dark Knight and 007 First Light (worth $139.98) with your purchase."
+                        - button "View More" [ref=e712] [cursor=pointer]
+                    - generic [ref=e713]:
+                      - paragraph [ref=e715]:
+                        - text: From
+                        - text: US$3,999.99
+                      - link "BUY - New Razer Blade 18, For US$3,999.99" [ref=e716] [cursor=pointer]:
+                        - /url: https://www.razer.com/gaming-laptops/razer-blade-18/RZ09-05827ER3-R3U1
+                        - text: Buy
+                - group "slide 2 of 9" [ref=e717]:
+                  - generic [ref=e718]: ONLY AT RAZER
+                  - img "Razer Chroma RGB" [ref=e720]
+                  - generic [ref=e722]:
+                    - generic [ref=e723]:
+                      - heading "New Razer Blade 16 with GeForce RTX 5090, 32 GB RAM and 2 TB SSD" [level=3] [ref=e724]
+                      - generic [ref=e726]:
+                        - generic [ref=e727]: "Get Lego Batman: Legacy of the Dark Knight and 007 First Light (worth $139.98) with your purchase."
+                        - button "View More" [ref=e728] [cursor=pointer]
+                    - generic [ref=e729]:
+                      - paragraph [ref=e731]: US$4,899.99
+                      - link "BUY - New Razer Blade 16 with GeForce RTX 5090, 32 GB RAM and 2 TB SSD, For US$4,899.99" [ref=e732] [cursor=pointer]:
+                        - /url: https://www.razer.com/gaming-laptops/razer-blade-16/RZ09-05819EN4-R3U1
+                        - text: Buy
+                - group "slide 3 of 9" [ref=e733]:
+                  - generic [ref=e734]: ONLY AT RAZER
+                  - generic [ref=e736]:
+                    - heading "Razer Gigantus V2 - Large - Faker Edition" [level=3] [ref=e738]
+                    - generic [ref=e739]:
+                      - paragraph [ref=e741]: US$49.99
+                      - link "BUY - Razer Gigantus V2 - Large - Faker Edition, For US$49.99" [ref=e742] [cursor=pointer]:
+                        - /url: https://www.razer.com/gaming-mouse-mats/razer-gigantus-v2/RZ02-03334600-R3UA
+                        - text: Buy
+                - group [ref=e743]:
+                  - generic [ref=e744]: ONLY AT RAZER
+                  - img [ref=e746]
+                  - generic [ref=e748]:
+                    - generic [ref=e749]:
+                      - list [ref=e750]:
+                        - listitem [ref=e751]:
+                          - button [ref=e752] [cursor=pointer]
+                        - listitem [ref=e753]:
+                          - button [ref=e754] [cursor=pointer]
+                      - heading [level=3] [ref=e755]: Razer BlackWidow V4 75% Barebones
+                    - generic [ref=e756]:
+                      - paragraph [ref=e758]: From US$139.99
+                      - link [ref=e759] [cursor=pointer]:
+                        - /url: https://www.razer.com/gaming-keyboards/razer-blackwidow-v4-75/RZ03-05004000-R3U1
+                        - text: Buy
+                - group [ref=e760]:
+                  - generic [ref=e761]: ONLY AT RAZER
+                  - generic [ref=e763]:
+                    - heading [level=3] [ref=e765]: Razer Blue Screen
+                    - generic [ref=e766]:
+                      - paragraph [ref=e768]: US$149.99
+                      - link [ref=e769] [cursor=pointer]:
+                        - /url: https://www.razer.com/streaming-accessories/razer-blue-screen/RZ42-04770100-R3M1
+                        - text: Buy
+                - group [ref=e770]:
+                  - generic [ref=e771]: ONLY AT RAZER
+                  - generic [ref=e773]:
+                    - generic [ref=e774]:
+                      - list [ref=e775]:
+                        - listitem [ref=e776]:
+                          - button [ref=e777] [cursor=pointer]
+                        - listitem [ref=e778]:
+                          - button [ref=e779] [cursor=pointer]
+                        - listitem [ref=e780]:
+                          - button [ref=e781] [cursor=pointer]
+                        - listitem [ref=e782]:
+                          - button [ref=e783] [cursor=pointer]
+                      - heading [level=3] [ref=e784]: Razer Iskur V2 NewGen
+                    - generic [ref=e785]:
+                      - paragraph [ref=e787]: US$649.99
+                      - link [ref=e788] [cursor=pointer]:
+                        - /url: https://www.razer.com/gaming-chairs/razer-iskur-v2-newgen/RZ38-04900700-R3US
+                        - text: Buy
+                - group [ref=e789]:
+                  - generic [ref=e790]: ONLY AT RAZER
+                  - generic [ref=e792]:
+                    - heading [level=3] [ref=e794]: Razer Iskur V2
+                    - generic [ref=e795]:
+                      - paragraph [ref=e797]: US$649.99
+                      - link [ref=e798] [cursor=pointer]:
+                        - /url: https://www.razer.com/gaming-chairs/razer-iskur-v2/RZ38-04900100-R3U1
+                        - text: Buy
+                - group [ref=e799]:
+                  - generic [ref=e800]: ONLY AT RAZER
+                  - generic [ref=e802]:
+                    - heading [level=3] [ref=e804]: Razer Sneki Snek Reusable Bag
+                    - generic [ref=e805]:
+                      - paragraph [ref=e807]: US$39.99
+                      - link [ref=e808] [cursor=pointer]:
+                        - /url: https://www.razer.com/gear-accessories/razer-sneki-snek-reusable-bag/RC81-04330101-R3M1
+                        - text: Buy
+              - generic [ref=e810]:
+                - button "Previous" [disabled] [ref=e811]:
+                  - img [ref=e812]
+                - button "Next" [ref=e815] [cursor=pointer]:
+                  - img [ref=e816]
+            - generic [ref=e823]:
+              - generic [ref=e824]:
+                - heading "RAZER ESPORTS LINE" [level=2] [ref=e825]
+                - generic [ref=e826]:
+                  - paragraph [ref=e827]: We play to win
+                  - link "Learn More" [ref=e828] [cursor=pointer]:
+                    - /url: /esports-green
+                    - generic [ref=e829]: Learn More
+                    - text: ">"
+              - region "carousel" [ref=e830]:
+                - generic [ref=e831]: This is a carousel of products. Use Next and Previous buttons to navigate
+                - list [ref=e832]:
+                  - listitem [ref=e833]:
+                    - link [ref=e834] [cursor=pointer]:
+                      - /url: /store#
+                    - generic [ref=e836]:
+                      - generic:
+                        - paragraph
+                      - link [ref=e837] [cursor=pointer]:
+                        - /url: /store#
+                  - listitem [ref=e838]:
+                    - link [ref=e839] [cursor=pointer]:
+                      - /url: /store#
+                    - generic [ref=e841]:
+                      - generic:
+                        - paragraph
+                      - link [ref=e842] [cursor=pointer]:
+                        - /url: /store#
+                  - listitem [ref=e843]:
+                    - link [ref=e844] [cursor=pointer]:
+                      - /url: /store#
+                    - generic [ref=e846]:
+                      - generic:
+                        - paragraph
+                      - link [ref=e847] [cursor=pointer]:
+                        - /url: /store#
+                  - listitem [ref=e848]:
+                    - link [ref=e849] [cursor=pointer]:
+                      - /url: /store#
+                    - link [ref=e852] [cursor=pointer]:
+                      - /url: /store#
+                  - listitem [ref=e853]:
+                    - link [ref=e854] [cursor=pointer]:
+                      - /url: /store#
+                    - link [ref=e857] [cursor=pointer]:
+                      - /url: /store#
+                  - listitem [ref=e858]:
+                    - link [ref=e859] [cursor=pointer]:
+                      - /url: /store#
+                    - link [ref=e862] [cursor=pointer]:
+                      - /url: /store#
+                  - listitem [ref=e863]:
+                    - link [ref=e864] [cursor=pointer]:
+                      - /url: /store#
+                    - link [ref=e867] [cursor=pointer]:
+                      - /url: /store#
+                  - listitem [ref=e868]:
+                    - link [ref=e869] [cursor=pointer]:
+                      - /url: /store#
+                    - link [ref=e872] [cursor=pointer]:
+                      - /url: /store#
+                  - listitem [ref=e873]:
+                    - link [ref=e874] [cursor=pointer]:
+                      - /url: /store#
+                    - link [ref=e877] [cursor=pointer]:
+                      - /url: /store#
+                  - listitem
+              - generic [ref=e879]:
+                - button "Previous" [disabled] [ref=e880]:
+                  - img [ref=e881]
+                - button "Next" [ref=e884] [cursor=pointer]:
+                  - img [ref=e885]
+            - generic [ref=e893]:
+              - heading "SHOP WITH THE UNFAIR ADVANTAGE" [level=2] [ref=e894]
+              - paragraph [ref=e896]:
+                - link "Learn More >" [ref=e897] [cursor=pointer]:
+                  - /url: /store/why-shop-with-razer
+            - list [ref=e904]:
+              - listitem [ref=e905]:
+                - group "item" [ref=e906]:
+                  - paragraph [ref=e910]:
+                    - generic [ref=e911]:
+                      - text: Direct Exclusives.
+                      - text: Max Rewards.
+              - listitem [ref=e912]:
+                - group "item" [ref=e913]:
+                  - paragraph [ref=e917]:
+                    - generic [ref=e918]:
+                      - text: Peace of Mind Shopping.
+                      - text: Priority Support.
+              - listitem [ref=e919]:
+                - group "item" [ref=e920]:
+                  - paragraph [ref=e924]:
+                    - generic [ref=e925]:
+                      - text: Zero Interest.
+                      - text: Play Now, Pay Later.
+              - listitem [ref=e926]:
+                - group "item" [ref=e927]:
+                  - paragraph [ref=e931]:
+                    - generic [ref=e932]:
+                      - text: The Real Deal.
+                      - text: No Imitations.
+              - listitem [ref=e933]:
+                - group "item" [ref=e934]:
+                  - paragraph [ref=e938]:
+                    - generic [ref=e939]:
+                      - text: RazerCare.
+                      - text: Your Gear, Protected.
+              - listitem [ref=e940]:
+                - group "item" [ref=e941]:
+                  - paragraph [ref=e945]:
+                    - generic [ref=e946]:
+                      - text: Razer Programs.
+                      - text: Perks & Privileges.
+            - generic [ref=e952]:
+              - generic [ref=e953]:
+                - heading "GET US$10 OFF YOUR NEXT ORDER" [level=2] [ref=e954]
+                - generic [ref=e955]: Sign up for our Razer newsletter to unlock a special discount code for Razer gear and be the first to know about our latest specials and product releases.
+              - generic [ref=e956]:
+                - textbox "Email Address" [ref=e957]:
+                  - /placeholder: " "
+                - generic: Email Address
+              - button "Sign up now" [ref=e959] [cursor=pointer]
+              - generic [ref=e962]:
+                - text: By signing up, you agree to receive emails from Razer about products, news, events and promotions (including offers and discounts). For more details see our
+                - link "Privacy Policy" [ref=e963] [cursor=pointer]:
+                  - /url: https://www.razer.com/legal/customer-privacy-policy
+                - text: . A minimum spend is required to redeem the discount code.
+    - contentinfo [ref=e964]:
+      - generic [ref=e969]:
+        - generic [ref=e970]:
+          - generic [ref=e972]:
+            - heading "Shop" [level=2] [ref=e974]
+            - list [ref=e976]:
+              - listitem [ref=e977]:
+                - link "RazerStores" [ref=e978] [cursor=pointer]:
+                  - /url: https://www.razer.com/razerstores
+              - listitem [ref=e979]:
+                - link "RazerCafe" [ref=e980] [cursor=pointer]:
+                  - /url: https://www.razer.com/razercafe
+              - listitem [ref=e981]:
+                - link "Store Locator" [ref=e982] [cursor=pointer]:
+                  - /url: https://www.razer.com/store-finder
+              - listitem [ref=e983]:
+                - link "Purchase Programs" [ref=e984] [cursor=pointer]:
+                  - /url: https://www.razer.com/store/programs
+              - listitem [ref=e985]:
+                - link "Bulk Order Program" [ref=e986] [cursor=pointer]:
+                  - /url: https://www.razer.com/store/bulk-purchase
+              - listitem [ref=e987]:
+                - link "Education" [ref=e988] [cursor=pointer]:
+                  - /url: https://www.razer.com/education
+              - listitem [ref=e989]:
+                - link "Only at Razer" [ref=e990] [cursor=pointer]:
+                  - /url: https://www.razer.com/only-at-razer
+              - listitem [ref=e991]:
+                - link "Razer Silver" [ref=e992] [cursor=pointer]:
+                  - /url: https://www.razer.com/store/rewards
+              - listitem [ref=e993]:
+                - link "Affiliate" [ref=e994] [cursor=pointer]:
+                  - /url: https://www.razer.com/affiliate
+              - listitem [ref=e995]:
+                - link "Newsletter" [ref=e996] [cursor=pointer]:
+                  - /url: https://www.razer.com/newsletter
+          - generic [ref=e998]:
+            - heading "Explore" [level=2] [ref=e1000]
+            - list [ref=e1002]:
+              - listitem [ref=e1003]:
+                - link "Technology" [ref=e1004] [cursor=pointer]:
+                  - /url: https://www.razer.com/technology
+              - listitem [ref=e1005]:
+                - link "Chroma RGB" [ref=e1006] [cursor=pointer]:
+                  - /url: https://www.razer.com/chroma
+              - listitem [ref=e1007]:
+                - link "Concepts" [ref=e1008] [cursor=pointer]:
+                  - /url: https://www.razer.com/concepts
+              - listitem [ref=e1009]:
+                - link "Esports" [ref=e1010] [cursor=pointer]:
+                  - /url: https://www.razer.com/esports
+              - listitem [ref=e1011]:
+                - link "Collabs" [ref=e1012] [cursor=pointer]:
+                  - /url: https://www.razer.com/lifestyle/collabs
+          - generic [ref=e1014]:
+            - heading "Support" [level=2] [ref=e1016]
+            - list [ref=e1018]:
+              - listitem [ref=e1019]:
+                - link "Get Help" [ref=e1020] [cursor=pointer]:
+                  - /url: https://mysupport.razer.com/?c=us
+              - listitem [ref=e1021]:
+                - link "Registration & Warranty" [ref=e1022] [cursor=pointer]:
+                  - /url: https://www.razer.com/product-registration
+              - listitem [ref=e1023]:
+                - link "RazerStore Support" [ref=e1024] [cursor=pointer]:
+                  - /url: https://www.razer.com/razerstore-support
+              - listitem [ref=e1025]:
+                - link "RazerCare" [ref=e1026] [cursor=pointer]:
+                  - /url: https://www.razer.com/razercare
+              - listitem [ref=e1027]:
+                - link "Manage Razer ID" [ref=e1028] [cursor=pointer]:
+                  - /url: https://razerid.razer.com
+              - listitem [ref=e1029]:
+                - link "Support Videos" [ref=e1030] [cursor=pointer]:
+                  - /url: https://www.youtube.com/channel/UCrG4K8-XFEK5FyCz_jVzV-A/videos
+              - listitem [ref=e1031]:
+                - link "Recycling Program" [ref=e1032] [cursor=pointer]:
+                  - /url: https://mysupport.razer.com/app/answers/detail/a_id/5904
+              - listitem [ref=e1033]:
+                - link "Accessibility Statement" [ref=e1034] [cursor=pointer]:
+                  - /url: https://www.razer.com/legal/commitment-to-accessibility
+          - generic [ref=e1036]:
+            - heading "Company" [level=2] [ref=e1038]
+            - list [ref=e1040]:
+              - listitem [ref=e1041]:
+                - link "About Us" [ref=e1042] [cursor=pointer]:
+                  - /url: https://www.razer.com/about-razer
+              - listitem [ref=e1043]:
+                - link "Careers" [ref=e1044] [cursor=pointer]:
+                  - /url: https://careers.razer.com
+              - listitem [ref=e1045]:
+                - link "Newsroom" [ref=e1046] [cursor=pointer]:
+                  - /url: https://www.razer.com/newsroom
+              - listitem [ref=e1047]:
+                - link "zVentures" [ref=e1048] [cursor=pointer]:
+                  - /url: https://www.zvntrs.com
+              - listitem [ref=e1049]:
+                - link "Contact Us" [ref=e1050] [cursor=pointer]:
+                  - /url: https://www.razer.com/contact-us
+              - listitem [ref=e1051]:
+                - link "AI Gaming Newsletter" [ref=e1052] [cursor=pointer]:
+                  - /url: https://www.razer.com/newsletter/ai
+          - generic [ref=e1054]:
+            - heading "Follow Us" [level=2] [ref=e1056]
+            - list [ref=e1058]:
+              - listitem [ref=e1059]:
+                - link "Visit Razer’s Facebook Page" [ref=e1060] [cursor=pointer]:
+                  - /url: https://www.facebook.com/razer
+                  - figure [ref=e1061]
+              - listitem [ref=e1062]:
+                - link "Visit Razer’s Instagram Page" [ref=e1063] [cursor=pointer]:
+                  - /url: https://www.instagram.com/razer
+                  - figure [ref=e1064]
+              - listitem [ref=e1065]:
+                - link "Visit Razer’s Threads Page" [ref=e1066] [cursor=pointer]:
+                  - /url: https://www.threads.net/@razer
+                  - figure [ref=e1067]
+              - listitem [ref=e1068]:
+                - link "Visit Razer’s X Page" [ref=e1069] [cursor=pointer]:
+                  - /url: https://www.twitter.com/Razer
+                  - figure [ref=e1070]
+              - listitem [ref=e1071]:
+                - link "Visit Razer’s YouTube Page" [ref=e1072] [cursor=pointer]:
+                  - /url: https://www.youtube.com/razer
+                  - figure [ref=e1073]
+              - listitem [ref=e1074]:
+                - link "Visit Razer’s TikTok Page" [ref=e1075] [cursor=pointer]:
+                  - /url: https://www.tiktok.com/@razer
+                  - figure [ref=e1076]
+              - listitem [ref=e1077]:
+                - link "Visit Razer’s Twitch Page" [ref=e1078] [cursor=pointer]:
+                  - /url: https://www.twitch.tv/razer
+                  - figure [ref=e1079]
+              - listitem [ref=e1080]:
+                - link "Visit Razer’s Discord Page" [ref=e1081] [cursor=pointer]:
+                  - /url: https://discord.com/invite/razer
+                  - figure [ref=e1082]
+          - generic [ref=e1086]: FOR GAMERS. BY GAMERS.™
+        - generic [ref=e1090]:
+          - generic [ref=e1091]:
+            - generic [ref=e1093]: Copyright © 2026 Razer Inc. All rights reserved.
+            - list [ref=e1095]:
+              - listitem [ref=e1096]:
+                - link "Site Map" [ref=e1097] [cursor=pointer]:
+                  - /url: https://www.razer.com/sitemap
+              - listitem [ref=e1098]:
+                - text: "|"
+                - link "Legal Terms" [ref=e1099] [cursor=pointer]:
+                  - /url: https://www.razer.com/legal
+              - listitem [ref=e1100]:
+                - text: "|"
+                - link "Privacy Policy" [ref=e1101] [cursor=pointer]:
+                  - /url: https://www.razer.com/legal/customer-privacy-policy
+              - listitem [ref=e1102]:
+                - text: "|"
+                - link "Cookie Policy" [ref=e1103] [cursor=pointer]:
+                  - /url: https://www.razer.com/legal/cookies
+          - generic [ref=e1105]:
+            - text: United States |
+            - link "Change Location >" [ref=e1106] [cursor=pointer]:
+              - /url: /choose-location
+  - text: 
+```
+
+# Test source
+
+```ts
+  1  | const { test, expect } = require("@playwright/test");
+  2  | 
+  3  | test.describe("Product Details", () => {
+  4  |   //Product details page loads corrects
+  5  |   test("PD_01 Store Page loads correctly", async ({ page }) => {
+  6  |     await page.goto("https://www.razer.com/store");
+  7  |     await page.getByRole("button", { name: "Accept All" }).click();
+  8  |     await page.getByRole("link", { name: "Store", exact: true }).click();
+  9  |     await expect(page).toHaveURL("https://www.razer.com/store");
+  10 |   });
+  11 | 
+  12 |   //
+  13 |   test("PD_02 - Product information visibility", async ({ page }) => {
+  14 |     await page.goto("https://www.razer.com/");
+  15 |     await page.getByRole("button", { name: "Accept All" }).click();
+  16 |     await page.getByRole("link", { name: "Store", exact: true }).click();
+  17 |     await page
+  18 |       .getByRole("group", { name: /slide/i })
+  19 |       .getByLabel(/BUY/i)
+> 20 |       .click();
+     |        ^ Error: locator.click: Error: strict mode violation: getByRole('group', { name: /slide/i }).getByLabel(/BUY/i) resolved to 6 elements:
+  21 |     await expect(page.locator("h1")).toBeVisible();
+  22 |   });
+  23 | });
+  24 | 
+```
