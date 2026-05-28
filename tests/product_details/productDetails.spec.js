@@ -35,7 +35,6 @@ test.describe("Product Details", () => {
     await expect(productImage).toBeVisible();
   });
 
-
   test("PD_04 - Product image gallery works correctly", async ({ page }) => {
     await page.goto("https://www.razer.com/");
     await page.getByRole("button", { name: "Accept All" }).click();
@@ -50,5 +49,5 @@ test.describe("Product Details", () => {
 
   // });
 
-});
 
+});
