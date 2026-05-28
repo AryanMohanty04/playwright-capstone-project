@@ -1,0 +1,777 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: productListing/product.spec.js >> PLP_01 - Product listing page loads correctly
+- Location: tests/productListing/product.spec.js:4:1
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+```
+Error: locator.click: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for getByRole('button', { name: 'Accept All' })
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - region "We value your privacy" [ref=e2]:
+    - generic [ref=e3]:
+      - button "Close" [ref=e4] [cursor=pointer]
+      - generic [ref=e5]:
+        - heading "We value your privacy" [level=2] [ref=e6]
+        - generic [ref=e7]:
+          - paragraph [ref=e9]:
+            - text: We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. You can opt out from tracking by clicking on "
+            - strong [ref=e10]: Do Not Track
+            - text: "\"."
+            - link "Cookie Policy" [ref=e11] [cursor=pointer]:
+              - /url: https://www.razer.com/legal/cookies
+          - button "Do Not Track" [ref=e13] [cursor=pointer]
+  - generic [ref=e14]:
+    - generic [ref=e15]:
+      - generic [ref=e16]:
+        - button "Skip to Header" [ref=e17] [cursor=pointer]
+        - button "Skip to Main Content" [ref=e18] [cursor=pointer]
+        - button "Skip to Footer" [ref=e19] [cursor=pointer]
+      - banner [ref=e20]:
+        - navigation "global" [ref=e27]:
+          - list [ref=e28]:
+            - listitem [ref=e29]:
+              - link "Razer Homepage" [ref=e31] [cursor=pointer]:
+                - /url: /
+                - img "Razer Homepage" [ref=e32]
+            - listitem [ref=e33] [cursor=pointer]:
+              - link "Store" [ref=e34]:
+                - /url: https://www.razer.com/store
+              - button "Store" [ref=e35]
+            - listitem [ref=e36] [cursor=pointer]:
+              - link "PC" [ref=e37]:
+                - /url: https://www.razer.com/pc
+              - button "PC" [ref=e38]
+            - listitem [ref=e39] [cursor=pointer]:
+              - link "Console" [ref=e40]:
+                - /url: https://www.razer.com/console-gaming
+              - button "Console" [ref=e41]
+            - listitem [ref=e42] [cursor=pointer]:
+              - link "Mobile" [ref=e43]:
+                - /url: https://www.razer.com/mobile
+              - button "Mobile" [ref=e44]
+            - listitem [ref=e45] [cursor=pointer]:
+              - link "Furniture & Lifestyle" [ref=e46]:
+                - /url: https://www.razer.com/lifestyle
+              - button "Furniture & Lifestyle" [ref=e47]
+            - listitem [ref=e48] [cursor=pointer]:
+              - link "Gold & Silver" [ref=e49]:
+                - /url: https://gold.razer.com/us/en
+              - button "Gold & Silver" [ref=e50]
+            - listitem [ref=e51] [cursor=pointer]:
+              - link "Community" [ref=e52]:
+                - /url: https://www.razer.com/community
+              - button "Community" [ref=e53]
+            - listitem [ref=e54]:
+              - link "Razer.AI" [ref=e55] [cursor=pointer]:
+                - /url: https://razer.ai
+            - listitem [ref=e56] [cursor=pointer]:
+              - link "Support" [ref=e57]:
+                - /url: https://mysupport.razer.com/
+              - button "Support" [ref=e58]
+            - listitem [ref=e59]:
+              - generic [ref=e62]:
+                - button "Search" [ref=e63] [cursor=pointer]: 
+                - text: ❮  
+            - listitem [ref=e64]:
+              - button "0 items in cart" [ref=e70] [cursor=pointer]: 
+      - main [ref=e71]:
+        - generic [ref=e74]:
+          - navigation "category" [ref=e75]:
+            - list [ref=e77]:
+              - listitem [ref=e78]:
+                - link "Laptops & Accessories" [ref=e79] [cursor=pointer]:
+                  - /url: https://www.razer.com/pc/gaming-laptops
+                  - generic [ref=e80]: Laptops & Accessories
+              - listitem [ref=e81]:
+                - link "Mice" [ref=e82] [cursor=pointer]:
+                  - /url: https://www.razer.com/pc/gaming-mice
+                  - generic [ref=e83]: Mice
+              - listitem [ref=e84]:
+                - link "Mats" [ref=e85] [cursor=pointer]:
+                  - /url: https://www.razer.com/pc/gaming-mouse-mats
+                  - generic [ref=e86]: Mats
+              - listitem [ref=e87]:
+                - link "Keyboards" [ref=e88] [cursor=pointer]:
+                  - /url: https://www.razer.com/pc/gaming-keyboards-and-keypads
+                  - generic [ref=e89]: Keyboards
+              - listitem [ref=e90]:
+                - link "Controllers" [ref=e91] [cursor=pointer]:
+                  - /url: https://www.razer.com/console-gaming/controllers
+                  - generic [ref=e92]: Controllers
+              - listitem [ref=e93]:
+                - link "Headsets" [ref=e94] [cursor=pointer]:
+                  - /url: https://www.razer.com/pc/gaming-headsets-and-audio
+                  - generic [ref=e95]: Headsets
+              - listitem [ref=e96]:
+                - link "Speakers" [ref=e97] [cursor=pointer]:
+                  - /url: https://www.razer.com/pc/gaming-speakers
+                  - generic [ref=e98]: Speakers
+              - listitem [ref=e99]:
+                - link "Chairs" [ref=e100] [cursor=pointer]:
+                  - /url: https://www.razer.com/lifestyle/gaming-chairs
+                  - generic [ref=e101]: Chairs
+              - listitem [ref=e102]:
+                - link "Content Creation" [ref=e103] [cursor=pointer]:
+                  - /url: https://www.razer.com/pc/content-creation
+                  - generic [ref=e104]: Content Creation
+              - listitem [ref=e105]:
+                - link "Skins" [ref=e106] [cursor=pointer]:
+                  - /url: https://www.razer.com/skins
+                  - generic [ref=e107]: Skins
+              - listitem [ref=e108]:
+                - link "PC Components" [ref=e109] [cursor=pointer]:
+                  - /url: https://www.razer.com/pc/gaming-pc-components
+                  - generic [ref=e110]: PC Components
+              - listitem [ref=e111]:
+                - link "Software" [ref=e112] [cursor=pointer]:
+                  - /url: https://www.razer.com/pc/software
+                  - generic [ref=e113]: Software
+          - navigation "sub-category" [ref=e114]:
+            - list [ref=e116]:
+              - listitem [ref=e117]:
+                - link "Blade 14" [ref=e118] [cursor=pointer]:
+                  - /url: https://www.razer.com/gaming-laptops/razer-blade-14
+                  - img [ref=e120]
+                  - generic [ref=e121]: Blade 14
+                - generic [ref=e122]:
+                  - generic [ref=e123]: New
+                  - generic [ref=e124]: New
+              - listitem [ref=e125]:
+                - link "Blade 16" [ref=e126] [cursor=pointer]:
+                  - /url: https://www.razer.com/gaming-laptops/razer-blade-16
+                  - img [ref=e128]
+                  - generic [ref=e129]: Blade 16
+                - generic [ref=e130]:
+                  - generic [ref=e131]: New
+                  - generic [ref=e132]: New
+              - listitem [ref=e133]:
+                - link "Blade 18" [ref=e134] [cursor=pointer]:
+                  - /url: https://www.razer.com/gaming-laptops/razer-blade-18
+                  - img [ref=e136]
+                  - generic [ref=e137]: Blade 18
+                - generic [ref=e138]:
+                  - generic [ref=e139]: New
+                  - generic [ref=e140]: New
+              - listitem [ref=e141]:
+                - link "Compare" [ref=e142] [cursor=pointer]:
+                  - /url: https://www.razer.com/shop/pc/gaming-laptops
+                  - img [ref=e144]
+                  - generic [ref=e145]: Compare
+              - listitem [ref=e146]:
+                - link "Razer Skins" [ref=e147] [cursor=pointer]:
+                  - /url: https://www.razer.com/skins
+                  - img [ref=e149]
+                  - generic [ref=e150]: Razer Skins
+                - generic [ref=e151]:
+                  - generic [ref=e152]: New
+                  - generic [ref=e153]: New
+              - listitem [ref=e154]:
+                - link "Accessories" [ref=e155] [cursor=pointer]:
+                  - /url: https://www.razer.com/pc/gaming-pc-accessories
+                  - img [ref=e157]
+                  - generic [ref=e158]: Accessories
+        - generic [ref=e159]:
+          - generic:
+            - generic: 
+          - generic [ref=e162]:
+            - heading "Razer Best Gaming Laptops | Top-Rated Powerful Gaming Laptops" [level=1] [ref=e163]
+            - generic [ref=e169]:
+              - heading "GAMING LAPTOPS" [level=2] [ref=e170]
+              - paragraph [ref=e172]:
+                - text: To own a Razer Blade is to experience the very best in performance and portability. When it comes to playing, working, or creating, dominate in every field with the world’s fastest laptops for gamers and creators.
+                - link "windows logo, get to know windows 11" [ref=e173] [cursor=pointer]:
+                  - /url: https://www.microsoft.com/en-us/windows?r=1
+                  - img "windows logo, get to know windows 11" [ref=e174]
+            - generic [ref=e179]:
+              - generic [ref=e181]: "Description not needed: The visuals in this video animation only support what is spoken; the visuals do not provide additional information."
+              - button "pause video animation" [ref=e182] [cursor=pointer]:
+                - img [ref=e184]
+            - heading "THE RAZER BLADE LINE" [level=2] [ref=e191]
+            - list "Product tiles" [ref=e197]:
+              - listitem [ref=e198] [cursor=pointer]:
+                - group "product" [ref=e199]:
+                  - group [ref=e201]:
+                    - generic [ref=e202]: Only at Razer
+                    - generic [ref=e203]:
+                      - heading [level=3] [ref=e205]: Razer Blade 14
+                      - generic [ref=e206]: Thin Out The Competition
+                  - generic [ref=e211]:
+                    - generic [ref=e212]: Only at Razer
+                    - generic [ref=e213]:
+                      - heading "Razer Blade 14" [level=3] [ref=e215]
+                      - paragraph [ref=e217]:
+                        - generic [ref=e218]:
+                          - text: Ultra-Portable 14-Inch Gaming Laptop with NVIDIA
+                          - superscript [ref=e219]: ®
+                          - text: GeForce RTX™ 50 Series Laptop GPUs and AMD Ryzen™ AI 9 365 Processor.
+                      - generic [ref=e220]:
+                        - link "learn more" [ref=e221]:
+                          - /url: /gaming-laptops/razer-blade-14
+                          - text: Learn More
+                        - link "buy now" [ref=e222]:
+                          - /url: /gaming-laptops/razer-blade-14/buy
+                          - text: Buy Now
+                  - generic [ref=e223]:
+                    - button:
+                      - generic:
+                        - img
+                        - generic: Read More
+              - listitem [ref=e224] [cursor=pointer]:
+                - group "product" [ref=e225]:
+                  - group [ref=e227]:
+                    - generic [ref=e228]: Only at Razer
+                    - generic [ref=e229]:
+                      - heading [level=3] [ref=e231]: Razer Blade 16
+                      - generic [ref=e232]: Slim. Immersive. Infinite.
+                  - generic [ref=e237]:
+                    - generic [ref=e238]: Only at Razer
+                    - generic [ref=e239]:
+                      - heading "Razer Blade 16" [level=3] [ref=e241]
+                      - paragraph [ref=e243]:
+                        - generic [ref=e244]:
+                          - text: Ultra-thin 16-inch gaming laptop with NVIDIA
+                          - superscript [ref=e245]: ®
+                          - text: GeForce RTX™ 50 Series Laptop GPUs and Intel
+                          - superscript [ref=e246]: ®
+                          - text: Core™ Ultra 9 performance. Built for gamers and creators who need maximum performance on the go.
+                      - generic [ref=e247]:
+                        - link "learn more" [ref=e248]:
+                          - /url: /gaming-laptops/razer-blade-16
+                          - text: Learn More
+                        - link "buy now" [ref=e249]:
+                          - /url: /gaming-laptops/razer-blade-16/buy
+                          - text: Buy Now
+                  - generic [ref=e250]:
+                    - button:
+                      - generic:
+                        - img
+                        - generic: Read More
+              - listitem [ref=e251] [cursor=pointer]:
+                - group "product" [ref=e252]:
+                  - group [ref=e254]:
+                    - generic [ref=e255]: Only at Razer
+                    - generic [ref=e256]:
+                      - heading [level=3] [ref=e258]: Razer Blade 18
+                      - generic [ref=e259]: The Edge of Performance for Gamers & AI Devs
+                  - generic [ref=e264]:
+                    - generic [ref=e265]: Only at Razer
+                    - generic [ref=e266]:
+                      - heading "Razer Blade 18" [level=3] [ref=e268]
+                      - paragraph [ref=e270]:
+                        - generic [ref=e271]:
+                          - text: Ultra-powerful 18-Inch Gaming Laptop with up to NVIDIA
+                          - superscript [ref=e272]: ®
+                          - text: GeForce RTX™ 5090 Laptop Graphics and an Intel
+                          - superscript [ref=e273]: ®
+                          - text: Core™ Ultra 9 290HX Plus Processor.
+                      - generic [ref=e274]:
+                        - link "learn more" [ref=e275]:
+                          - /url: /gaming-laptops/razer-blade-18
+                          - text: Learn More
+                        - link "buy now" [ref=e276]:
+                          - /url: /gaming-laptops/razer-blade-18/buy
+                          - text: Buy Now
+                  - generic [ref=e277]:
+                    - button:
+                      - generic:
+                        - img
+                        - generic: Read More
+            - generic [ref=e283]:
+              - heading "BUNDLED WITH BLADE" [level=2] [ref=e284]
+              - paragraph [ref=e286]: From the hottest games to the latest software and subscriptions, get bonus rewards on us with select Razer Blade laptops.
+            - list [ref=e293]:
+              - listitem [ref=e294]:
+                - group "item" [ref=e295]:
+                  - generic [ref=e296]:
+                    - link [ref=e297] [cursor=pointer]:
+                      - /url: /campaigns/intel-game-bundle
+                      - generic [ref=e298]: learn more - intel spring special
+                    - 'img "Lego Batman: Legacy of the Dark Knight" [ref=e300]'
+                  - generic [ref=e301]:
+                    - heading "INTEL SPRING SPECIAL" [level=3] [ref=e303]
+                    - paragraph [ref=e304]:
+                      - generic [ref=e305]:
+                        - text: Get Lego
+                        - superscript [ref=e306]: ®
+                        - text: "Batman™: Legacy of the Dark Knight (worth $69.99) with purchase of qualifying Intel"
+                        - superscript [ref=e307]: ®
+                        - text: Core™ Ultra Razer Blade laptops.
+                  - link "Learn More >" [ref=e310] [cursor=pointer]:
+                    - /url: /campaigns/intel-game-bundle
+              - listitem [ref=e311]:
+                - group "item" [ref=e312]:
+                  - link [ref=e314] [cursor=pointer]:
+                    - /url: /campaigns/nvidia-game-bundle
+                    - generic [ref=e315]: learn more - 007 first light game bundle
+                  - generic [ref=e317]:
+                    - heading "007 First Light Game Bundle" [level=3] [ref=e319]
+                    - paragraph [ref=e320]:
+                      - generic [ref=e321]:
+                        - text: For a limited time, get 007 First Light for free (worth US$69.99) with select Razer Blade laptops powered by NVIDIA
+                        - superscript [ref=e322]: ®
+                        - text: GeForce RTX™ 50 Series graphics.
+                  - link "Learn More >" [ref=e325] [cursor=pointer]:
+                    - /url: /campaigns/nvidia-game-bundle
+              - listitem [ref=e326]:
+                - group "item" [ref=e327]:
+                  - link [ref=e329] [cursor=pointer]:
+                    - /url: /pc/gaming-laptops/windows11
+                    - generic [ref=e330]: learn more - pc game pass
+                  - generic [ref=e332]:
+                    - heading "PC Game Pass" [level=3] [ref=e334]
+                    - paragraph [ref=e335]: Play hundreds of PC games on your new Razer Blade with 1 month free of PC Game Pass (worth $13.99). Terms and conditions apply.
+                  - link "Learn More >" [ref=e338] [cursor=pointer]:
+                    - /url: /pc/gaming-laptops/windows11
+            - heading "THE RAZER ADVANTAGE" [level=2] [ref=e345]
+            - list [ref=e352]:
+              - listitem [ref=e353]:
+                - group "item" [ref=e354]:
+                  - generic [ref=e357]:
+                    - heading "ANODIZED ALUMINUM UNIBODY" [level=3] [ref=e359]
+                    - paragraph [ref=e360]: CNC-milled from a single aluminum block, the chassis achieves optimal strength-to-weight ratio and is anodized with a matte black finish for a smooth, scratch-resistant surface.
+              - listitem [ref=e361]:
+                - group "item" [ref=e362]:
+                  - generic [ref=e365]:
+                    - heading "BEST-IN-CLASS PROCESSORS" [level=3] [ref=e367]
+                    - paragraph [ref=e368]: Powered by the latest Intel and AMD processors, Razer Blades are designed to perform the most resource-heavy tasks flawlessly, delivering supreme performance straight out of the box.
+              - listitem [ref=e369]:
+                - group "item" [ref=e370]:
+                  - generic [ref=e373]:
+                    - heading "INNOVATIVE COOLING SYSTEM" [level=3] [ref=e375]
+                    - paragraph [ref=e376]: Vaporized liquid cooling, custom fans, and integrated heat exchangers manage heat efficiently so the Razer Blade always performs at its peak.
+            - generic [ref=e381]:
+              - generic [ref=e382]:
+                - heading "NVIDIA® GEFORCE RTX™ 50 SERIES LAPTOP GPU" [level=2] [ref=e383]
+                - heading "Maximum Performance. Minimal Size." [level=3] [ref=e384]
+                - paragraph [ref=e386]: While others may share the same hardware, what truly sets Razer Blades apart is design and engineering that pushes the limits of what these graphics processors are capable of. By achieving maximum Total Graphics Power (TGP) and offering more power per cubic inch than any other laptop, our focus on delivering best-in-class performance and portability ensures that every Razer Blade we make is always ahead of the curve.
+                - link "Learn More >" [ref=e388] [cursor=pointer]:
+                  - /url: /technology/nvidia-ai
+              - img "Logo - NVIDIA Geforce RTX" [ref=e390]
+            - generic [ref=e395]:
+              - generic [ref=e397]: "Description not needed: The visuals in this video animation only support what is spoken; the visuals do not provide additional information."
+              - button "pause video animation" [ref=e398] [cursor=pointer]:
+                - img [ref=e400]
+            - list [ref=e407]:
+              - listitem [ref=e408]:
+                - group "item" [ref=e409]:
+                  - region "made with blade and razer logo" [ref=e411]:
+                    - generic [ref=e412]: Your browser does not support the video tag.
+                    - button "play video animation" [ref=e413] [cursor=pointer]:
+                      - generic [ref=e414]: play_arrow
+                  - generic [ref=e415]:
+                    - heading "#MADEWITHBLADE" [level=4] [ref=e417]
+                    - paragraph [ref=e418]: See what happens when cutting-edge performance meets world-class creativity. Discover how the Razer Blade empowers some of the most talented artists in the world.
+                  - link "Learn More >" [ref=e421] [cursor=pointer]:
+                    - /url: /campaigns/made-with-blade
+              - listitem [ref=e422]:
+                - group "item" [ref=e423]:
+                  - generic [ref=e424]:
+                    - link [ref=e425] [cursor=pointer]:
+                      - /url: /creator-laptops/razer-blade-studio-edition
+                      - generic [ref=e426]: learn more - nvidia studio
+                    - img "NVIDIA Geforce RTX Studio logo" [ref=e428]
+                  - generic [ref=e429]:
+                    - heading "NVIDIA STUDIO" [level=4] [ref=e431]
+                    - paragraph [ref=e432]: Make your creative vision a reality with AI-assisted tools for faster workflow and NVIDIA Studio Drivers for optimal performance with your favorite creative applications.
+                  - link "Learn More >" [ref=e435] [cursor=pointer]:
+                    - /url: /creator-laptops/razer-blade-studio-edition
+            - generic [ref=e441]:
+              - heading "ACCESSORIES TO MAXIMIZE" [level=2] [ref=e442]
+              - paragraph [ref=e444]: Bring out the full power of your Razer Blade with add-ons that enable it to do even more.
+            - list [ref=e451]:
+              - listitem [ref=e452]:
+                - group "item" [ref=e453]:
+                  - link [ref=e455] [cursor=pointer]:
+                    - /url: /gaming-pc-accessories/razer-laptop-cooling-pad
+                    - generic [ref=e456]: learn more - laptop cooling pad
+                  - generic [ref=e458]:
+                    - heading "Laptop Cooling Pad" [level=3] [ref=e460]
+                    - paragraph
+                  - link "Learn More >" [ref=e463] [cursor=pointer]:
+                    - /url: /gaming-pc-accessories/razer-laptop-cooling-pad
+              - listitem [ref=e464]:
+                - group "item" [ref=e465]:
+                  - link [ref=e467] [cursor=pointer]:
+                    - /url: /pc/docks-and-hubs
+                    - generic [ref=e468]: learn more - docks & hubs
+                  - generic [ref=e470]:
+                    - heading "Docks & Hubs" [level=3] [ref=e472]
+                    - paragraph
+                  - link "Learn More >" [ref=e475] [cursor=pointer]:
+                    - /url: /pc/docks-and-hubs
+              - listitem [ref=e476]:
+                - group "item" [ref=e477]:
+                  - link [ref=e479] [cursor=pointer]:
+                    - /url: /gaming-pc-accessories/razer-adjustable-laptop-stand
+                    - generic [ref=e480]: learn more - adjustable laptop stand
+                  - generic [ref=e482]:
+                    - heading "Adjustable Laptop Stand" [level=3] [ref=e484]
+                    - paragraph
+                  - link "Learn More >" [ref=e487] [cursor=pointer]:
+                    - /url: /gaming-pc-accessories/razer-adjustable-laptop-stand
+              - listitem [ref=e488]:
+                - group "item" [ref=e489]:
+                  - link [ref=e491] [cursor=pointer]:
+                    - /url: /gaming-egpus/razer-core-x-v2
+                    - generic [ref=e492]: learn more - external graphics
+                  - generic [ref=e494]:
+                    - heading "External Graphics" [level=3] [ref=e496]
+                    - paragraph
+                  - link "Learn More >" [ref=e499] [cursor=pointer]:
+                    - /url: /gaming-egpus/razer-core-x-v2
+            - region "featured content carousel 1" [ref=e504]:
+              - paragraph [ref=e505]: This is a carousel with highlighted items. Use the Previous and Next buttons to browse through 4 slides.
+              - generic "Carousel slides" [ref=e506]:
+                - generic [ref=e507]:
+                  - group "Slide 1 of 4" [ref=e508] [cursor=pointer]:
+                    - img "Razer Care's Logo" [ref=e511]
+                    - generic [ref=e512]:
+                      - heading "Industry Leading Support" [level=3] [ref=e514]
+                      - paragraph [ref=e515]:
+                        - text: Every Razer Blade comes with an industry leading 2-year limited battery warranty and a 1-year manufacturer’s warranty.
+                        - text: For additional protection, get up to 3 years of repair support including accidental damage coverage with RazerCare Elite.
+                      - link "Learn more >" [ref=e517]:
+                        - /url: /razercare
+                  - group "Slide 2 of 4" [ref=e518] [cursor=pointer]:
+                    - 'img "Razer Skins: Array of striking designs to express your personal style" [ref=e521]'
+                    - generic [ref=e522]:
+                      - heading "RAZER SKINS" [level=3] [ref=e524]
+                      - paragraph [ref=e525]: Crafted with customized 3M™ cast vinyl for extreme durability and fused with cutting-edge adhesive technologies for an ultra-precise fit, our skins are decked out in an array of striking designs to express your personal style.
+                      - link "Learn more >" [ref=e527]:
+                        - /url: https://www.razer.com/skins
+                  - group "Slide 3 of 4" [ref=e528] [cursor=pointer]:
+                    - img "Choosing your blade guide helps streamline your decision" [ref=e531]
+                    - generic [ref=e532]:
+                      - 'heading "CHOOSING YOUR BLADE: A BUYER’S GUIDE" [level=3] [ref=e534]'
+                      - paragraph [ref=e535]: With a huge array of Razer Blade laptops available, sifting through all the options can be overwhelming—but it doesn’t have to be. No matter your needs or budget, our nifty filter, and guide can help streamline your decision.
+                      - link [ref=e537]:
+                        - /url: /gaming-laptops/buying-guide
+                        - text: Learn more >
+                  - group "Slide 4 of 4" [ref=e538] [cursor=pointer]:
+                    - img "Play latest game with graphics that rival the reality" [ref=e541]
+                    - generic [ref=e542]:
+                      - heading "Playtime. Anytime." [level=3] [ref=e544]
+                      - paragraph [ref=e545]:
+                        - generic [ref=e546]:
+                          - text: Play the latest games with graphics that rival reality. DirectX 12 enables breathtaking, immersive graphics at high frame rates
+                          - superscript [ref=e547]:
+                            - link [ref=e548]:
+                              - /url: /pc/gaming-laptops?srsltid=AfmBOorY_uV69PPxiA4wIf7PHMnPMJ3ZuLUghnNo6dnZWZqNEVZRRX2O#footnote1
+                              - text: "*"
+                          - text: .
+                        - link [ref=e549]:
+                          - /url: "    \nhttps://www.microsoft.com/en-us/windows?r=1"
+                          - img [ref=e550]
+                        - generic [ref=e552]:
+                          - superscript [ref=e553]: "*"
+                          - text: DirectX 12 Ultimate available with supported games, graphics chips, and requires the latest Windows 11 update with updated hardware drivers.
+                      - link [ref=e555]:
+                        - /url: /pc/gaming-laptops/windows-11
+                        - text: Learn more >
+              - generic [ref=e556]:
+                - generic [ref=e557]:
+                  - generic [ref=e558]:
+                    - button "Previous slide" [disabled]:
+                      - generic: chevron_left
+                      - generic: Previous slide
+                  - button "Next slide" [ref=e560] [cursor=pointer]:
+                    - generic [ref=e561]: chevron_right
+                    - generic [ref=e562]: Next slide
+                - paragraph [ref=e563]: End of carousel
+      - contentinfo [ref=e564]:
+        - generic [ref=e569]:
+          - generic [ref=e570]:
+            - generic [ref=e572]:
+              - heading "Shop" [level=2] [ref=e574]
+              - list [ref=e576]:
+                - listitem [ref=e577]:
+                  - link "RazerStores" [ref=e578] [cursor=pointer]:
+                    - /url: https://www.razer.com/razerstores
+                - listitem [ref=e579]:
+                  - link "RazerCafe" [ref=e580] [cursor=pointer]:
+                    - /url: https://www.razer.com/razercafe
+                - listitem [ref=e581]:
+                  - link "Store Locator" [ref=e582] [cursor=pointer]:
+                    - /url: https://www.razer.com/store-finder
+                - listitem [ref=e583]:
+                  - link "Purchase Programs" [ref=e584] [cursor=pointer]:
+                    - /url: https://www.razer.com/store/programs
+                - listitem [ref=e585]:
+                  - link "Bulk Order Program" [ref=e586] [cursor=pointer]:
+                    - /url: https://www.razer.com/store/bulk-purchase
+                - listitem [ref=e587]:
+                  - link "Education" [ref=e588] [cursor=pointer]:
+                    - /url: https://www.razer.com/education
+                - listitem [ref=e589]:
+                  - link "Only at Razer" [ref=e590] [cursor=pointer]:
+                    - /url: https://www.razer.com/only-at-razer
+                - listitem [ref=e591]:
+                  - link "Razer Silver" [ref=e592] [cursor=pointer]:
+                    - /url: https://www.razer.com/store/rewards
+                - listitem [ref=e593]:
+                  - link "Affiliate" [ref=e594] [cursor=pointer]:
+                    - /url: https://www.razer.com/affiliate
+                - listitem [ref=e595]:
+                  - link "Newsletter" [ref=e596] [cursor=pointer]:
+                    - /url: https://www.razer.com/newsletter
+            - generic [ref=e598]:
+              - heading "Explore" [level=2] [ref=e600]
+              - list [ref=e602]:
+                - listitem [ref=e603]:
+                  - link "Technology" [ref=e604] [cursor=pointer]:
+                    - /url: https://www.razer.com/technology
+                - listitem [ref=e605]:
+                  - link "Chroma RGB" [ref=e606] [cursor=pointer]:
+                    - /url: https://www.razer.com/chroma
+                - listitem [ref=e607]:
+                  - link "Concepts" [ref=e608] [cursor=pointer]:
+                    - /url: https://www.razer.com/concepts
+                - listitem [ref=e609]:
+                  - link "Esports" [ref=e610] [cursor=pointer]:
+                    - /url: https://www.razer.com/esports
+                - listitem [ref=e611]:
+                  - link "Collabs" [ref=e612] [cursor=pointer]:
+                    - /url: https://www.razer.com/lifestyle/collabs
+            - generic [ref=e614]:
+              - heading "Support" [level=2] [ref=e616]
+              - list [ref=e618]:
+                - listitem [ref=e619]:
+                  - link "Get Help" [ref=e620] [cursor=pointer]:
+                    - /url: https://mysupport.razer.com/?c=us
+                - listitem [ref=e621]:
+                  - link "Registration & Warranty" [ref=e622] [cursor=pointer]:
+                    - /url: https://www.razer.com/product-registration
+                - listitem [ref=e623]:
+                  - link "RazerStore Support" [ref=e624] [cursor=pointer]:
+                    - /url: https://www.razer.com/razerstore-support
+                - listitem [ref=e625]:
+                  - link "RazerCare" [ref=e626] [cursor=pointer]:
+                    - /url: https://www.razer.com/razercare
+                - listitem [ref=e627]:
+                  - link "Manage Razer ID" [ref=e628] [cursor=pointer]:
+                    - /url: https://razerid.razer.com
+                - listitem [ref=e629]:
+                  - link "Support Videos" [ref=e630] [cursor=pointer]:
+                    - /url: https://www.youtube.com/channel/UCrG4K8-XFEK5FyCz_jVzV-A/videos
+                - listitem [ref=e631]:
+                  - link "Recycling Program" [ref=e632] [cursor=pointer]:
+                    - /url: https://mysupport.razer.com/app/answers/detail/a_id/5904
+                - listitem [ref=e633]:
+                  - link "Accessibility Statement" [ref=e634] [cursor=pointer]:
+                    - /url: https://www.razer.com/legal/commitment-to-accessibility
+            - generic [ref=e636]:
+              - heading "Company" [level=2] [ref=e638]
+              - list [ref=e640]:
+                - listitem [ref=e641]:
+                  - link "About Us" [ref=e642] [cursor=pointer]:
+                    - /url: https://www.razer.com/about-razer
+                - listitem [ref=e643]:
+                  - link "Careers" [ref=e644] [cursor=pointer]:
+                    - /url: https://careers.razer.com
+                - listitem [ref=e645]:
+                  - link "Newsroom" [ref=e646] [cursor=pointer]:
+                    - /url: https://www.razer.com/newsroom
+                - listitem [ref=e647]:
+                  - link "zVentures" [ref=e648] [cursor=pointer]:
+                    - /url: https://www.zvntrs.com
+                - listitem [ref=e649]:
+                  - link "Contact Us" [ref=e650] [cursor=pointer]:
+                    - /url: https://www.razer.com/contact-us
+                - listitem [ref=e651]:
+                  - link "AI Gaming Newsletter" [ref=e652] [cursor=pointer]:
+                    - /url: https://www.razer.com/newsletter/ai
+            - generic [ref=e654]:
+              - heading "Follow Us" [level=2] [ref=e656]
+              - list [ref=e658]:
+                - listitem [ref=e659]:
+                  - link "Visit Razer’s Facebook Page" [ref=e660] [cursor=pointer]:
+                    - /url: https://www.facebook.com/razer
+                    - figure [ref=e661]
+                - listitem [ref=e662]:
+                  - link "Visit Razer’s Instagram Page" [ref=e663] [cursor=pointer]:
+                    - /url: https://www.instagram.com/razer
+                    - figure [ref=e664]
+                - listitem [ref=e665]:
+                  - link "Visit Razer’s Threads Page" [ref=e666] [cursor=pointer]:
+                    - /url: https://www.threads.net/@razer
+                    - figure [ref=e667]
+                - listitem [ref=e668]:
+                  - link "Visit Razer’s X Page" [ref=e669] [cursor=pointer]:
+                    - /url: https://www.twitter.com/Razer
+                    - figure [ref=e670]
+                - listitem [ref=e671]:
+                  - link "Visit Razer’s YouTube Page" [ref=e672] [cursor=pointer]:
+                    - /url: https://www.youtube.com/razer
+                    - figure [ref=e673]
+                - listitem [ref=e674]:
+                  - link "Visit Razer’s TikTok Page" [ref=e675] [cursor=pointer]:
+                    - /url: https://www.tiktok.com/@razer
+                    - figure [ref=e676]
+                - listitem [ref=e677]:
+                  - link "Visit Razer’s Twitch Page" [ref=e678] [cursor=pointer]:
+                    - /url: https://www.twitch.tv/razer
+                    - figure [ref=e679]
+                - listitem [ref=e680]:
+                  - link "Visit Razer’s Discord Page" [ref=e681] [cursor=pointer]:
+                    - /url: https://discord.com/invite/razer
+                    - figure [ref=e682]
+            - generic [ref=e686]: FOR GAMERS. BY GAMERS.™
+          - generic [ref=e690]:
+            - generic [ref=e691]:
+              - generic [ref=e693]: Copyright © 2026 Razer Inc. All rights reserved.
+              - list [ref=e695]:
+                - listitem [ref=e696]:
+                  - link "Site Map" [ref=e697] [cursor=pointer]:
+                    - /url: https://www.razer.com/sitemap
+                - listitem [ref=e698]:
+                  - text: "|"
+                  - link "Legal Terms" [ref=e699] [cursor=pointer]:
+                    - /url: https://www.razer.com/legal
+                - listitem [ref=e700]:
+                  - text: "|"
+                  - link "Privacy Policy" [ref=e701] [cursor=pointer]:
+                    - /url: https://www.razer.com/legal/customer-privacy-policy
+                - listitem [ref=e702]:
+                  - text: "|"
+                  - button "Cookie Settings" [ref=e703] [cursor=pointer]
+            - generic [ref=e705]:
+              - text: United States |
+              - link "Change Location >" [ref=e706] [cursor=pointer]:
+                - /url: /choose-location
+    - text: 
+```
+
+# Test source
+
+```ts
+  1   | const { test, expect } = require("@playwright/test");
+  2   | 
+  3   | // Product listing page loads correctly
+  4   | test("PLP_01 - Product listing page loads correctly", async ({ page }) => {
+  5   | 
+  6   |   await page.goto("https://www.razer.com/pc/gaming-laptops");
+  7   | 
+  8   |   await page.getByRole("button", {
+  9   |     name: "Accept All",
+> 10  |   }).click();
+      |      ^ Error: locator.click: Test timeout of 30000ms exceeded.
+  11  | 
+  12  |   await expect(page).toHaveURL(/gaming-laptops/);
+  13  | 
+  14  | });
+  15  | 
+  16  | //Product page opens correctly
+  17  | test("PLP_02 - Product page opens correctly", async ({ page }) => {
+  18  |   await page.goto("https://www.razer.com/pc/gaming-laptops");
+  19  | 
+  20  |   await page.getByRole("button", {
+  21  |     name: "Accept All",
+  22  |   }).click();
+  23  | 
+  24  |   await page.getByRole("link", {
+  25  |     name: "buy now",
+  26  |   }).first().click({
+  27  |     force: true, //it was creating an unusual bug hence forced true
+  28  |   });
+  29  | 
+  30  |   await expect(page).toHaveURL(/razer-blade/);
+  31  | });
+  32  | 
+  33  | // test("PLP_02 - Product page opens correctly", async ({ page }) => {
+  34  | 
+  35  | //   await page.goto("https://www.razer.com/pc/gaming-laptops");
+  36  | 
+  37  | //   await page.getByRole("button", {
+  38  | //     name: "Accept All",
+  39  | //   }).click();
+  40  | 
+  41  | //   const buyButton = page.getByRole("link", {
+  42  | //     name: "buy now",
+  43  | //   }).first();
+  44  | 
+  45  | //   await buyButton.scrollIntoViewIfNeeded();
+  46  | 
+  47  | //   await Promise.all([
+  48  | //     page.waitForURL(/razer-blade/),
+  49  | //     buyButton.click({ force: true }),
+  50  | //   ]);
+  51  | 
+  52  | //   await expect(page).toHaveURL(/razer-blade/);
+  53  | 
+  54  | // });
+  55  | 
+  56  | 
+  57  | //Buy Now button works
+  58  | test("PLP_03 - Buy Now button works", async ({ page }) => {
+  59  | 
+  60  |   await page.goto("https://www.razer.com/pc/gaming-laptops");
+  61  | 
+  62  |   await page.getByRole("button", {
+  63  |     name: "Accept All",
+  64  |   }).click();
+  65  | 
+  66  |   await page.getByRole("link", {
+  67  |     name: "buy now",
+  68  |   }).nth(1).click({
+  69  |     force: true,
+  70  |   });
+  71  | 
+  72  | });
+  73  | 
+  74  | // Learn More button works
+  75  | test("PLP_04 - Learn More button works", async ({ page }) => {
+  76  | 
+  77  |   await page.goto("https://www.razer.com/pc/gaming-laptops");
+  78  | 
+  79  |   await page.getByRole("button", {
+  80  |     name: "Accept All",
+  81  |   }).click();
+  82  | 
+  83  |   await page.getByRole("link", {
+  84  |     name: "learn more",
+  85  |   }).nth(1).click({
+  86  |     force: true,
+  87  |   });
+  88  | 
+  89  | });
+  90  | 
+  91  | // Product prices visible
+  92  | test("PLP_05 - Product prices visible", async ({ page }) => {
+  93  |   await page.goto("https://www.razer.com/pc/gaming-laptops");
+  94  |   await page.getByRole("button", {
+  95  |     name: "Accept All",
+  96  |   }).click();
+  97  |   await expect(
+  98  |   page.locator("text=US$")
+  99  |     .first()
+  100 | ).toBeVisible();
+  101 | });
+  102 | 
+  103 | // Product tiles visible
+  104 | test("PLP_06 - Product tiles visible", async ({ page }) => {
+  105 |   await page.goto("https://www.razer.com/pc/gaming-laptops");
+  106 |   await page.getByRole("button", {
+  107 |     name: "Accept All",
+  108 |   }).click();
+  109 |   await expect(
+  110 |     page.locator(".tile-group").first()
+```
