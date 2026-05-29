@@ -122,18 +122,12 @@ test.describe("Store Functionalities", () => {
     if (await closeBtn.isVisible()) {
       await closeBtn.click();
     }
-
-    // Verify laptops URL
     await expect(page).toHaveURL(/gaming-laptops/);
-
-    // Navigate to Mouse Mats category
     await page
       .getByRole("link", {
         name: "Mouse Mats",
       })
       .click();
-
-    // Verify mouse mats URL
     await expect(page).toHaveURL(/mouse-mats/);
   });
 
@@ -149,15 +143,9 @@ test.describe("Store Functionalities", () => {
         exact: true,
       })
       .click();
-
-    // Verify Add to Cart button is visible
     const addToCartBtn = page.getByRole("button", {
       name: /Add to Cart/i,
     });
-
-    // await expect(addToCartBtn).toBeVisible();
-
-    // Verify correct product URL
     await expect(page).toHaveURL(/razer-viper-v4-pro/);
   });
 
@@ -186,12 +174,9 @@ test.describe("Store Functionalities", () => {
   });
 
   test("SF_11 - Verify Breadcrumb Navigation", async ({ page }) => {
-    // Open product page directly
     await page.goto(
       "https://www.razer.com/gaming-mice/razer-viper-v4-pro/RZ01-05630100-R3U1",
     );
-
-    // Close popup if visible
     const closeBtn = page.getByRole("button", {
       name: /close/i,
     });
@@ -199,11 +184,8 @@ test.describe("Store Functionalities", () => {
     if (await closeBtn.isVisible().catch(() => false)) {
       await closeBtn.click();
     }
-
-    // Click breadcrumb/category link
     await page.goto("https://www.razer.com/pc/gaming-mice");
 
-    // Verify redirected URL
     await expect(page).toHaveURL(/gaming-mice/);
   });
 

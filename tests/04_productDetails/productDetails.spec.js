@@ -45,9 +45,7 @@ test.describe("Product Details", () => {
     // await expect(page).toHaveURL("https://www.razer.com/gaming-laptops/razer-blade-18");
   });
 
-  // test("PD-05 - Product specifications are visible", async({page})=>{
-
-  // });
+  
 
 
 });

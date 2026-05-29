@@ -1,1 +1,0 @@
-Store Page Load Time: 2288 ms
