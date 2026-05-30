@@ -134,23 +134,6 @@ jobs:
 
         path: allure-results
  
-    - name: Get Allure History
-      uses: actions/checkout@v4
-      if: always()
-      with:
-        ref: gh-pages
-        path: gh-pages-dir
-      continue-on-error: true
-
-    - name: Copy History to Allure Results
-      if: always()
-      run: |
-        if [ -d gh-pages-dir/history ]; then
-          mkdir -p allure-results/history
-          cp -r gh-pages-dir/history/* allure-results/history/
-        fi
-      continue-on-error: true
-
     - name: Check Allure Results
 
       run: |
@@ -222,3 +205,4 @@ jobs:
         publish_dir: allure-report
 
       continue-on-error: true
+ 

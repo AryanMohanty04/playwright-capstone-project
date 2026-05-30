@@ -1,31 +1,25 @@
 {
-  "name": "playwright-capstone-project",
+  "name": "capstone-project",
   "version": "1.0.0",
-  "description": "This repository contains the QA Automation Capstone Project created during Wipro training using Playwright.",
+  "description": "",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
     "test": "playwright test",
     "test:ci": "playwright test",
     "allure:generate": "allure generate allure-results -o allure-report --clean"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AryanMohanty04/playwright-capstone-project.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AryanMohanty04/playwright-capstone-project/issues"
-  },
-  "homepage": "https://github.com/AryanMohanty04/playwright-capstone-project#readme",
   "devDependencies": {
     "@playwright/test": "^1.60.0",
-    "@types/node": "^25.8.0",
+    "@types/node": "^25.9.1",
     "allure-commandline": "^2.42.0",
-    "allure-playwright": "^3.9.0"
+    "allure-playwright": "^3.9.0",
+    "dotenv": "^16.6.1"
   },
   "dependencies": {
-    "dotenv": "^17.4.2"
+    "@faker-js/faker": "^9.9.0"
   }
 }
