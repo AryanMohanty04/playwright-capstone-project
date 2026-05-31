@@ -238,18 +238,13 @@ test.describe("Store Module Functionality", () => {
       .click();
 
     await expect(page).toHaveURL(/soft-drinks/);
-
-    // Product Name
     await expect(
       page.getByRole("button", {
         name: /Coca-Cola Diet Coke/i,
       }),
     ).toBeVisible();
-
-    // Product Image
     await expect(page.locator("img").first()).toBeVisible();
 
-    // Product Price
     await expect(page.getByText(/₹/).first()).toBeVisible();
 
     // ADD Button
