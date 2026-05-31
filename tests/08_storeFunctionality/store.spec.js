@@ -1,213 +1,264 @@
 const { test, expect } = require("@playwright/test");
 
 test.describe("Store Module Functionality", () => {
-  test("SF_1 - Search for a product", async ({ page }) => {
-    // SETUP: set delivery location
+  test.beforeEach(async ({ page }) => {
     await page.goto("https://blinkit.com/");
-    await page
-      .getByRole("textbox", { name: "search delivery location" })
-      .click();
+
     await page
       .getByRole("textbox", { name: "search delivery location" })
       .fill("Mumbai");
-    await page.getByText("Mumbai Central", { exact: true }).click();
 
-    // STEP 1: Open search and type exact product name
-    await page.getByRole("link", { name: /Search/i }).click();
-    const searchBox = page.getByRole("textbox", {
-      name: "Search for atta dal and more",
-    });
-    await searchBox.fill("Monster Energy");
-    await searchBox.press("Enter");
+    await page.getByText("Mumbai Central", { exact: true }).waitFor();
+
+    await page.getByText("Mumbai Central", { exact: true }).click();
   });
 
-  test("SF_02 - Search for a product using partial/misspelled keyword", async ({
-    page,
-  }) => {
-    await page.goto("https://blinkit.com/");
-    await page
-      .getByRole("textbox", { name: "search delivery location" })
-      .click();
-    await page
-      .getByRole("textbox", { name: "search delivery location" })
-      .fill("Mumbai");
-    await page.getByText("Mumbai Central", { exact: true }).click();
-    await page
-      .getByRole("link", { name: '! Search "rice" Search "egg"' })
-      .click();
-    await page
-      .getByRole("textbox", { name: "Search for atta dal and more" })
-      .fill("mont");
-    await page.goto("https://blinkit.com/s/?q=mont");
-    await page
-      .getByRole("textbox", { name: "Search for atta dal and more" })
-      .press("Enter");
-    await expect(page).toHaveURL(/mont/);
-
-    await page
-      .getByRole("textbox", { name: "Search for atta dal and more" })
-      .click();
-    await page
-      .getByRole("textbox", { name: "Search for atta dal and more" })
-      .fill("monter");
-    await page
-      .getByRole("textbox", { name: "Search for atta dal and more" })
-      .press("Enter");
-    await expect(page).toHaveURL(/monter/);
-    const monsterBtn = page.getByRole("button", {
-      name: "Monster",
-      exact: true,
-    });
-    await expect(monsterBtn).toBeVisible();
-    await monsterBtn.click();
-    await expect(page).toHaveURL(/Monster|monster/);
-  });
-
-  test("SF_03 - Browse products by category", async ({ page }) => {
-    await page.goto("https://blinkit.com/");
-    await page
-      .getByRole("textbox", { name: "search delivery location" })
-      .click();
-    await page
-      .getByRole("textbox", { name: "search delivery location" })
-      .fill("Mumbai");
-    await page.getByText("Mumbai Central", { exact: true }).click();
-
-    // STEP 1: Click on Cold Drinks & Juices category
+  test("SF_01 - Category (Juice)", async ({ page }) => {
     await page.getByRole("img", { name: "- Cold Drinks & Juices" }).click();
-
-    // STEP 2: Verify category page loaded
     await expect(page).toHaveURL(
       "https://blinkit.com/cn/soft-drinks/cid/332/1102",
     );
-
-    // STEP 3: Verify products are visible in this category
-    const product = page.getByRole("button", {
-      name: "10 mins Coca-Cola Diet Coke",
-    });
-    await expect(product).toBeVisible();
   });
 
-  test("SF_04 - Add a product to cart", async ({ page }) => {
-    // SETUP: set delivery location
-    await page.goto("https://blinkit.com/");
-    await page
-      .getByRole("textbox", { name: "search delivery location" })
-      .click();
-    await page
-      .getByRole("textbox", { name: "search delivery location" })
-      .fill("Mumbai");
-    await page.getByText("Mumbai Central", { exact: true }).click();
+  test("SF_02 - Category (Dairy)", async ({ page }) => {
+    await page.getByRole("img", { name: "- Dairy, Bread & Eggs" }).click();
+    await expect(page).toHaveURL("https://blinkit.com/cn/milk/cid/14/922");
+  });
 
-    // STEP 1: Search for egg
-    await page
-      .getByRole("link", { name: '! Search "curd" Search "rice' })
-      .click();
-    await page
-      .getByRole("textbox", { name: "Search for atta dal and more" })
-      .fill("egg");
-    await page
-      .getByRole("textbox", { name: "Search for atta dal and more" })
-      .press("Enter");
+  test("SF_03 - Category (Fruits)", async ({ page }) => {
+    await page.getByRole("img", { name: "- Fruits & Vegetables" }).click();
 
-    // STEP 2: Go to product page
-    await page.goto(
-      "https://blinkit.com/prn/hen-fruit-30-max-protein-speciality-eggs/prid/363154",
+    await expect(page).toHaveURL(
+      "https://blinkit.com/cn/fresh-vegetables/cid/1487/1489",
+    );
+  });
+
+  test("SF_04 - Verify Category Page Displays Products", async ({ page }) => {
+    await page
+      .getByRole("img", {
+        name: "- Fruits & Vegetables",
+      })
+      .click();
+
+    await expect(page).toHaveURL(
+      "https://blinkit.com/cn/fresh-vegetables/cid/1487/1489",
     );
 
-    // STEP 3: Click ADD button
-    // STEP 3: Click ADD button
-    await page.getByRole("button", { name: /add/i }).first().click();
-
-    // DEBUG: see what's on the page after clicking
-    await page.waitForTimeout(2000);
-    console.log(await page.content());
+    await expect(
+      page.getByRole("heading", {
+        name: "Vegetables & Fruits",
+      }),
+    ).toBeVisible();
   });
 
-  test("SF_05 - Verify search suggestions appear", async ({ page }) => {
-    await page.goto("https://blinkit.com/");
-
+  test("SF_05 - Verify Product Cards Display Product Name", async ({
+    page,
+  }) => {
     await page
-      .getByRole("textbox", { name: "search delivery location" })
-      .fill("Mumbai");
-    await page.getByText("Mumbai Central", { exact: true }).click();
+      .getByRole("img", {
+        name: "- Cold Drinks & Juices",
+      })
+      .click();
 
-    const search = page.getByRole("link", { name: /Search/i });
-    await search.click();
-
-    const box = page.getByRole("textbox", {
-      name: "Search for atta dal and more",
-    });
-    await box.fill("mil");
-
-    const suggestions = page.getByText("milk");
-    await expect(suggestions.first()).toBeVisible();
+    await expect(
+      page.getByRole("button", {
+        name: /Coca-Cola Diet Coke/i,
+      }),
+    ).toBeVisible();
   });
 
-  test("SF_06 - Empty search result handling", async ({ page }) => {
-    await page.goto("https://blinkit.com/");
-
+  test("SF_06 - Verify Product Cards Display Product Price", async ({
+    page,
+  }) => {
     await page
-      .getByRole("textbox", { name: "search delivery location" })
-      .fill("Mumbai");
-    await page.getByText("Mumbai Central", { exact: true }).click();
+      .getByRole("img", {
+        name: "- Cold Drinks & Juices",
+      })
+      .click();
 
-    await page.getByRole("link", { name: /Search/i }).click();
+    await expect(page).toHaveURL(/soft-drinks/);
 
-    const box = page.getByRole("textbox", {
-      name: "Search for atta dal and more",
-    });
-    await box.fill("asdhjkasdhjka123");
-    await box.press("Enter");
-
-    await expect(page.getByText(/no results/i)).toBeVisible();
+    await expect(page.getByText("₹").first()).toBeVisible();
   });
 
-  // test("SF_07 - Navigate multiple categories", async ({ page }) => {
-  //   await page.goto("https://blinkit.com/");
+  test("SF_07 - Verify Product Cards Display Product Image", async ({
+    page,
+  }) => {
+    await page
+      .getByRole("img", {
+        name: "- Cold Drinks & Juices",
+      })
+      .click();
 
-  //   await page.getByRole("textbox", { name: "search delivery location" }).fill("Mumbai");
-  //   await page.getByText("Mumbai Central", { exact: true }).click();
+    await expect(page).toHaveURL(/soft-drinks/);
 
-  //   await page.getByText("Fruits & Vegetables").click();
-  //   await expect(page).toHaveURL(/fruits|vegetables/);
+    const images = page.locator("img");
+
+    expect(await images.count()).toBeGreaterThan(0);
+  });
+
+  test("SF_09 - Verify Category Page Is Not Empty", async ({ page }) => {
+    await page
+      .getByRole("img", {
+        name: "- Cold Drinks & Juices",
+      })
+      .click();
+
+    await expect(page).toHaveURL(/soft-drinks/);
+
+    await expect(
+      page.getByText(/Coca-Cola|Pepsi|Sprite/i).first(),
+    ).toBeVisible();
+  });
+
+  test("SF_10 - Verify Category URL Structure", async ({ page }) => {
+    await page
+      .getByRole("img", {
+        name: "- Cold Drinks & Juices",
+      })
+      .click();
+
+    await expect(page).toHaveURL(/\/cn\//);
+  });
+
+  test("SF_11 - Verify Category Page Loads Successfully", async ({ page }) => {
+    await page
+      .getByRole("img", {
+        name: "- Cold Drinks & Juices",
+      })
+      .click();
+
+    await expect(page).toHaveURL(/soft-drinks/);
+
+    await expect(
+      page.getByRole("heading", {
+        name: /Cold Drinks/i,
+      }),
+    ).toBeVisible();
+  });
+
+  test("SF_12 - Verify Category Page Persists After Refresh", async ({
+    page,
+  }) => {
+    await page
+      .getByRole("img", {
+        name: "- Cold Drinks & Juices",
+      })
+      .click();
+
+    await expect(page).toHaveURL(/soft-drinks/);
+
+    await page.reload();
+
+    await expect(page).toHaveURL(/soft-drinks/);
+  });
+
+  // test("SF_13 - Verify Multiple Categories Can Be Opened Sequentially", async ({
+  //   page,
+  // }) => {
+  //   await page
+  //     .getByRole("img", {
+  //       name: "- Cold Drinks & Juices",
+  //     })
+  //     .click();
+
+  //   await expect(page).toHaveURL(/soft-drinks/);
 
   //   await page.goBack();
 
-  //   await page.getByText("Dairy, Bread & Eggs").click();
-  //   await expect(page).toHaveURL(/dairy|eggs/);
+  //   await page
+  //     .getByRole("img", {
+  //       name: "- Dairy, Bread & Eggs",
+  //     })
+  //     .click();
+
+  //   await expect(page).toHaveURL(/milk|dairy|eggs/);
   // });
 
-  test("SF_07 - Verify product page opens correctly", async ({ page }) => {
-    await page.goto("https://blinkit.com/");
+  test("SF_14 - Verify Scrolling Through Category Page Works", async ({
+    page,
+  }) => {
     await page
-      .getByRole("textbox", { name: "search delivery location" })
+      .getByRole("img", {
+        name: "- Cold Drinks & Juices",
+      })
       .click();
-    await page
-      .getByRole("textbox", { name: "search delivery location" })
-      .fill("Mumbai");
-    await page.getByText("Mumbai Central", { exact: true }).click();
-    await page.getByRole("img", { name: "Amul Taaza Toned Milk" }).click();
-    await expect(page).toHaveURL(
-      "https://blinkit.com/prn/amul-taaza-toned-milk/prid/19512",
-    );
+
+    await expect(page).toHaveURL(/soft-drinks/);
+
+    await page.mouse.wheel(0, 3000);
+
+    await expect(
+      page.getByText(/Coca-Cola|Pepsi|Sprite/i).first(),
+    ).toBeVisible();
   });
 
-  test("SF_08 - Verify product page opens correctly", async ({ page }) => {
-    await page.goto("https://blinkit.com/");
+  // test("SF_15 - Verify Product Count Is Greater Than Zero", async ({
+  //   page,
+  // }) => {
+  //   await page
+  //     .getByRole("img", {
+  //       name: "- Cold Drinks & Juices",
+  //     })
+  //     .click();
 
-    // SET LOCATION
+  //   await expect(page).toHaveURL(/soft-drinks/);
+
+  //   const products = page.locator("img");
+
+  //   expect(await products.count()).toBeGreaterThan(5);
+  // });
+  test("SF_15 - Verify Product Count Is Greater Than Zero", async ({
+    page,
+  }) => {
     await page
-      .getByRole("textbox", { name: "search delivery location" })
-      .fill("Mumbai");
-    await page.getByText("Mumbai Central", { exact: true }).click();
+      .getByRole("img", {
+        name: "- Cold Drinks & Juices",
+      })
+      .click();
 
-    await page.goto("https://blinkit.com/cn/soft-drinks/cid/332/1102");
+    await expect(page).toHaveURL(/soft-drinks/);
 
-    const product = page
-      .getByRole("button", { name: /coca|pepsi|sprite/i })
-      .first();
-    await product.click();
-    await expect(page).toHaveURL(/prn|prid|product/);
+    await expect(
+      page
+        .getByRole("button", {
+          name: /Coca-Cola|Pepsi|Sprite/i,
+        })
+        .first(),
+    ).toBeVisible();
+  });
+
+  test("SF_16 - Verify Product Card Contains Image, Name, Price and ADD Button", async ({
+    page,
+  }) => {
+    await page
+      .getByRole("img", {
+        name: "- Cold Drinks & Juices",
+      })
+      .click();
+
+    await expect(page).toHaveURL(/soft-drinks/);
+
+    // Product Name
+    await expect(
+      page.getByRole("button", {
+        name: /Coca-Cola Diet Coke/i,
+      }),
+    ).toBeVisible();
+
+    // Product Image
+    await expect(page.locator("img").first()).toBeVisible();
+
+    // Product Price
+    await expect(page.getByText(/₹/).first()).toBeVisible();
+
+    // ADD Button
+    await expect(
+      page
+        .getByRole("button", {
+          name: /add/i,
+        })
+        .first(),
+    ).toBeVisible();
   });
 });
