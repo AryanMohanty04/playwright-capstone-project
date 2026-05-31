@@ -655,30 +655,31 @@ test.describe("Verify Cart Functionality", () => {
     expect(updatedTotal).not.toEqual(initialTotal);
   });
 
-  test("CF_18 - Verify cart total decreases after quantity reduction", async ({ page }) => {
-  await page.goto("https://blinkit.com/");
+  test("CF_18 - Verify cart total decreases after quantity reduction", async ({
+    page,
+  }) => {
+    await page.goto("https://blinkit.com/");
 
-  await page
-    .getByRole("textbox", { name: "search delivery location" })
-    .fill("Mumbai");
+    await page
+      .getByRole("textbox", { name: "search delivery location" })
+      .fill("Mumbai");
 
-  await page.getByText("Mumbai Central", { exact: true }).click();
+    await page.getByText("Mumbai Central", { exact: true }).click();
 
-  await page.getByText("ADD").first().click();
+    await page.getByText("ADD").first().click();
 
-  await page.getByText(/1 item/i).click();
+    await page.getByText(/1 item/i).click();
 
-  // increase qty
-  await page.getByText("5", { exact: true }).nth(1).click();
+    // increase qty
+    await page.getByText("5", { exact: true }).nth(1).click();
 
-  const increasedTotal = await page.locator("body").textContent();
+    const increasedTotal = await page.locator("body").textContent();
 
-  // decrease qty
-  await page.getByText("U", { exact: true }).nth(1).click();
+    // decrease qty
+    await page.getByText("U", { exact: true }).nth(1).click();
 
-  const decreasedTotal = await page.locator("body").textContent();
+    const decreasedTotal = await page.locator("body").textContent();
 
-  expect(decreasedTotal).not.toEqual(increasedTotal);
-});
-
+    expect(decreasedTotal).not.toEqual(increasedTotal);
+  });
 });

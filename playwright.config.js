@@ -22,7 +22,7 @@ module.exports = defineConfig({
   ],
 
   use: {
-    headless: !!process.env.CI,
+    // headless: !!process.env.CI,
 
     slowMo: process.env.CI ? 0 : 500,
     storageState: undefined,
