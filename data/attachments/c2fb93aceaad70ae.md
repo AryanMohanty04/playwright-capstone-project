@@ -1,0 +1,173 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: 01_homepageNavigation/home.spec.js >> HN_15 - Verify homepage refresh behavior
+- Location: tests/01_homepageNavigation/home.spec.js:249:1
+
+# Error details
+
+```
+Test timeout of 120000ms exceeded.
+```
+
+```
+Error: locator.click: Test timeout of 120000ms exceeded.
+Call log:
+  - waiting for getByRole('textbox', { name: 'search delivery location' })
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - main [ref=e3]:
+    - article [ref=e7]:
+      - generic [ref=e9]:
+        - generic [ref=e14]:
+          - img "access denied" [ref=e17]
+          - generic [ref=e18]:
+            - generic [ref=e19]: access denied
+            - generic [ref=e21]:
+              - paragraph [ref=e22]: sorry, you have been blocked!
+              - paragraph [ref=e23]
+        - generic [ref=e30]:
+          - paragraph [ref=e31]:
+            - text: The page you are trying to access has blocked you, your recent actions performed on the website might have led to this. If you wish to proceed further and gain access to this page, write to us at
+            - link "security@blinkit.com" [ref=e32] [cursor=pointer]:
+              - /url: mailto:security@blinkit.com?subject=[a04cda45ebe99db4] | [74.235.127.161]
+            - text: and let us know that you have been blocked.
+          - paragraph [ref=e33]: Kindly share the incident in detail along with the Cloudflare Ray ID found below.
+          - generic [ref=e34]:
+            - generic [ref=e35]: Ray ID - a04cda45ebe99db4
+            - generic [ref=e36]: Your IP - 74.235.127.161
+  - contentinfo [ref=e37]:
+    - generic [ref=e40]:
+      - heading "#1 instant delivery service in India" [level=4] [ref=e41]
+      - paragraph [ref=e42]: Shop on the go and get anything delivered in 10 minutes (or less). Buy everything from groceries to fresh fruits & vegetables, cakes and bakery items, to meats & seafood, cosmetics, mobiles & accessories, electronics, baby care products and much more. We get it delivered at your doorstep in the fastest and the safest way possible.
+      - heading "single app for all your daily needs" [level=4] [ref=e43]
+      - paragraph [ref=e44]: Order thousands of products at just a tap - milk, eggs, bread, cooking oil, ghee, atta, rice, fresh fruits & vegetables, spices, chocolates, chips, biscuits, Maggi, cold drinks, shampoos, soaps, body wash, pet food, diapers, electronics, other organic and gourmet products from your neighbourhood stores and a lot more.
+      - heading "order online on Blinkit to enjoy instant delivery magic" [level=4] [ref=e45]
+      - paragraph [ref=e46]: "Cities we currently serve: Agra, Ahmedabad, Bengaluru, Chandigarh, Chennai, Delhi, Faridabad, HR-NCR, Hyderabad, Jaipur, Jalandhar, Kanpur, Kolkata, Lucknow, Mathura, Meerut, Mohali, Mumbai, Panchkula, Pune, UP-NCR"
+```
+
+# Test source
+
+```ts
+  156 |         .getByRole("link", {
+  157 |           name: "Contact",
+  158 |         })
+  159 |         .click(),
+  160 |     ]);
+  161 |     await newPage.waitForLoadState();
+  162 |     await expect(newPage).toHaveURL(/contact/);
+  163 |     await expect(newPage).toHaveTitle(/contact/i);
+  164 |   });
+  165 | 
+  166 |   test("HN_11 - Verify browser back navigation", async ({ page }) => {
+  167 | 
+  168 |   await page.goto("https://blinkit.com/");
+  169 | 
+  170 |   const locationInput = page.getByRole("textbox", {
+  171 |     name: "search delivery location",
+  172 |   });
+  173 |   await locationInput.click();
+  174 |   await locationInput.fill("Mumbai");
+  175 |   await page.getByText("Mumbai Central", {
+  176 |     exact: true,
+  177 |   }).click();
+  178 |   await page.getByRole("img", {
+  179 |     name: "- Dairy, Bread & Eggs",
+  180 |   }).click();
+  181 |   await expect(page).not.toHaveURL("https://blinkit.com/");
+  182 |   await page.goBack();
+  183 |   await expect(page).toHaveURL("https://blinkit.com/");
+  184 | 
+  185 | });
+  186 | 
+  187 |   test("HN_12 - Verify sticky navbar", async ({ page }) => {
+  188 |   await page.goto("https://blinkit.com/");
+  189 |   const locationInput = page.getByRole("textbox", {
+  190 |     name: "search delivery location",
+  191 |   });
+  192 |   await locationInput.click();
+  193 |   await locationInput.fill("Mumbai");
+  194 |   await page.getByText("Mumbai Central", {
+  195 |     exact: true,
+  196 |   }).click();
+  197 |   const navbar = page.locator("header");
+  198 |   await expect(navbar).toBeVisible();
+  199 |   await page.mouse.wheel(0, 3000);
+  200 |   await expect(navbar).toBeVisible();
+  201 | });
+  202 | });
+  203 | 
+  204 | 
+  205 | test("HN_13 - Verify mobile responsiveness", async ({ browser }) => {
+  206 | 
+  207 |   const context = await browser.newContext({
+  208 |     viewport: {
+  209 |       width: 375,
+  210 |       height: 812,
+  211 |     },
+  212 |   });
+  213 |   const page = await context.newPage();
+  214 |   await page.goto("https://blinkit.com/");
+  215 |   await expect(page).toHaveURL(/blinkit/);
+  216 |   await expect(page.locator("body")).toBeVisible();
+  217 |   await expect(page.locator("header")).toBeVisible();
+  218 | 
+  219 | });
+  220 | 
+  221 | test("HN_14 - Verify search suggestions appear", async ({ page }) => {
+  222 | 
+  223 |   await page.goto("https://blinkit.com/");
+  224 | 
+  225 |   const locationInput = page.getByRole("textbox", {
+  226 |     name: "search delivery location",
+  227 |   });
+  228 | 
+  229 |   await locationInput.click();
+  230 |   await locationInput.fill("Mumbai");
+  231 | 
+  232 |   await page.getByText("Mumbai Central", {
+  233 |     exact: true,
+  234 |   }).click();
+  235 | 
+  236 |   await page.goto("https://blinkit.com/s/");
+  237 | 
+  238 |   const searchBox = page.getByRole("textbox", {
+  239 |     name: "Search for atta dal and more",
+  240 |   });
+  241 | 
+  242 |   await searchBox.fill("milk");
+  243 |   await expect(
+  244 |     page.getByText(/milk/i).first()
+  245 |   ).toBeVisible();
+  246 | 
+  247 | });
+  248 | 
+  249 | test("HN_15 - Verify homepage refresh behavior", async ({ page }) => {
+  250 | 
+  251 |   await page.goto("https://blinkit.com/");
+  252 |   const locationInput = page.getByRole("textbox", {
+  253 |     name: "search delivery location",
+  254 |   });
+  255 | 
+> 256 |   await locationInput.click();
+      |                       ^ Error: locator.click: Test timeout of 120000ms exceeded.
+  257 |   await locationInput.fill("Mumbai");
+  258 |   await page.getByText("Mumbai Central", {
+  259 |     exact: true,
+  260 |   }).click();
+  261 |   await page.reload();
+  262 |   await expect(page).toHaveURL("https://blinkit.com/");
+  263 |   await expect(page.locator("header")).toBeVisible();
+  264 | 
+  265 | });
+```
