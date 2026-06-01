@@ -54,10 +54,10 @@ test.describe("PLP Module", () => {
   });
 
   // // PLP_07
-  // test("PLP_07 - Filter panel open/close", async ({ page }) => {
-  //   await page.getByText(/filter/i).click();
-  //   await expect(page.getByText(/filters/i)).toBeVisible();
-  // });
+  test("PLP_07 - Filter panel open/close", async ({ page }) => {
+    await page.getByText(/filter/i).click();
+    await expect(page.getByText(/filters/i)).toBeVisible();
+  });
 
   // // PLP_08
   // test("PLP_08 - Category filter", async ({ page }) => {
