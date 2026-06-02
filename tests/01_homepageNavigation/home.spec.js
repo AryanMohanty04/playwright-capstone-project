@@ -1,7 +1,7 @@
 const { test, expect, devices } = require("@playwright/test");
 const { HomePage } = require("../../pages/HomePage");
 
-test.describe("Homepage Navigation Module", () => {
+test.describe("Module 1 - Homepage Navigation Module (HN)", () => {
   test.beforeEach(async ({ page }) => {
     const homePage = new HomePage(page);
     await homePage.goto();

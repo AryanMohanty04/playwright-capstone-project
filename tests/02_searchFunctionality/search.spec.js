@@ -1,7 +1,7 @@
 const { test, expect } = require("@playwright/test");
 
-test.describe("Search Module Functionality", () => {
-  test("SF_01 - Verify search icon opens search input field", async ({
+test.describe("Module - 2 Search Functionality Module (S)", () => {
+  test("S_01 - Verify search icon opens search input field", async ({
     page,
   }) => {
     await page.goto("https://blinkit.com/");
@@ -17,7 +17,7 @@ test.describe("Search Module Functionality", () => {
       .click();
   });
 
-  test("SF_02 - Verify search textbox accepts user input", async ({ page }) => {
+  test("S_02 - Verify search textbox accepts user input", async ({ page }) => {
     await page.goto("https://blinkit.com/");
     await page
       .getByRole("textbox", { name: "search delivery location" })
@@ -34,7 +34,7 @@ test.describe("Search Module Functionality", () => {
       .fill("Egg");
   });
 
-  test("SF_03 - Search redirects to results page", async ({ page }) => {
+  test("S_03 - Search redirects to results page", async ({ page }) => {
     await page.goto("https://blinkit.com/");
     await page
       .getByRole("textbox", { name: "search delivery location" })
@@ -51,7 +51,7 @@ test.describe("Search Module Functionality", () => {
       .fill("Egg");
   });
 
-  test("SF_04 - Verify invalid search handling", async ({ page }) => {
+  test("S_04 - Verify invalid search handling", async ({ page }) => {
     await page.goto("https://blinkit.com/");
     await page
       .getByRole("textbox", { name: "search delivery location" })
@@ -66,7 +66,7 @@ test.describe("Search Module Functionality", () => {
     await expect(page.locator("body")).toBeVisible();
   });
 
-  test("SF_05 - Verify empty search validation", async ({ page }) => {
+  test("S_05 - Verify empty search validation", async ({ page }) => {
     await page.goto("https://blinkit.com/");
     await page
       .getByRole("textbox", { name: "search delivery location" })
@@ -82,7 +82,7 @@ test.describe("Search Module Functionality", () => {
     await expect(page).toHaveURL("https://blinkit.com/s/");
   });
 
-  test("SF_06 - Verify multiple consecutive searches", async ({ page }) => {
+  test("S_06 - Verify multiple consecutive searches", async ({ page }) => {
     await page.goto("https://blinkit.com/");
     await page
       .getByRole("textbox", { name: "search delivery location" })
@@ -104,7 +104,7 @@ test.describe("Search Module Functionality", () => {
     await page.goto("https://blinkit.com/s/?q=monster");
   });
 
-  test("SF_07 - Verify Search close functionality", async ({ page }) => {
+  test("S_07 - Verify Search close functionality", async ({ page }) => {
     await page.goto("https://blinkit.com/");
     await page
       .getByRole("textbox", { name: "search delivery location" })
@@ -124,7 +124,7 @@ test.describe("Search Module Functionality", () => {
     await expect(page).toHaveURL("https://blinkit.com/s/");
   });
 
-  test("SF_08 - Verify search works in mobile viewport", async ({ page }) => {
+  test("S_08 - Verify search works in mobile viewport", async ({ page }) => {
     // Mobile viewport
     await page.setViewportSize({
       width: 375,
@@ -134,7 +134,7 @@ test.describe("Search Module Functionality", () => {
     await expect(page).toHaveURL("https://blinkit.com/");
   });
 
-  test("SF_09 - Verify search with uppercase input", async ({ page }) => {
+  test("S_09 - Verify search with uppercase input", async ({ page }) => {
     await page.goto("https://blinkit.com/");
     await page
       .getByRole("textbox", { name: "search delivery location" })
@@ -150,7 +150,7 @@ test.describe("Search Module Functionality", () => {
     await page.goto("https://blinkit.com/s/?q=monster");
   });
 
-  test("SF_10 - Verify product navigation from search results", async ({
+  test("S_10 - Verify product navigation from search results", async ({
     page,
   }) => {
     await page.goto("https://blinkit.com/");
@@ -174,7 +174,7 @@ test.describe("Search Module Functionality", () => {
     await page.locator(".list > div").click();
   });
 
-  test("SF_11 - Verify special character search handling", async ({ page }) => {
+  test("S_11 - Verify special character search handling", async ({ page }) => {
     await page.goto("https://blinkit.com/");
 
     await page
@@ -211,7 +211,7 @@ test.describe("Search Module Functionality", () => {
     await expect(page.getByText("Nothing here yet")).toBeVisible();
   });
 
-  test("SF_12 - Verify search suggestions appear dynamically", async ({
+  test("S_12 - Verify search suggestions appear dynamically", async ({
     page,
   }) => {
     await page.goto("https://blinkit.com/");
@@ -236,7 +236,7 @@ test.describe("Search Module Functionality", () => {
     ).toBeVisible();
   });
 
-  test("SF_13 - Verify search results display correctly", async ({ page }) => {
+  test("S_13 - Verify search results display correctly", async ({ page }) => {
     await page.goto("https://blinkit.com/");
 
     await page

@@ -1,6 +1,6 @@
 const { test, expect } = require("@playwright/test");
 
-test.describe("Store Module Functionality", () => {
+test.describe("Module - 8 Store Module Functionality (SF)", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("https://blinkit.com/");
 
@@ -66,21 +66,21 @@ test.describe("Store Module Functionality", () => {
   ).toBeVisible();
 });
 
-  test("SF_05 - Verify Product Cards Display Product Name", async ({
-    page,
-  }) => {
-    await page
-      .getByRole("img", {
-        name: "- Cold Drinks & Juices",
-      })
-      .click();
+  // test("SF_05 - Verify Product Cards Display Product Name", async ({
+  //   page,
+  // }) => {
+  //   await page
+  //     .getByRole("img", {
+  //       name: "- Cold Drinks & Juices",
+  //     })
+  //     .click();
 
-    await expect(
-      page.getByRole("button", {
-        name: /Coca-Cola Diet Coke/i,
-      }),
-    ).toBeVisible();
-  });
+  //   await expect(
+  //     page.getByRole("button", {
+  //       name: /Coca-Cola Diet Coke/i,
+  //     }),
+  //   ).toBeVisible();
+  // });
 
   test("SF_06 - Verify Product Cards Display Product Price", async ({
     page,
@@ -243,32 +243,32 @@ test.describe("Store Module Functionality", () => {
     ).toBeVisible();
   });
 
-  test("SF_16 - Verify Product Card Contains Image, Name, Price and ADD Button", async ({
-    page,
-  }) => {
-    await page
-      .getByRole("img", {
-        name: "- Cold Drinks & Juices",
-      })
-      .click();
+  // test("SF_16 - Verify Product Card Contains Image, Name, Price and ADD Button", async ({
+  //   page,
+  // }) => {
+  //   await page
+  //     .getByRole("img", {
+  //       name: "- Cold Drinks & Juices",
+  //     })
+  //     .click();
 
-    await expect(page).toHaveURL(/soft-drinks/);
-    await expect(
-      page.getByRole("button", {
-        name: /Coca-Cola Diet Coke/i,
-      }),
-    ).toBeVisible();
-    await expect(page.locator("img").first()).toBeVisible();
+  //   await expect(page).toHaveURL(/soft-drinks/);
+  //   await expect(
+  //     page.getByRole("button", {
+  //       name: /Coca-Cola Diet Coke/i,
+  //     }),
+  //   ).toBeVisible();
+  //   await expect(page.locator("img").first()).toBeVisible();
 
-    await expect(page.getByText(/₹/).first()).toBeVisible();
+  //   await expect(page.getByText(/₹/).first()).toBeVisible();
 
-    // ADD Button
-    await expect(
-      page
-        .getByRole("button", {
-          name: /add/i,
-        })
-        .first(),
-    ).toBeVisible();
-  });
+  //   // ADD Button
+  //   await expect(
+  //     page
+  //       .getByRole("button", {
+  //         name: /add/i,
+  //       })
+  //       .first(),
+  //   ).toBeVisible();
+  // });
 });

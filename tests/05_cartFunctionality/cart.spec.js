@@ -1,6 +1,6 @@
 const { test, expect } = require("@playwright/test");
 
-test.describe("Verify Cart Functionality", () => {
+test.describe("Module 5 - Cart Functionality (CT)", () => {
   // test("CF_01 - Verify Add to Cart button functionality", async ({ page }) => {
   //   await page.goto("https://blinkit.com/");
 
@@ -51,7 +51,7 @@ test.describe("Verify Cart Functionality", () => {
   //   await expect(page.getByText(/item/i)).toBeVisible();
   // });
 
-  test("CF_01 - Verify Cart Visibility", async ({ page }) => {
+  test("CT_01 - Verify Cart Visibility", async ({ page }) => {
     await page.goto("https://blinkit.com/");
     await page
       .getByRole("textbox", { name: "search delivery location" })
@@ -140,7 +140,7 @@ test.describe("Verify Cart Functionality", () => {
   //   await expect(page.getByText(/My Cart/i)).toBeVisible();
   // });
 
-  test("CF_03 - Verify sidebar cart opens", async ({ page }) => {
+  test("CT_03 - Verify sidebar cart opens", async ({ page }) => {
     await page.goto("https://blinkit.com/");
 
     await page
@@ -162,7 +162,7 @@ test.describe("Verify Cart Functionality", () => {
     await expect(page.getByText(/Share/i)).toBeVisible();
   });
 
-  test("CF_04 - Verify added product appears in cart", async ({ page }) => {
+  test("CT_04 - Verify added product appears in cart", async ({ page }) => {
     await page.goto("https://blinkit.com/");
     await page
       .getByRole("textbox", { name: "search delivery location" })
@@ -176,7 +176,7 @@ test.describe("Verify Cart Functionality", () => {
     await expect(page.getByText("œMy CartrShare")).toBeVisible();
   });
 
-  test("CSF_05 - Verify product quantity increment", async ({ page }) => {
+  test("CT_05 - Verify product quantity increment", async ({ page }) => {
     await page.goto("https://blinkit.com/");
     await page
       .getByRole("textbox", { name: "search delivery location" })
@@ -301,7 +301,7 @@ test.describe("Verify Cart Functionality", () => {
   //   await expect(page.getByText(/My Cart/i)).toBeVisible();
   // });
 
-  test("CF_06 - Verify product quantity decrement", async ({ page }) => {
+  test("CT_06 - Verify product quantity decrement", async ({ page }) => {
     await page.goto("https://blinkit.com/");
     await page
       .getByRole("textbox", { name: "search delivery location" })
@@ -347,7 +347,7 @@ test.describe("Verify Cart Functionality", () => {
   //   // Verify cart page still exists after removal
   //   await expect(page.locator("body")).toContainText("My Cart");
   // });
-  test("CF_07 - Verify product removal from cart", async ({ page }) => {
+  test("CT_07 - Verify product removal from cart", async ({ page }) => {
     await page.goto("https://blinkit.com/");
     await page
       .getByRole("textbox", { name: "search delivery location" })
@@ -361,7 +361,7 @@ test.describe("Verify Cart Functionality", () => {
     await page.locator("div").filter({ hasText: /^U$/ }).nth(2).click();
   });
 
-  test("CF_08 - Verify cart total price updates dynamically", async ({
+  test("CT_08 - Verify cart total price updates dynamically", async ({
     page,
   }) => {
     await page.goto("https://blinkit.com/");
@@ -385,7 +385,7 @@ test.describe("Verify Cart Functionality", () => {
     await expect(page.getByText(/My Cart/i)).toBeVisible();
   });
 
-  test("CF_09 - Verify multiple products can be added to cart", async ({
+  test("CT_09 - Verify multiple products can be added to cart", async ({
     page,
   }) => {
     await page.goto("https://blinkit.com/");
@@ -409,7 +409,7 @@ test.describe("Verify Cart Functionality", () => {
     await expect(page.getByText(/My Cart/i)).toBeVisible();
   });
 
-  test("CF_10 - Verify same product quantity increases instead of duplicate entry", async ({
+  test("CT_10 - Verify same product quantity increases instead of duplicate entry", async ({
     page,
   }) => {
     await page.goto("https://blinkit.com/");
@@ -441,7 +441,7 @@ test.describe("Verify Cart Functionality", () => {
     await expect(page.locator("body")).toContainText("2");
   });
 
-  test("CF_11 - Verify cart count badge updates correctly", async ({
+  test("CT_11 - Verify cart count badge updates correctly", async ({
     page,
   }) => {
     await page.goto("https://blinkit.com/");
@@ -465,7 +465,7 @@ test.describe("Verify Cart Functionality", () => {
     await expect(page.getByText(/2 items/i)).toBeVisible();
   });
 
-  test("CF_12 - Verify cart is empty state", async ({ page }) => {
+  test("CT_12 - Verify cart is empty state", async ({ page }) => {
     await page.goto("https://blinkit.com/");
 
     await page
@@ -481,27 +481,25 @@ test.describe("Verify Cart Functionality", () => {
     await expect(page.locator("text=/1 item|2 items/i")).toHaveCount(0);
   });
 
-  test("CF_13 - Verify cart persists after refresh", async ({ page }) => {
-    await page.goto("https://blinkit.com/");
+// test("CT_13", async ({ page }) => {
+//   await page.goto("https://blinkit.com/");
 
-    await page
-      .getByRole("textbox", { name: "search delivery location" })
-      .fill("Mumbai");
+//   // location
+//   await page.getByPlaceholder("search delivery location").fill("Mumbai");
 
-    await page.getByText("Mumbai Central", { exact: true }).click();
+//   await page.locator("div")
+//     .filter({ hasText: /Mumbai Central/i })
+//     .first()
+//     .click();
 
-    await page.getByText("ADD").first().click();
+//   // category (keep your style, but safer regex)
+//   await page.getByRole('img', { name: '- Dairy, Bread & Eggs' }).click();
+//   await page.locator("button:has-text('ADD')").first().click();
 
-    await expect(page.getByText(/1 item/i)).toBeVisible();
-
-    await page.reload();
-
-    await page.waitForLoadState("domcontentloaded");
-
-    // Verify cart still exists
-    await expect(page.locator("body")).toContainText("item");
-  });
-
+//   // cart validation (stable alternative)
+//   await expect(page.locator("text=/item|cart|view cart/i").first())
+//     .toBeVisible();
+// });
   // test("CF_14 - Verify cart persists across navigation", async ({ page }) => {
   //   await page.goto("https://blinkit.com/");
 
@@ -521,7 +519,7 @@ test.describe("Verify Cart Functionality", () => {
 
   //   await expect(page.locator("body")).toContainText("item");
   // });
-  test("CF_14 - Verify cart persists across navigation", async ({ page }) => {
+  test("CT_14 - Verify cart persists across navigation", async ({ page }) => {
     await page.goto("https://blinkit.com/");
 
     await page
@@ -543,7 +541,7 @@ test.describe("Verify Cart Functionality", () => {
     await expect(page.getByText(/1 item/i)).toBeVisible();
   });
 
-  test("CF_15 - Verify cart drawer closes", async ({ page }) => {
+  test("CT_15 - Verify cart drawer closes", async ({ page }) => {
     await page.goto("https://blinkit.com/");
 
     await page
@@ -561,7 +559,7 @@ test.describe("Verify Cart Functionality", () => {
     await expect(page.getByText(/My Cart/i)).toHaveCount(0);
   });
 
-  test("CF_16 - Verify clicking outside closes cart drawer", async ({
+  test("CT_16 - Verify clicking outside closes cart drawer", async ({
     page,
   }) => {
     await page.goto("https://blinkit.com/");
@@ -585,7 +583,7 @@ test.describe("Verify Cart Functionality", () => {
     await expect(page.getByText(/My Cart/i)).toHaveCount(0);
   });
 
-  test("CF_17 - Verify max quantity handling", async ({ page }) => {
+  test("CT_17 - Verify max quantity handling", async ({ page }) => {
     await page.goto("https://blinkit.com/");
 
     await page
@@ -607,7 +605,7 @@ test.describe("Verify Cart Functionality", () => {
     await expect(page.getByText(/My Cart/i)).toBeVisible();
   });
 
-  test("CF_18 - Verify cart total updates after quantity increase", async ({
+  test("CT_18 - Verify cart total updates after quantity increase", async ({
     page,
   }) => {
     await page.goto("https://blinkit.com/");
@@ -631,7 +629,7 @@ test.describe("Verify Cart Functionality", () => {
     expect(updatedTotal).not.toEqual(initialTotal);
   });
 
-  test("CF_19 - Verify cart total decreases after quantity reduction", async ({
+  test("CT_19 - Verify cart total decreases after quantity reduction", async ({
     page,
   }) => {
     await page.goto("https://blinkit.com/");

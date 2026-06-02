@@ -1,6 +1,6 @@
 const { test, expect } = require("@playwright/test");
 
-test.describe("Checkout Flow Module", () => {
+test.describe("Module 6 - Checkout Flow Module (CF)", () => {
   test.use({
     storageState: "auth.json",
     permissions: ["geolocation"],

@@ -2,7 +2,7 @@ const { test, expect } = require("@playwright/test");
 test.use({
   storageState: "auth.json",
 });
-test.describe("Logged In Authentication Tests", () => {
+test.describe("Module 7 - Logged In Authentication Tests", () => {
   test("AT_11 - User remains logged in", async ({ page }) => {
   await page.goto("https://blinkit.com/");
   await expect(page.getByText("Account")).toBeVisible();

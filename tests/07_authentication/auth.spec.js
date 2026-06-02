@@ -1,7 +1,7 @@
 require("dotenv").config();
 const { test, expect } = require("@playwright/test");
 
-test.describe("Authentication Module", () => {
+test.describe("Module 7 - Authentication Module (AT)", () => {
   test("AT_01 - Login popup opnes successfully", async ({ page }) => {
     await page.goto("https://blinkit.com/");
 

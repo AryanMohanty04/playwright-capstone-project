@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test.describe("PLP Module", () => {
+test.describe("Module 3 - Product Listing Module (PL)", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("https://blinkit.com/");
 
@@ -12,7 +12,7 @@ test.describe("PLP Module", () => {
   });
 
   // PLP_01 //
-  test("PLP_01 - Product listing loads", async ({ page }) => {
+  test("PL_01 - Product listing loads", async ({ page }) => {
     await page.waitForLoadState("networkidle");
 
     await expect(page.getByText("ADD").first()).toBeVisible({
@@ -21,13 +21,13 @@ test.describe("PLP Module", () => {
   });
 
   // PLP_02
-  test("PLP_02 - product opens detail page", async ({ page }) => {
+  test("PL_02 - product opens detail page", async ({ page }) => {
     await page.getByText("Amul Taaza Toned Milk").first().click();
     await expect(page).toHaveURL(/prn|product|pdp/i);
   });
 
   // // PLP_03
-  test("PLP_03 - Add Now button works", async ({ page }) => {
+  test("PL_03 - Add Now button works", async ({ page }) => {
     await page.getByText("ADD").first().click();
     await expect(page.getByText(/1 item/i)).toBeVisible();
   });
@@ -47,25 +47,25 @@ test.describe("PLP Module", () => {
   // });
 
   // // PLP_05 //s
-  test("PLP_05 - Images load", async ({ page }) => {
+  test("PL_05 - Images load", async ({ page }) => {
     const images = page.locator("img");
     await expect(images.first()).toBeVisible();
   });
 
   // PLP_06
-  test("PLP_06 - Price information available", async ({ page }) => {
+  test("PL_06 - Price information available", async ({ page }) => {
     await expect(page.locator("body")).toContainText("₹");
   });
 
   // // PLP_07
-  test("PLP_07 - Product card contains image", async ({ page }) => {
+  test("PL_07 - Product card contains image", async ({ page }) => {
     const images = page.locator("img");
 
     await expect(images.first()).toBeVisible();
   });
 
   // PLP_08
-  test("PLP_08 - Multiple product cards displayed", async ({ page }) => {
+  test("PL_08 - Multiple product cards displayed", async ({ page }) => {
     await page.waitForLoadState("networkidle");
 
     const addButtons = page.getByText("ADD");
@@ -79,7 +79,7 @@ test.describe("PLP Module", () => {
     expect(count).toBeGreaterThanOrEqual(5);
   });
 
-  test("PLP_09 - Product listing available after refresh", async ({ page }) => {
+  test("PL_09 - Product listing available after refresh", async ({ page }) => {
     await page.reload();
     await page
       .getByRole("textbox", { name: "search delivery location" })
@@ -89,7 +89,7 @@ test.describe("PLP Module", () => {
     // await expect(page.getByText("ADD").first()).toBeVisible();
   });
 
-  test("PLP_11 - User can return to PLP from PDP", async ({ page }) => {
+  test("PL_11 - User can return to PLP from PDP", async ({ page }) => {
     await page.getByText("Amul Taaza Toned Milk").first().click();
 
     await expect(page).toHaveURL(/prn|product|pdp/i);
@@ -99,7 +99,7 @@ test.describe("PLP Module", () => {
     await expect(page.getByText("ADD").first()).toBeVisible();
   });
 
-  test("PLP_12 - Multiple product images displayed", async ({ page }) => {
+  test("PL_12 - Multiple product images displayed", async ({ page }) => {
     await page.waitForLoadState("networkidle");
 
     const images = page.locator("img");
@@ -110,14 +110,14 @@ test.describe("PLP Module", () => {
 
     expect(await images.count()).toBeGreaterThan(5);
   });
-  test("PLP_13 - Products remain visible after scrolling", async ({ page }) => {
+  test("PL_13 - Products remain visible after scrolling", async ({ page }) => {
     await page.mouse.wheel(0, 2000);
 
     await page.waitForLoadState("networkidle");
 
     await expect(page.getByText("ADD").first()).toBeVisible();
   });
-test("PLP_14 - Return to listing from PDP", async ({ page }) => {
+test("PL_14 - Return to listing from PDP", async ({ page }) => {
   await page.getByText("Amul Taaza Toned Milk").first().click();
 
   await expect(page).toHaveURL(/prn|product|pdp/i);
@@ -129,7 +129,7 @@ test("PLP_14 - Return to listing from PDP", async ({ page }) => {
   ).toBeVisible();
 });
 
-  test("PLP_15 - At least 5 product cards displayed", async ({ page }) => {
+  test("PL_15 - At least 5 product cards displayed", async ({ page }) => {
     const addButtons = page.getByText("ADD");
 
     await expect(addButtons.first()).toBeVisible();

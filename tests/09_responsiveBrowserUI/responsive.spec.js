@@ -12,13 +12,13 @@ test.use({
   ...devices["iPhone 12"],
 });
 
-test.describe("Module 9 -Responsive UI Interaction Module", () => {
-  test("RC_01 - App loads on mobile viewport", async ({ page }) => {
+test.describe("Module 9 -Mobile Interactive Module (MI)", () => {
+  test("MI_01 - App loads on mobile viewport", async ({ page }) => {
     await page.goto("https://blinkit.com/");
 
     await expect(page).toHaveTitle(/blinkit/i);
   });
-  test("RC_02 - Close intro slider", async ({ page }) => {
+  test("MI_02 - Close intro slider", async ({ page }) => {
     await page.goto("https://blinkit.com/");
 
     const closeBtn = page.getByAltText("Close Slider");
@@ -29,7 +29,7 @@ test.describe("Module 9 -Responsive UI Interaction Module", () => {
 
     await expect(page.getByText("Select manually")).toBeVisible();
   });
-  test("RC_03 - Select delivery location", async ({ page }) => {
+  test("MI_03 - Select delivery location", async ({ page }) => {
     await page.goto("https://blinkit.com/");
 
     await page
@@ -45,7 +45,7 @@ test.describe("Module 9 -Responsive UI Interaction Module", () => {
 
     await expect(page.locator("body")).toContainText("Mumbai");
   });
-test('RC_04 - Verify Search Bar Visibility', async ({ page }) => {
+test('MI_04 - Verify Search Bar Visibility', async ({ page }) => {
   await page.goto('https://blinkit.com/');
 
   await page.getByAltText('Close Slider').click();
@@ -62,7 +62,7 @@ test('RC_04 - Verify Search Bar Visibility', async ({ page }) => {
 
   await expect(page.locator('body')).toBeVisible();
 });
-test("RC_05 - Verify category buttons are visible on mobile", async ({ page }) => {
+test("MI_05 - Verify category buttons are visible on mobile", async ({ page }) => {
   await page.goto("https://blinkit.com/");
 
   await page.getByAltText("Close Slider").click().catch(() => {});
@@ -78,7 +78,7 @@ test("RC_05 - Verify category buttons are visible on mobile", async ({ page }) =
 
   await expect(categories.first()).toBeVisible();
 });
-  test("RC_06 - Hamburger menu opens", async ({ page }) => {
+  test("MI_06 - Hamburger menu opens", async ({ page }) => {
     await page.goto("https://blinkit.com/");
 
     const menu = page
@@ -90,7 +90,7 @@ test("RC_05 - Verify category buttons are visible on mobile", async ({ page }) =
       await menu.click();
     }
   });
-test('RC_07 -Verify Cart Visibility', async ({ page }) => {
+test('MI_07 -Verify Cart Visibility', async ({ page }) => {
   await page.goto('https://blinkit.com/');
   await page.getByAltText('Close Slider').click();
   await page.getByText('Select manually').click();
@@ -127,5 +127,60 @@ test('RC_07 -Verify Cart Visibility', async ({ page }) => {
 //   await page.getByAltText('Close Slider').click();
 //   await expect(page.getByText('Mumbai Central, Mumbai,')).toBeVisible();
 // });
+
+const mobileDevices = [
+  { name: "Samsung Galaxy S21", device: devices["Galaxy S9+"] },
+  { name: "iPhone SE", device: devices["iPhone SE"] },
+  { name: "iPad", device: devices["iPad Pro"] },
+];
+
+for (const { name, device } of mobileDevices) {
+  test(`MI_08 - App loads correctly on ${name}`, async ({ browser }) => {
+    const context = await browser.newContext({ ...device });
+    const page = await context.newPage();
+
+    await page.goto("https://blinkit.com/");
+
+    await expect(page).toHaveTitle(/blinkit/i);
+    await context.close();
+  });
+
+  test(`MI_09 - Search bar is visible on ${name}`, async ({ browser }) => {
+  const context = await browser.newContext({ ...device });
+  const page = await context.newPage();
+
+  await page.goto("https://blinkit.com/s/");
+
+  await expect(
+    page.getByRole("textbox", { name: "Search for atta dal and more" })
+  ).toBeVisible();
+
+  await context.close();
+});
+}
+
+test("MI_10 - Blinkit logo is visible on mobile", async ({ page }) => {
+  await page.goto("https://blinkit.com/");
+  await expect(page.getByAltText("Blinkit Logo")
+    .or(page.locator("img[alt*='blinkit' i]").first())
+  ).toBeVisible();
+});
+
+test("MI_11 - Product page loads on mobile viewport", async ({ page }) => {
+  await page.goto("https://blinkit.com/s/?q=milk");
+  await expect(page.locator("body")).toContainText(/milk/i);
+});
+
+test("MI_12 - Page is scrollable on mobile", async ({ page }) => {
+  await page.goto("https://blinkit.com/");
+  await page.evaluate(() => window.scrollBy(0, 500));
+  const scrollY = await page.evaluate(() => window.scrollY);
+  expect(scrollY).toBeGreaterThan(0);
+});
+
+test("MI_13 - Blinkit page title is correct on mobile", async ({ page }) => {
+  await page.goto("https://blinkit.com/");
+  await expect(page).toHaveTitle(/blinkit/i);
+});
 
 });
