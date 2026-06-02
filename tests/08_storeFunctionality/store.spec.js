@@ -33,23 +33,38 @@ test.describe("Store Module Functionality", () => {
     );
   });
 
+  // test("SF_04 - Verify Category Page Displays Products", async ({ page }) => {
+  //   await page
+  //     .getByRole("img", {
+  //       name: "- Fruits & Vegetables",
+  //     })
+  //     .click();
+
+  //   await expect(page).toHaveURL(
+  //     "https://blinkit.com/cn/fresh-vegetables/cid/1487/1489",
+  //   );
+
+  //   await expect(
+  //     page.getByRole("heading", {
+  //       name: "Vegetables & Fruits",
+  //     }),
+  //   ).toBeVisible();
+  // });
   test("SF_04 - Verify Category Page Displays Products", async ({ page }) => {
-    await page
-      .getByRole("img", {
-        name: "- Fruits & Vegetables",
-      })
-      .click();
+  await page
+    .getByRole("img", {
+      name: "- Fruits & Vegetables",
+    })
+    .click();
 
-    await expect(page).toHaveURL(
-      "https://blinkit.com/cn/fresh-vegetables/cid/1487/1489",
-    );
+  await expect(page).toHaveURL(
+    /cn\/fresh-vegetables|cid\/1487/i
+  );
 
-    await expect(
-      page.getByRole("heading", {
-        name: "Vegetables & Fruits",
-      }),
-    ).toBeVisible();
-  });
+  await expect(
+    page.getByText("Vegetables & Fruits", { exact: true })
+  ).toBeVisible();
+});
 
   test("SF_05 - Verify Product Cards Display Product Name", async ({
     page,

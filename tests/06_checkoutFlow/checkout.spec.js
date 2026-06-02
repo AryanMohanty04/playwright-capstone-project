@@ -48,7 +48,7 @@ test.describe("Checkout Flow Module", () => {
     await page.goto("https://blinkit.com/");
     await page.getByText("ADD").first().click();
     await page.getByText("r1 item ₹").click();
-    await page.getByText("Proceed").click();;
+    await page.getByText("Proceed").click();
     await page.locator(".CartAddress__Icon-sc-1jlv8-4").click();
   });
 
@@ -103,34 +103,47 @@ test.describe("Checkout Flow Module", () => {
 
   test("CF_08 - User can add new Address", async ({ page }) => {
     await page.goto("https://blinkit.com/");
+
     await page.getByText("ADD").first().click();
-    await page.getByText("r1 item ₹").click();
-    await page.getByText("Proceed").click();
+
+    await page.getByText(/1 item/i).click();
+
+    await expect(page.getByText(/My Cart/i)).toBeVisible();
+
+    const proceed = page.getByText("Proceed");
+
+    await expect(proceed).toBeVisible({ timeout: 10000 });
+    await proceed.click();
+
     await page.getByText("Add a new address").click();
   });
 
-  test('CF_09 - User can see the new address form', async ({ page }) => {
-  await page.goto('https://blinkit.com/');
+  test("CF_09 - User can see the new address form", async ({ page }) => {
+    await page.goto("https://blinkit.com/");
 
-  await page.locator('div').filter({ hasText: 'Account' }).nth(5).click();
+    await page.locator("div").filter({ hasText: "Account" }).nth(5).click();
 
-  await page.getByText('Saved Addresses').click();
+    await page.getByText("Saved Addresses").click();
 
-  await page.locator('[data-test-id="add-new-address"]').click();
+    await page.locator('[data-test-id="add-new-address"]').click();
 
-  // safer check instead of full messy UI string
-  await expect(page.getByText(/save address as/i)).toBeVisible();
-});
+    // safer check instead of full messy UI string
+    await expect(page.getByText(/save address as/i)).toBeVisible();
+  });
 
-test('CF_10 - Address form contains required input fields', async ({ page }) => {
-  await page.goto('https://blinkit.com/');
+  test("CF_10 - Address form contains required input fields", async ({
+    page,
+  }) => {
+    await page.goto("https://blinkit.com/");
 
-  await page.locator('div').filter({ hasText: 'Account' }).nth(5).click();
+    await page.locator("div").filter({ hasText: "Account" }).nth(5).click();
 
-  await page.getByText('Saved Addresses').click();
+    await page.getByText("Saved Addresses").click();
 
-  await page.locator('[data-test-id="add-new-address"]').click();
+    await page.locator('[data-test-id="add-new-address"]').click();
 
-  await expect(page.getByLabel(/flat|house/i)).toBeVisible();
-});
+    await expect(page.getByLabel(/flat|house/i)).toBeVisible();
+  });
+
+  
 });
