@@ -8,7 +8,7 @@ The project supports cross-browser testing on Chromium, Firefox, and WebKit whil
 
 ## Allure Test Report:  
 ### [View Allure Report](https://allurer-report.netlify.app/)
-
+![Report](./docs/report.png)
 The report contains detailed test execution results, pass/fail statistics, execution trends, and test artifacts generated during automation runs. <br>
 *(Click the link above to view the latest report)*
 
@@ -31,43 +31,46 @@ Its reliability and consistent availability allow test cases to be executed with
 ### Project Scope
 The project includes automation testing across multiple functional modules of the Blinkit web application.
 
-A minimum of:
-  - 8 Modules
-  - 80+ Test Cases
+- A minimum of *8 modules* (implemented: ***9 modules***)
+- *80+ test cases* required (implemented: ***120 test cases***)
 ---
 
 ## Modules Covered
-#### 1. Homepage & Navigation
+#### 1. Homepage & Navigation (HN)
 
 - Validates homepage accessibility, location selection, navigation elements, and movement between different sections of the application.
 
-#### 2. Search Functionality
+#### 2. Search Functionality (S)
 
 - Verifies product search, search suggestions, search result accuracy, and product discovery workflows.
 
-#### 3. Product Listing Page (PLP)
+#### 3. Product Listing Page (PL)
 
 - Validates product listings, product cards, pricing information, product images, and navigation to product details pages.
 
-#### 4. Product Details Page (PDP)
+#### 4. Product Details Page (PD)
 
 - Verifies product-specific information including product names, descriptions, pricing, images, and product details.
 
-#### 5. Cart Functionality
+#### 5. Cart Functionality (CT)
 
 - Validates add-to-cart operations, quantity updates, item removal, cart contents, and cart-related workflows.
 
-#### 6. Authentication
+#### 6. Checkout Flow (CF)
+
+- Confirms user can proceed from cart to checkout without UI or navigation issues.
+
+#### 7. Authentication (AT)
 
 - Verifies user login functionality, account access, session persistence, and authentication-related workflows.
 
-#### 7. Store Functionality
+#### 8. Store Functionality (SF)
 
 - Validates store navigation, category selection, product availability, and store-specific interactions.
 
-#### 8. Responsive & Cross-Browser UI Testing
+#### 9. Responsive & Mobile UI Testing
 
-- Ensures consistent functionality, responsiveness, and user experience across Chromium, Firefox, and WebKit browsers.
+- Validates layout stability, UI rendering, and interaction behavior across screen sizes and devices.
 ---
 
 ## Project Structure
@@ -96,14 +99,16 @@ Playwright-Capstone-Project/
 │   │            └── productDetails.spec.js
 │   ├── 05_cartFunctionality
 │   │            └── cart.spec.js
-│   ├── 06_authentication
+    ├── 06_checkoutFlow
+│   │            └── checkout.spec.js
+│   ├── 07_authentication
 │   │            ├── auth.spec.js
-│   │            ├── create-auth.spec.js
 │   │            └── loggedIn.spec.js
-│   ├── 07_storeFunctionality
+│   ├── 08_storeFunctionality
 │   │            └── store.spec.js
-│   └── 08_responsiveBrowserUI
+│   └── 09_responsiveBrowserUI
 │                └── responsive.spec.js
+│   
 │                               
 ├── auth.json                  # Stored authentication state
 ├── package.json
@@ -224,8 +229,8 @@ npx playwright show-report
 
 | Metric           | Value      |
 | ---------------- | ---------- |
-| Total Modules    | 8          |
-| Total Test Cases | 80+        |
+| Total Modules    | 9          |
+| Total Test Cases | 120        |
 | Browsers Covered | 3          |
 | Reporting Tool   | Allure     |
 | Framework        | Playwright |
