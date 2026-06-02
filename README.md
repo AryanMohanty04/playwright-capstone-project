@@ -99,7 +99,7 @@ Playwright-Capstone-Project/
 │   │            └── productDetails.spec.js
 │   ├── 05_cartFunctionality
 │   │            └── cart.spec.js
-    ├── 06_checkoutFlow
+│   ├── 06_checkoutFlow
 │   │            └── checkout.spec.js
 │   ├── 07_authentication
 │   │            ├── auth.spec.js
