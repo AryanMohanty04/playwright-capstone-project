@@ -86,6 +86,7 @@ Playwright-Capstone-Project/
 ├── doc/                        # Project Document File
 ├── fixtures/                   # Contains Fixtures
 ├── node_modules/
+├── pages/
 ├── playwright-report/         # Playwright HTML report
 ├── test-results/               # Playwright test artifacts
 ├── tests/
@@ -108,9 +109,9 @@ Playwright-Capstone-Project/
 │   │            └── store.spec.js
 │   └── 09_responsiveBrowserUI
 │                └── responsive.spec.js
-│   
-│                               
-├── auth.json                  # Stored authentication state
+├── .env`   
+├── .gitignore                              
+├── auth.json                  # Stored authentication state (in private)
 ├── package.json
 ├── package-lock.json
 ├── playwright.config.ts
