@@ -8,7 +8,7 @@ The project supports cross-browser testing on Chromium, Firefox, and WebKit whil
 
 ## Allure Test Report:  
 ### [View Allure Report](https://allurer-report.netlify.app/)
-![Report](./docs/report.png)
+![Report](./document/report.png)
 The report contains detailed test execution results, pass/fail statistics, execution trends, and test artifacts generated during automation runs. <br>
 *(Click the link above to view the latest report)*
 
