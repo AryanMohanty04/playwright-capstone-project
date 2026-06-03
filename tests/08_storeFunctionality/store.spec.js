@@ -1,6 +1,6 @@
 const { test, expect } = require("@playwright/test");
 
-test.describe("Module - 8 Store Module Functionality (SF)", () => {
+test.describe("Module - 8 Store Navigation Module (SN)", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("https://blinkit.com/");
 
@@ -13,19 +13,19 @@ test.describe("Module - 8 Store Module Functionality (SF)", () => {
     await page.getByText("Mumbai Central", { exact: true }).click();
   });
 
-  test("SF_01 - Category (Juice)", async ({ page }) => {
+  test("SN_01 - Category (Juice)", async ({ page }) => {
     await page.getByRole("img", { name: "- Cold Drinks & Juices" }).click();
     await expect(page).toHaveURL(
       "https://blinkit.com/cn/soft-drinks/cid/332/1102",
     );
   });
 
-  test("SF_02 - Category (Dairy)", async ({ page }) => {
+  test("SN_02 - Category (Dairy)", async ({ page }) => {
     await page.getByRole("img", { name: "- Dairy, Bread & Eggs" }).click();
     await expect(page).toHaveURL("https://blinkit.com/cn/milk/cid/14/922");
   });
 
-  test("SF_03 - Category (Fruits)", async ({ page }) => {
+  test("SN_03 - Category (Fruits)", async ({ page }) => {
     await page.getByRole("img", { name: "- Fruits & Vegetables" }).click();
 
     await expect(page).toHaveURL(
@@ -50,7 +50,7 @@ test.describe("Module - 8 Store Module Functionality (SF)", () => {
   //     }),
   //   ).toBeVisible();
   // });
-  test("SF_04 - Verify Category Page Displays Products", async ({ page }) => {
+  test("SN_04 - Verify Category Page Displays Products", async ({ page }) => {
   await page
     .getByRole("img", {
       name: "- Fruits & Vegetables",
@@ -82,7 +82,7 @@ test.describe("Module - 8 Store Module Functionality (SF)", () => {
   //   ).toBeVisible();
   // });
 
-  test("SF_06 - Verify Product Cards Display Product Price", async ({
+  test("SN_06 - Verify Product Cards Display Product Price", async ({
     page,
   }) => {
     await page
@@ -96,7 +96,7 @@ test.describe("Module - 8 Store Module Functionality (SF)", () => {
     await expect(page.getByText("₹").first()).toBeVisible();
   });
 
-  test("SF_07 - Verify Product Cards Display Product Image", async ({
+  test("SN_07 - Verify Product Cards Display Product Image", async ({
     page,
   }) => {
     await page
@@ -112,7 +112,7 @@ test.describe("Module - 8 Store Module Functionality (SF)", () => {
     expect(await images.count()).toBeGreaterThan(0);
   });
 
-  test("SF_09 - Verify Category Page Is Not Empty", async ({ page }) => {
+  test("SN_09 - Verify Category Page Is Not Empty", async ({ page }) => {
     await page
       .getByRole("img", {
         name: "- Cold Drinks & Juices",
@@ -126,7 +126,7 @@ test.describe("Module - 8 Store Module Functionality (SF)", () => {
     ).toBeVisible();
   });
 
-  test("SF_10 - Verify Category URL Structure", async ({ page }) => {
+  test("SN_10 - Verify Category URL Structure", async ({ page }) => {
     await page
       .getByRole("img", {
         name: "- Cold Drinks & Juices",
@@ -136,7 +136,7 @@ test.describe("Module - 8 Store Module Functionality (SF)", () => {
     await expect(page).toHaveURL(/\/cn\//);
   });
 
-  test("SF_11 - Verify Category Page Loads Successfully", async ({ page }) => {
+  test("SN_11 - Verify Category Page Loads Successfully", async ({ page }) => {
     await page
       .getByRole("img", {
         name: "- Cold Drinks & Juices",
@@ -152,7 +152,7 @@ test.describe("Module - 8 Store Module Functionality (SF)", () => {
     ).toBeVisible();
   });
 
-  test("SF_12 - Verify Category Page Persists After Refresh", async ({
+  test("SN_12 - Verify Category Page Persists After Refresh", async ({
     page,
   }) => {
     await page
@@ -190,7 +190,7 @@ test.describe("Module - 8 Store Module Functionality (SF)", () => {
   //   await expect(page).toHaveURL(/milk|dairy|eggs/);
   // });
 
-  test("SF_14 - Verify Scrolling Through Category Page Works", async ({
+  test("SN_14 - Verify Scrolling Through Category Page Works", async ({
     page,
   }) => {
     await page
@@ -223,7 +223,7 @@ test.describe("Module - 8 Store Module Functionality (SF)", () => {
 
   //   expect(await products.count()).toBeGreaterThan(5);
   // });
-  test("SF_15 - Verify Product Count Is Greater Than Zero", async ({
+  test("SN_15 - Verify Product Count Is Greater Than Zero", async ({
     page,
   }) => {
     await page
