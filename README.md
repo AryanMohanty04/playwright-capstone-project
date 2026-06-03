@@ -13,6 +13,12 @@ The report contains detailed test execution results, pass/fail statistics, execu
 *(Click the link above to view the latest report)*
 
 ---
+## Project Report
+
+The full capstone project report is available here:
+*[View Report (PDF)](./document/Wipro_Capstone_Report_AryanMohanty.pdf)*
+
+---
 ## Website Under Testing: [Blinkit](https://blinkit.com/)
 Blinkit was selected as the application under test due to its popularity as a large-scale e-commerce platform and its stable, production-grade environment. The platform offers a wide range of user workflows, including authentication, product search, product browsing, cart management, and store interactions, making it suitable for comprehensive automation testing.
 
