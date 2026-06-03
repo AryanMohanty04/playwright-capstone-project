@@ -64,11 +64,11 @@ The project includes automation testing across multiple functional modules of th
 
 - Verifies user login functionality, account access, session persistence, and authentication-related workflows.
 
-#### 8. Store Functionality (SF)
+#### 8. Store Navigation (SN)
 
 - Validates store navigation, category selection, product availability, and store-specific interactions.
 
-#### 9. Responsive & Mobile UI Testing
+#### 9. Responsive & Mobile UI Testing (MI)
 
 - Validates layout stability, UI rendering, and interaction behavior across screen sizes and devices.
 ---
