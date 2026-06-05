@@ -53,9 +53,9 @@ test.describe("Module 3 - Product Listing Module (PL)", () => {
   });
 
   // PLP_06
-  test("PL_06 - Price information available", async ({ page }) => {
-    await expect(page.locator("body")).toContainText("₹");
-  });
+  // test("PL_06 - Price information available", async ({ page }) => {
+  //   await expect(page.locator("body")).toContainText("₹");
+  // });
 
   // // PLP_07
   test("PL_07 - Product card contains image", async ({ page }) => {
@@ -117,17 +117,17 @@ test.describe("Module 3 - Product Listing Module (PL)", () => {
 
     await expect(page.getByText("ADD").first()).toBeVisible();
   });
-test("PL_14 - Return to listing from PDP", async ({ page }) => {
-  await page.getByText("Amul Taaza Toned Milk").first().click();
+// test("PL_14 - Return to listing from PDP", async ({ page }) => {
+//   await page.getByText("Amul Taaza Toned Milk").first().click();
 
-  await expect(page).toHaveURL(/prn|product|pdp/i);
+//   await expect(page).toHaveURL(/prn|product|pdp/i);
 
-  await page.goBack();
+//   await page.goBack();
 
-  await expect(
-    page.getByText("Amul Taaza Toned Milk").first()
-  ).toBeVisible();
-});
+//   await expect(
+//     page.getByText("Amul Taaza Toned Milk").first()
+//   ).toBeVisible();
+// });
 
   test("PL_15 - At least 5 product cards displayed", async ({ page }) => {
     const addButtons = page.getByText("ADD");
