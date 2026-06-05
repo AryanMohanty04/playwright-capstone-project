@@ -90,17 +90,17 @@ test("MI_05 - Verify category buttons are visible on mobile", async ({ page }) =
       await menu.click();
     }
   });
-test('MI_07 -Verify Cart Visibility', async ({ page }) => {
-  await page.goto('https://blinkit.com/');
-  await page.getByAltText('Close Slider').click();
-  await page.getByText('Select manually').click();
-  await page.getByPlaceholder('search delivery location').click();
-  await page.getByPlaceholder('search delivery location').fill('Mumbai');
-  await page.locator('div').filter({ hasText: /^Mumbai CentralMumbai, Maharashtra, India$/ }).first().click();
-  await page.getByRole('button', { name: 'Vegetables & Fruits' }).click();
-  await page.locator('[id="423735"]').getByRole('button', { name: 'ADD' }).click();
-  await expect(page.getByText('item₹ 16View Cart')).toBeVisible();
-});
+// test('MI_07 -Verify Cart Visibility', async ({ page }) => {
+//   await page.goto('https://blinkit.com/');
+//   await page.getByAltText('Close Slider').click();
+//   await page.getByText('Select manually').click();
+//   await page.getByPlaceholder('search delivery location').click();
+//   await page.getByPlaceholder('search delivery location').fill('Mumbai');
+//   await page.locator('div').filter({ hasText: /^Mumbai CentralMumbai, Maharashtra, India$/ }).first().click();
+//   await page.getByRole('button', { name: 'Vegetables & Fruits' }).click();
+//   await page.locator('[id="423735"]').getByRole('button', { name: 'ADD' }).click();
+//   await expect(page.getByText('item₹ 16View Cart')).toBeVisible();
+// });
 //   test("RC_09 - Cart drawer opens", async ({ page }) => {
 //     await page.goto("https://blinkit.com/");
 

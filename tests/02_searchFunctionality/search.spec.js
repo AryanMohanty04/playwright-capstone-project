@@ -322,3 +322,158 @@ test.describe("Module - 2 Search Functionality Module (S)", () => {
 // });
 
 });
+
+// const { test, expect } = require("@playwright/test");
+// const { LocationPage } = require("../../pages/LocationPage");
+// const { SearchPage } = require("../../pages/SearchPage");
+
+// test.describe("Module - 2 Search Functionality Module (S)", () => {
+//   test("S_01 - Verify search icon opens search input field", async ({ page }) => {
+//     const location = new LocationPage(page);
+//     const search = new SearchPage(page);
+
+//     await location.open();
+//     await location.selectMumbai();
+//     await search.openSearch();
+//   });
+
+//   test("S_02 - Verify search textbox accepts user input", async ({ page }) => {
+//     const location = new LocationPage(page);
+//     const search = new SearchPage(page);
+
+//     await location.open();
+//     await location.selectMumbai();
+//     await search.openSearch();
+
+//     await search.search("Egg");
+//   });
+
+//   test("S_03 - Search redirects to results page", async ({ page }) => {
+//     const location = new LocationPage(page);
+//     const search = new SearchPage(page);
+
+//     await location.open();
+//     await location.selectMumbai();
+//     await search.openSearch();
+
+//     await search.search("Egg");
+//   });
+
+//   test("S_04 - Verify invalid search handling", async ({ page }) => {
+//     const location = new LocationPage(page);
+
+//     await location.open();
+//     await location.selectMumbai();
+
+//     await expect(page.locator("body")).toBeVisible();
+//   });
+
+//   test("S_05 - Verify empty search validation", async ({ page }) => {
+//     const location = new LocationPage(page);
+//     const search = new SearchPage(page);
+
+//     await location.open();
+//     await location.selectMumbai();
+//     await search.openSearch();
+
+//     await search.pressEnter();
+
+//     await expect(page).toHaveURL("https://blinkit.com/s/");
+//   });
+
+//   test("S_06 - Verify multiple consecutive searches", async ({ page }) => {
+//     const location = new LocationPage(page);
+//     const search = new SearchPage(page);
+
+//     await location.open();
+//     await location.selectMumbai();
+//     await search.openSearch();
+
+//     await search.search("Redbull");
+//     await search.gotoSearchURL("monster");
+//   });
+
+//   test("S_07 - Verify Search close functionality", async ({ page }) => {
+//     const location = new LocationPage(page);
+//     const search = new SearchPage(page);
+
+//     await location.open();
+//     await location.selectMumbai();
+//     await search.openSearch();
+
+//     await search.search("Monster");
+//     await search.openResultItem();
+//   });
+
+//   test("S_08 - Verify search works in mobile viewport", async ({ page }) => {
+//     await page.setViewportSize({ width: 375, height: 812 });
+
+//     const location = new LocationPage(page);
+
+//     await location.open();
+//     await expect(page).toHaveURL("https://blinkit.com/");
+//   });
+
+//   test("S_09 - Verify search with uppercase input", async ({ page }) => {
+//     const location = new LocationPage(page);
+//     const search = new SearchPage(page);
+
+//     await location.open();
+//     await location.selectMumbai();
+//     await search.openSearch();
+
+//     await search.search("MONSTER");
+//     await search.gotoSearchURL("monster");
+//   });
+
+//   test("S_10 - Verify product navigation from search results", async ({ page }) => {
+//     const location = new LocationPage(page);
+//     const search = new SearchPage(page);
+
+//     await location.open();
+//     await location.selectMumbai();
+//     await search.openSearch();
+
+//     await search.search("Monster");
+//     await search.pressEnter();
+
+//     await search.gotoSearchURL("");
+//     await search.openResultItem();
+//   });
+
+//   test("S_11 - Verify special character search handling", async ({ page }) => {
+//     const location = new LocationPage(page);
+
+//     await location.open();
+//     await location.selectMumbai();
+
+//     await expect(page.getByText("Nothing here yet")).toBeVisible();
+//   });
+
+//   test("S_12 - Verify search suggestions appear dynamically", async ({ page }) => {
+//     const location = new LocationPage(page);
+//     const search = new SearchPage(page);
+
+//     await location.open();
+//     await location.selectMumbai();
+//     await search.openSearch();
+
+//     await search.search("chips");
+
+//     await expect(page.getByRole("button", { name: "Chips" })).toBeVisible();
+//   });
+
+//   test("S_13 - Verify search results display correctly", async ({ page }) => {
+//     const location = new LocationPage(page);
+//     const search = new SearchPage(page);
+
+//     await location.open();
+//     await location.selectMumbai();
+//     await search.openSearch();
+
+//     await search.search("Milk");
+//     await search.gotoSearchURL("Milk");
+
+//     await expect(page.getByRole("button", { name: "Gokul milk" })).toBeVisible();
+//   });
+// });
