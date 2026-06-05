@@ -16,7 +16,7 @@ The report contains detailed test execution results, pass/fail statistics, execu
 ## Project Report
 
 The full capstone project report is available here:
-*[View Report (PDF)](./document/Wipro_Capstone_Report_AryanMohanty.pdf)*
+*[View Report (PDF)](./document/AryanMohanty_CapstoneProjectReport.pdf)*
 
 ---
 ## Website Under Testing: [Blinkit](https://blinkit.com/)
@@ -37,8 +37,8 @@ Its reliability and consistent availability allow test cases to be executed with
 ### Project Scope
 The project includes automation testing across multiple functional modules of the Blinkit web application.
 
-- A minimum of *8 modules* (implemented: ***9 modules***)
-- *80+ test cases* required (implemented: ***120 test cases***)
+- A minimum of *6 modules* 
+- *80 test cases* required 
 ---
 
 ## Modules Covered
@@ -54,10 +54,6 @@ The project includes automation testing across multiple functional modules of th
 
 - Validates product listings, product cards, pricing information, product images, and navigation to product details pages.
 
-#### 4. Product Details Page (PD)
-
-- Verifies product-specific information including product names, descriptions, pricing, images, and product details.
-
 #### 5. Cart Functionality (CT)
 
 - Validates add-to-cart operations, quantity updates, item removal, cart contents, and cart-related workflows.
@@ -70,23 +66,38 @@ The project includes automation testing across multiple functional modules of th
 
 - Verifies user login functionality, account access, session persistence, and authentication-related workflows.
 
-#### 8. Store Navigation (SN)
+---
+## AddsOn Modules Covered
+#### 1. Store Navigation (SN)
 
 - Validates store navigation, category selection, product availability, and store-specific interactions.
 
-#### 9. Responsive & Mobile UI Testing (MI)
+#### 2. Responsive & Mobile UI Testing (MI)
 
 - Validates layout stability, UI rendering, and interaction behavior across screen sizes and devices.
----
 
+#### 3. Product Details Page (PD)
+
+- Verifies product-specific information including product names, descriptions, pricing, images, and product details.
+
+---
 ## Project Structure
 
 ```text
 Playwright-Capstone-Project/
 │
-├──.github/
-│      └── workflows/
-│             └── playwright.yml                    
+├── .addon-modules/
+│          └── tests/
+│                 └── 01_productListing
+│                 │            └── productListing.spec.js
+│                 ├── 02_storeFunctionality
+│                 │            └── store.spec.js
+│                 └── 03_responsiveBrowserUI
+│                             └── responsive.spec.js
+│
+├──.github-addon-module/
+│          └── workflows/
+│                 └── playwright.yml                    
 ├── allure-report/              # Generated Allure report
 ├── allure-results/             # Raw Allure test results
 ├── doc/                        # Project Document File
@@ -99,22 +110,17 @@ Playwright-Capstone-Project/
 │   ├── 01_homepageNavigation
 │   │            └── home.spec.js
 │   ├── 02_searchFunctionality
-│   │            └── search.spec.js
-│   ├── 03_productListing
-│   │            └── productListing.spec.js
-│   ├── 04_productDetails
+│   │            └── search.spec.js 
+│   ├── 03_productDetails
 │   │            └── productDetails.spec.js
-│   ├── 05_cartFunctionality
+│   ├── 04_cartFunctionality
 │   │            └── cart.spec.js
-│   ├── 06_checkoutFlow
+│   ├── 05_checkoutFlow
 │   │            └── checkout.spec.js
-│   ├── 07_authentication
-│   │            ├── auth.spec.js
-│   │            └── loggedIn.spec.js
-│   ├── 08_storeFunctionality
-│   │            └── store.spec.js
-│   └── 09_responsiveBrowserUI
-│                └── responsive.spec.js
+│   ├── 06_authentication
+│               ├── auth.spec.js
+│               └── loggedIn.spec.js
+│   
 ├── .env`   
 ├── .gitignore                              
 ├── auth.json                  # Stored authentication state (in private)
@@ -236,8 +242,8 @@ npx playwright show-report
 
 | Metric           | Value      |
 | ---------------- | ---------- |
-| Total Modules    | 9          |
-| Total Test Cases | 120        |
+| Total Modules    | 6          |
+| Total Test Cases | 80         |
 | Browsers Covered | 3          |
 | Reporting Tool   | Allure     |
 | Framework        | Playwright |
